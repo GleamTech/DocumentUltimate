@@ -1,0 +1,35 @@
+﻿@using GleamTech.Web.Mvc
+@using GleamTech.DocumentUltimate.Web
+@model DocumentViewer
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Overview</title>
+    @Html.RenderCss(Model)
+    @Html.RenderJs(Model)
+</head>
+<body style="margin: 20px;">
+    <table border="0">
+        <tr>
+            <td valign="top">
+                @using (Html.BeginForm("Overview", "DocumentViewer"))
+                {
+                    <text>Choose file: </text>@Html.DropDownList("fileSelector", (SelectList)ViewBag.FileList, new { onchange = "this.form.submit();" })
+                    <br />
+                    <br />
+                }
+
+            </td>
+            <td valign="top" style="padding-left:50px">
+                @using (Html.BeginForm("Upload", "DocumentViewer", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <text>or Upload File (Max 10 MB): </text><input type="file" name="file" onchange="this.form.submit();" />
+                }
+            </td>
+        </tr>
+    </table>
+    
+    @Html.RenderControl(Model)
+</body>
+</html>

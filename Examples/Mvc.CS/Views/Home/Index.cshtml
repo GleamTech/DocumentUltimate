@@ -1,0 +1,61 @@
+﻿@using GleamTech.ExamplesCore
+@using GleamTech.Web.Mvc
+@{
+    var exampleExplorer = new ExampleExplorer
+    {
+        FullViewport = true,
+        NavigationTitle = "DocumentUltimate Examples",
+        Examples = new ExampleBase[]
+        {
+            new ExampleFolder
+            {
+                Title = "Document Viewer",
+                Children = new ExampleBase[]
+                {
+                    new Example
+                    {
+                        Title = "Overview",
+                        Url = "DocumentViewer/Overview",
+                        SourceFiles = new[] {"Views/DocumentViewer/Overview.cshtml", "Controllers/DocumentViewerController.Overview.cs"},
+                        DescriptionFile = "Descriptions/DocumentViewer/Overview.html"
+                    },
+                    new Example
+                    {
+                        Title = "Copy protection (DRM)",
+                        Url = "DocumentViewer/Protection",
+                        SourceFiles = new[] {"Views/DocumentViewer/Protection.cshtml", "Controllers/DocumentViewerController.Protection.cs"},
+                        DescriptionFile = "Descriptions/DocumentViewer/Protection.html"
+                    },
+                    new Example
+                    {
+                        Title = "Highlighting keywords",
+                        Url = "DocumentViewer/Highlight",
+                        SourceFiles = new[] {"Views/DocumentViewer/Highlight.cshtml", "Controllers/DocumentViewerController.Highlight.cs"},
+                        DescriptionFile = "Descriptions/DocumentViewer/Highlight.html"
+                    },
+                    new Example
+                    {
+                        Title = "Using with a stream",
+                        Url = "DocumentViewer/Stream",
+                        SourceFiles = new[] {"Views/DocumentViewer/Stream.cshtml", "Controllers/DocumentViewerController.Stream.cs"},
+                        DescriptionFile = "Descriptions/DocumentViewer/Stream.html"
+                    }
+                }
+            }
+        }
+    };
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>DocumentUltimate Examples - ASP.NET MVC (C#)</title>
+
+    @Html.RenderCss(exampleExplorer)
+    @Html.RenderJs(exampleExplorer)
+
+</head>
+<body>
+    @Html.RenderControl(exampleExplorer)
+</body>
+</html>

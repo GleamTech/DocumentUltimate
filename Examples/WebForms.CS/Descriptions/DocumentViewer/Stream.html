@@ -1,0 +1,10 @@
+﻿
+When you don't have a file on disk, you can use SetDocumentStream method instead of DocumentPath property.
+The method accepts a callback delegate to return an opened stream containing the document.
+The stream is not required to be seekable because it will be immediately copied to cache folder if not already exists.
+This callback will only be called when necessary, i.e. if the stream is already cached before or if the required
+conversions are already done and cached before then the callback will not be called. The reason this
+is implemented as a callback rather than a direct Stream instance is for extra performance,
+consider that opening a stream is costly in your implementation, for example you are retrieving it from network
+or a database or even from a zip file so opening the stream only when it's really necessary would be more
+performant when your document is viewed several times by several users.
