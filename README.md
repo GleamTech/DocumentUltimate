@@ -21,9 +21,9 @@ DocumentUltimate is an ASP.NET Document Viewer and Converter which supports both
 
         `Install-Package DocumentUltimate`
 
-        If you prefer using the user interface when working with NuGet, you can also install the package this way: open **Tools -&gt; NuGet Package Manager -&gt; Manage NuGet Packages for Solution**, enter `DocumentUltimate` in the search field, and click **Install** button on the found package.
+        If you prefer using the user interface when working with NuGet, you can also install the package this way: open **Tools -&gt; NuGet Package Manager -&gt; Manage NuGet Packages for Solution**, enter **DocumentUltimate** in the search field, and click **Install** button on the found package.
 
-2.  Set DocumentUltimate's global configuration. For example, you may want to set the license key and the cache path. Insert some of the following lines (if overriding a default value is required) into the ```Application\_Start``` method of your **Global.asax.cs**:
+2.  Set DocumentUltimate's global configuration. For example, you may want to set the license key and the cache path. Insert some of the following lines (if overriding a default value is required) into the ```Application_Start``` method of your **Global.asax.cs**:
 
     ```
     //Set this property only if you have a valid license key, otherwise do not
@@ -35,7 +35,7 @@ DocumentUltimate is an ASP.NET Document Viewer and Converter which supports both
     DocumentUltimateWebConfiguration.Current.CachePath = "~/App_Data/DocumentCache";
     ```
 
-    Alternatively you can specify the configuration in ```&lt;appSettings&gt;``` tag of your Web.config.
+    Alternatively you can specify the configuration in ```\<appSettings\>``` tag of your Web.config.
 
     ```
     <appSettings>
@@ -103,9 +103,9 @@ DocumentUltimate is an ASP.NET Document Viewer and Converter which supports both
 
         `Install-Package DocumentUltimate`
 
-        If you prefer using the user interface when working with NuGet, you can also install the package this way: open **Tools -&gt; NuGet Package Manager -&gt; Manage NuGet Packages for Solution**, enter `DocumentUltimate` in the search field, and click **Install** button on the found package.
+        If you prefer using the user interface when working with NuGet, you can also install the package this way: open **Tools -&gt; NuGet Package Manager -&gt; Manage NuGet Packages for Solution**, enter **DocumentUltimate**, in the search field, and click **Install** button on the found package.
 
-2.  Set DocumentUltimate's global configuration. For example, you may want to set the license key and the cache path. Insert some of the following lines (if overriding a default value is required) into the ```Application\_Start``` method of your **Global.asax.cs**:
+2.  Set DocumentUltimate's global configuration. For example, you may want to set the license key and the cache path. Insert some of the following lines (if overriding a default value is required) into the ```Application_Start``` method of your **Global.asax.cs**:
 
     ```
     //Set this property only if you have a valid license key, otherwise do not
@@ -117,7 +117,7 @@ DocumentUltimate is an ASP.NET Document Viewer and Converter which supports both
     DocumentUltimateWebConfiguration.Current.CachePath = "~/App_Data/DocumentCache";
     ```
 
-    Alternatively you can specify the configuration in ```&lt;appSettings&gt;``` tag of your Web.config.
+    Alternatively you can specify the configuration in ```\<appSettings\>``` tag of your Web.config.
 
     ```
     <appSettings>
