@@ -35,7 +35,7 @@ DocumentUltimate is an ASP.NET Document Viewer and Converter which supports both
     DocumentUltimateWebConfiguration.Current.CachePath = "~/App_Data/DocumentCache";
     ```
 
-    Alternatively you can specify the configuration in ```\<appSettings\>``` tag of your Web.config.
+    Alternatively you can specify the configuration in ```<appSettings>``` tag of your Web.config.
 
     ```
     <appSettings>
@@ -117,7 +117,7 @@ DocumentUltimate is an ASP.NET Document Viewer and Converter which supports both
     DocumentUltimateWebConfiguration.Current.CachePath = "~/App_Data/DocumentCache";
     ```
 
-    Alternatively you can specify the configuration in ```\<appSettings\>``` tag of your Web.config.
+    Alternatively you can specify the configuration in ```<appSettings>``` tag of your Web.config.
 
     ```
     <appSettings>
