@@ -55,11 +55,12 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
         private void PopulateFileSelector(string fileSelector)
         {
             var listItems = from fileInfo in new DirectoryInfo(Server.MapPath(DocumentsFolder)).EnumerateFiles()
-                        select new SelectListItem
-                        {
-                            Text = fileInfo.Name,
-                            Value = fileInfo.Name
-                        };
+                            where fileInfo.Name != "License.dat"
+                            select new SelectListItem
+                            {
+                                Text = fileInfo.Name,
+                                Value = fileInfo.Name
+                            };
 
             var folder = new BackSlashPath(Server.MapPath(UploadsFolder)).Append(Session.SessionID);
             if (Directory.Exists(folder))

@@ -43,10 +43,11 @@ Namespace DocumentViewer
 
 	    Private Sub PopulateFileSelector(fileSelectorValue As String)
 		    Dim listItems = From fileInfo In New DirectoryInfo(Server.MapPath(DocumentsFolder)).EnumerateFiles()
-                Select New ListItem() With {
-			        .Text = fileInfo.Name,
-			        .Value = fileInfo.Name
-		        }
+                            Where fileInfo.Name <> "License.dat"
+                            Select New ListItem() With {
+			                    .Text = fileInfo.Name,
+			                    .Value = fileInfo.Name
+		                    }
 
 		    Dim folder = New BackSlashPath(Server.MapPath(UploadsFolder)).Append(Session.SessionID)
 		    If Directory.Exists(folder) Then

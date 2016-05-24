@@ -50,11 +50,12 @@ namespace GleamTech.DocumentUltimateExamples.WebForms.CS.DocumentViewer
         private void PopulateFileSelector(string fileSelectorValue)
         {
             var listItems = from fileInfo in new DirectoryInfo(Server.MapPath(DocumentsFolder)).EnumerateFiles()
-                        select new ListItem
-                        {
-                            Text = fileInfo.Name,
-                            Value = fileInfo.Name
-                        };
+                            where fileInfo.Name != "License.dat"
+                            select new ListItem
+                            {
+                                Text = fileInfo.Name,
+                                Value = fileInfo.Name
+                            };
 
             var folder = new BackSlashPath(Server.MapPath(UploadsFolder)).Append(Session.SessionID);
             if (Directory.Exists(folder))
