@@ -13,10 +13,11 @@
         Width="800" 
         Height="600"
         Resizable="True"
-        DocumentPath="~/App_Data/PDF Document.pdf"
-        DisableDownload="True"
-        DisablePrint="True"
-        DisableTextSelection="True" />
+        Document="~/App_Data/ExampleFiles/PDF Document.pdf"
+        DownloadEnabled="False"
+        DownloadAsPdfEnabled="False"
+        PrintEnabled="False"
+        TextSelectionEnabled="False" />
 
 </body>
 </html>

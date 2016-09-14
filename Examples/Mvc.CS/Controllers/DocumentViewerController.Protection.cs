@@ -12,10 +12,11 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
                 Width = 800,
                 Height = 600,
                 Resizable = true,
-                DocumentPath = "~/App_Data/PDF Document.pdf",
-                DisableDownload = true,
-                DisablePrint = true,
-                DisableTextSelection = true
+                Document = "~/App_Data/ExampleFiles/PDF Document.pdf",
+                DownloadEnabled = false,
+                DownloadAsPdfEnabled = false,
+                PrintEnabled = false,
+                TextSelectionEnabled = false
             };
 
             return View(documentViewer);

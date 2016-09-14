@@ -1,10 +1,21 @@
 ﻿
-When you don't have a file on disk, you can use SetDocumentStream method instead of DocumentPath property.
-The method accepts a callback delegate to return an opened stream containing the document.
-The stream is not required to be seekable because it will be immediately copied to cache folder if not already exists.
-This callback will only be called when necessary, i.e. if the stream is already cached before or if the required
-conversions are already done and cached before then the callback will not be called. The reason this
-is implemented as a callback rather than a direct Stream instance is for extra performance,
-consider that opening a stream is costly in your implementation, for example you are retrieving it from network
-or a database or even from a zip file so opening the stream only when it's really necessary would be more
-performant when your document is viewed several times by several users.
+    When you don't have a file on disk but you have a stream, you should use this constructor:
+
+<pre style="font-family:Consolas;font-size:13;color:black;background:white;">DocumentSource(<span style="color:#2b91af;">Func</span>&lt;<span style="color:#2b91af;">Stream</span>&gt;&nbsp;openStream,&nbsp;<span style="color:blue;">string</span>&nbsp;fileName,&nbsp;<span style="color:blue;">long</span>&nbsp;fileSize,&nbsp;<span style="color:#2b91af;">DateTime</span>&nbsp;fileDateModified,&nbsp;<span style="color:blue;">bool</span>&nbsp;leaveStreamOpen&nbsp;=&nbsp;<span style="color:blue;">false</span>,&nbsp;<span style="color:blue;">bool</span>&nbsp;keepCached&nbsp;=&nbsp;<span style="color:blue;">true</span>)
+</pre>
+
+    This constructor accepts a callback delegate to return an opened stream containing the document.
+    The stream is not required to be seekable because it will be immediately copied to cache folder if not already exists.
+    This callback will only be called when necessary, i.e. if the stream is already cached before or if the required
+    conversions are already done and cached before then the callback will not be called. The reason this
+    is implemented as a callback rather than a direct Stream instance is for extra performance,
+    consider that opening a stream is costly in your implementation, for example you are retrieving it from network
+    or a database or even from a zip file so opening the stream only when it's really necessary would be more
+    performant when your document is viewed several times by several users.
+
+<p>When you don't have a file on disk or a stream, you should use this constructor:</p>
+
+<pre style="font-family:Consolas;font-size:13;color:black;background:white;">DocumentSource(<span style="color:#2b91af;">Func</span>&lt;<span style="color:blue;">byte</span>[]&gt;&nbsp;getBytes,&nbsp;<span style="color:blue;">string</span>&nbsp;fileName,&nbsp;<span style="color:blue;">long</span>&nbsp;fileSize,&nbsp;<span style="color:#2b91af;">DateTime</span>&nbsp;fileDateModified,&nbsp;<span style="color:blue;">bool</span>&nbsp;keepCached&nbsp;=&nbsp;<span style="color:blue;">true</span>)
+</pre>
+    
+This constructor accepts a callback delegate to return a byte array containing the document.

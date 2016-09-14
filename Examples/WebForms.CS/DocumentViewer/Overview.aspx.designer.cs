@@ -13,31 +13,13 @@ namespace GleamTech.DocumentUltimateExamples.WebForms.CS.DocumentViewer {
     public partial class OverviewPage {
         
         /// <summary>
-        /// form1 control.
+        /// exampleFileSelector control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
-        /// fileSelector control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList fileSelector;
-        
-        /// <summary>
-        /// file control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload file;
+        protected global::GleamTech.ExamplesCore.ExampleFileSelector exampleFileSelector;
         
         /// <summary>
         /// documentViewer control.

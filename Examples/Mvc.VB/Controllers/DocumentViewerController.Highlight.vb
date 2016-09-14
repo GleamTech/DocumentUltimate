@@ -9,7 +9,7 @@ Namespace Controllers
 			.Width = 800,
 			.Height = 600,
 			.Resizable = True,
-			.DocumentPath = "~/App_Data/DOC Document.doc",
+			.Document = "~/App_Data/ExampleFiles/DOC Document.doc",
 			.HighlightedKeywords = New String () {"ancient", "ship"}
 		}
         'You can also split your whole search term into keywords like this:

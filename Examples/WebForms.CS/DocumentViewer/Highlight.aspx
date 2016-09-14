@@ -13,7 +13,7 @@
         Width="800" 
         Height="600"
         Resizable="True"
-        DocumentPath="~/App_Data/DOC Document.doc" />
+        Document="~/App_Data/ExampleFiles/DOC Document.doc" />
 
 </body>
 </html>

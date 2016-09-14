@@ -17,9 +17,9 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
 
             //For the simplicity of this example, we are getting a stream from a file on disk.
             //Otherwise the stream can come from network or a database or even a zip file.
-            var fileInfo = new FileInfo(Server.MapPath("~/App_Data/DOCX Document.docx"));
+            var fileInfo = new FileInfo(Server.MapPath("~/App_Data/ExampleFiles/DOCX Document.docx"));
 
-            documentViewer.SetDocumentStream(
+            documentViewer.Document = new DocumentSource(
                 () => fileInfo.Open(FileMode.Open),
                 fileInfo.Name,
                 fileInfo.Length,

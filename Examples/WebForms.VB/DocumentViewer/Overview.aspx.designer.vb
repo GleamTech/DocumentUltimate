@@ -15,31 +15,13 @@ Namespace DocumentViewer
     Partial Public Class OverviewPage
         
         '''<summary>
-        '''form1 control.
+        '''exampleFileSelector control.
         '''</summary>
         '''<remarks>
         '''Auto-generated field.
         '''To modify move field declaration from designer file to code-behind file.
         '''</remarks>
-        Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
-        
-        '''<summary>
-        '''fileSelector control.
-        '''</summary>
-        '''<remarks>
-        '''Auto-generated field.
-        '''To modify move field declaration from designer file to code-behind file.
-        '''</remarks>
-        Protected WithEvents fileSelector As Global.System.Web.UI.WebControls.DropDownList
-        
-        '''<summary>
-        '''file control.
-        '''</summary>
-        '''<remarks>
-        '''Auto-generated field.
-        '''To modify move field declaration from designer file to code-behind file.
-        '''</remarks>
-        Protected WithEvents file As Global.System.Web.UI.WebControls.FileUpload
+        Protected WithEvents exampleFileSelector As Global.GleamTech.ExamplesCore.ExampleFileSelector
         
         '''<summary>
         '''documentViewer control.
