@@ -27,6 +27,12 @@
                         .DescriptionFile = "Descriptions/DocumentViewer/Highlight.html"
                     },
                     New Example() With {
+                        .Title = "Watermarking pages",
+                        .Url = "DocumentViewer/Watermark",
+                        .SourceFiles = New String() {"Views/DocumentViewer/Watermark.vbhtml", "Controllers/DocumentViewerController.Watermark.vb"},
+                        .DescriptionFile = "Descriptions/DocumentViewer/Watermark.html"
+                    },
+                    New Example() With {
                         .Title = "Using with a stream",
                         .Url = "DocumentViewer/Stream",
                         .SourceFiles = New String() {"Views/DocumentViewer/Stream.vbhtml", "Controllers/DocumentViewerController.Stream.vb"},

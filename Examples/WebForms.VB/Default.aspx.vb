@@ -28,6 +28,12 @@ Public Class DefaultPage
 		                .DescriptionFile = "Descriptions/DocumentViewer/Highlight.html" 
 	                },
                     New Example() With {
+		                .Title = "Watermarking pages", 
+		                .Url = "DocumentViewer/Watermark.aspx", 
+		                .SourceFiles = New String() {"DocumentViewer/Watermark.aspx", "DocumentViewer/Watermark.aspx.vb"}, 
+		                .DescriptionFile = "Descriptions/DocumentViewer/Watermark.html" 
+	                },
+                    New Example() With {
 		                .Title = "Using with a stream", 
 		                .Url = "DocumentViewer/Stream.aspx", 
 		                .SourceFiles = New String() {"DocumentViewer/Stream.aspx", "DocumentViewer/Stream.aspx.vb"}, 

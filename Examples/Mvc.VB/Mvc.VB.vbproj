@@ -63,6 +63,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\GleamTech.ExamplesCore.dll</HintPath>
     </Reference>
+    <Reference Include="System.Drawing"/>
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"/>
     <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"/>
     <Reference Include="System"/>
@@ -97,6 +98,7 @@
     <Import Include="System.Web.UI.HtmlControls"/>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\DocumentViewerController.Watermark.vb"/>
     <Compile Include="Controllers\DocumentViewerController.Stream.vb"/>
     <Compile Include="Controllers\DocumentViewerController.Highlight.vb"/>
     <Compile Include="Controllers\DocumentViewerController.Protection.vb"/>
@@ -144,11 +146,13 @@
     <Content Include="Descriptions\DocumentViewer\Overview.html"/>
     <Content Include="Descriptions\DocumentViewer\Protection.html"/>
     <Content Include="Descriptions\DocumentViewer\Stream.html"/>
+    <Content Include="Descriptions\DocumentViewer\Watermark.html"/>
     <Content Include="Views\Home\Index.vbhtml"/>
     <Content Include="Views\DocumentViewer\Overview.vbhtml"/>
     <Content Include="Views\DocumentViewer\Protection.vbhtml"/>
     <Content Include="Views\DocumentViewer\Highlight.vbhtml"/>
     <Content Include="Views\DocumentViewer\Stream.vbhtml"/>
+    <Content Include="Views\DocumentViewer\Watermark.vbhtml"/>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax"/>

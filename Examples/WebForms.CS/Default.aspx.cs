@@ -38,6 +38,13 @@ namespace GleamTech.DocumentUltimateExamples.WebForms.CS
                         },
                         new Example
                         {
+                            Title = "Watermarking pages",
+                            Url = "DocumentViewer/Watermark.aspx",
+                            SourceFiles = new[] {"DocumentViewer/Watermark.aspx", "DocumentViewer/Watermark.aspx.cs"},
+                            DescriptionFile = "Descriptions/DocumentViewer/Watermark.html"
+                        },
+                        new Example
+                        {
                             Title = "Using with a stream",
                             Url = "DocumentViewer/Stream.aspx",
                             SourceFiles = new[] {"DocumentViewer/Stream.aspx", "DocumentViewer/Stream.aspx.cs"},

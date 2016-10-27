@@ -61,10 +61,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx"/>
+    <Content Include="Descriptions\DocumentViewer\Watermark.html"/>
     <Content Include="Descriptions\DocumentViewer\Highlight.html"/>
     <Content Include="Descriptions\DocumentViewer\Overview.html"/>
     <Content Include="Descriptions\DocumentViewer\Protection.html"/>
     <Content Include="Descriptions\DocumentViewer\Stream.html"/>
+    <Content Include="DocumentViewer\Watermark.aspx"/>
     <Content Include="DocumentViewer\Highlight.aspx"/>
     <Content Include="DocumentViewer\Overview.aspx"/>
     <Content Include="DocumentViewer\Protection.aspx"/>
@@ -87,6 +89,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentViewer\Watermark.aspx.cs">
+      <DependentUpon>Watermark.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DocumentViewer\Watermark.aspx.designer.cs">
+      <DependentUpon>Watermark.aspx</DependentUpon>
     </Compile>
     <Compile Include="DocumentViewer\Highlight.aspx.cs">
       <DependentUpon>Highlight.aspx</DependentUpon>
