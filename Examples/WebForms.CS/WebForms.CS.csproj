@@ -47,13 +47,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GleamTech.Core">
-      <HintPath>..\..\Bin\GleamTech.Core.dll</HintPath>
+      <HintPath>..\packages\GleamTech.Core.1.5.5\lib\net40\GleamTech.Core.dll</HintPath>
     </Reference>
     <Reference Include="GleamTech.DocumentUltimate">
-      <HintPath>..\..\Bin\GleamTech.DocumentUltimate.dll</HintPath>
+      <HintPath>..\packages\DocumentUltimate.2.1.6\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
     </Reference>
     <Reference Include="GleamTech.ExamplesCore">
-      <HintPath>..\References\GleamTech.ExamplesCore.dll</HintPath>
+      <HintPath>..\packages\GleamTech.ExamplesCore.1.5.9\lib\net40\GleamTech.ExamplesCore.dll</HintPath>
     </Reference>
     <Reference Include="System"/>
     <Reference Include="System.Core"/>
@@ -66,6 +66,7 @@
     <Content Include="Descriptions\DocumentViewer\Overview.html"/>
     <Content Include="Descriptions\DocumentViewer\Protection.html"/>
     <Content Include="Descriptions\DocumentViewer\Stream.html"/>
+    <Content Include="DocumentConverter\Overview.aspx"/>
     <Content Include="DocumentViewer\Watermark.aspx"/>
     <Content Include="DocumentViewer\Highlight.aspx"/>
     <Content Include="DocumentViewer\Overview.aspx"/>
@@ -89,6 +90,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentConverter\Overview.aspx.cs">
+      <DependentUpon>Overview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DocumentConverter\Overview.aspx.designer.cs">
+      <DependentUpon>Overview.aspx</DependentUpon>
     </Compile>
     <Compile Include="DocumentViewer\Watermark.aspx.cs">
       <DependentUpon>Watermark.aspx</DependentUpon>
@@ -166,4 +174,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <Content Include="packages.config"/>
+  </ItemGroup>
 </Project>

@@ -51,7 +51,21 @@ namespace GleamTech.DocumentUltimateExamples.WebForms.CS
                             DescriptionFile = "Descriptions/DocumentViewer/Stream.html"
                         }
                     }
-                }
+                }/*,
+                new ExampleFolder
+                {
+                    Title = "Document Converter",
+                    Children = new ExampleBase[]
+                    {
+                        new Example
+                        {
+                            Title = "Overview",
+                            Url = "DocumentConverter/Overview.aspx",
+                            SourceFiles = new[] { "DocumentConverter/Overview.aspx", "DocumentConverter/Overview.aspx.cs"},
+                            DescriptionFile = "Descriptions/DocumentConverter/Overview.html"
+                        }
+                    }
+                }*/
             };
 
             exampleExplorer.ExampleProjectName = "ASP.NET Web Forms (C#)";
