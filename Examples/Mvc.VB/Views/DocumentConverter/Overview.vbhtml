@@ -1,10 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Overview.aspx.cs" Inherits="GleamTech.DocumentUltimateExamples.WebForms.CS.DocumentConverter.OverviewPage" %>
-<%@ Register TagPrefix="GleamTech" Namespace="GleamTech.ExamplesCore" Assembly="GleamTech.ExamplesCore" %>
-
+﻿@Imports GleamTech.Web.Mvc
+@ModelType GleamTech.DocumentUltimateExamples.Mvc.VB.Models.OverviewViewModel
 <!DOCTYPE html>
 
 <html>
-<head runat="server">
+<head>
     <title>Overview</title>
     <script type="text/javascript">
         function select(sender) {
@@ -35,35 +34,25 @@
         }
     </style>
 </head>
-<body style="margin: 20px;">
-    <GleamTech:ExampleFileSelector ID="exampleFileSelector" runat="server"
-        InitialFile="PDF Document.pdf" />
-    
-    <p>Input format: <b><%=InputFormat%></b></p>
+<body style="margin: 20px;" >
+    @Html.RenderControl(Model.ExampleFileSelector)
+
+    <p>Input format: <b>@Model.InputFormat</b></p>
     <p>
         Choose output format:
-        <asp:Repeater ID="OutputFormats" runat="server" EnableViewState="False">
-            <HeaderTemplate>
-                <select id="<%=OutputFormats.ClientID %>" onchange="select(this)">
-            </HeaderTemplate>
-            <ItemTemplate>
-                    <optgroup label="<%# Eval("Key") %>">
-                        <asp:Repeater runat="server" DataSource='<%# Eval("Value") %>'>
-                            <ItemTemplate>
-                                <option value="<%# Eval("Value") %>"><%# Eval("Text") %></option>
-                            </ItemTemplate>
-                        </asp:Repeater>
-                    </optgroup>
-            </ItemTemplate>
-            <FooterTemplate>
-                </select>
-            </FooterTemplate>
-        </asp:Repeater>
+        <select id="OutputFormats" onchange="select(this)">
+        @For Each kvp in Model.OutputFormats
+            @<optgroup label="@kvp.Key">
+            @For Each item In kvp.Value
+                @<option value="@item.Value" >@item.Text</option>
+            Next
+            </optgroup>
+        Next
+        </select>
     </p>
-    <input type="hidden" value="<%=ConvertHandlerUrl %>" id="convertHandlerUrl"/>
-    <input type="button" value="Convert" id="convertButton" onclick="convert(this)"/>
-    <br/><br/>Conversion Result:<br/>
+    <input type="hidden" value="@Model.ConvertHandlerUrl" id="convertHandlerUrl" />
+    <input type="button" value="Convert" id="convertButton" onclick="convert(this)" />
+    <br /><br />Conversion Result:<br />
     <iframe id="convertIframe" src="javascript:''" style="width: 500px; height: 200px; background-color: white" onload="load(this)"></iframe>
-
 </body>
 </html>

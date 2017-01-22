@@ -1,0 +1,52 @@
+﻿
+<ul>
+    <li>
+        <p>
+            DocumentConverter internally uses 3 document conversion engines: Native, Managed and Cad engines.
+            By default (DocumentEngineEnforcement.Auto), the best document engine will be chosen automatically according to the input and output formats.
+            So normally, you don't need to think about engine types.
+            This example shows all possible document conversions and also notes which engines support a specific conversion.
+        </p>
+        <p>DocumentEngineEnforcement options:</p>
+        <p>
+            <table id="enumMemberList" class="members">
+                <tbody>
+                    <tr>
+                        <td target="F:GleamTech.DocumentUltimate.DocumentEngineEnforcement.ForceNative"><span class="selflink"><b>ForceNative</b></span></td>
+                        <td>
+                            Force conversion via the native document engine.
+                            The native document engine is usually faster but it supports a limited set of document formats.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td target="F:GleamTech.DocumentUltimate.DocumentEngineEnforcement.ForceManaged"><span class="selflink"><b>ForceManaged</b></span></td>
+                        <td>
+                            Force conversion via the managed document engine.
+                            The managed document engine supports wide range of document formats.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td target="F:GleamTech.DocumentUltimate.DocumentEngineEnforcement.ForceCad"><span class="selflink"><b>ForceCad</b></span></td>
+                        <td>
+                            Force conversion via the CAD engine.
+                            The CAD engine supports only AutoCAD Drawing formats.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </p> 
+    </li>
+    <li>
+        <p>
+            DocumentFormatInfo class provides details about a supported document format.
+            For example, DocumentFormatInfo.Description property is useful for display purposes (e.g. "Microsoft Word Document").
+            DocumentFormatInfo.Extensions property contains all known file extensions for a specific format (e.g. "htm", "html").
+        </p>
+    </li>
+    <li>
+        <p>
+            DocumentFormatGroupInfo class represents a group of document formats. Every format belongs to a group and this makes it easy to categorize formats for display purpose.
+            For example, DocumentFormatGroupInfo.Description property gets the user-friendly description for a format group (e.g. "Microsoft Word Formats").
+        </p>
+    </li>
+</ul>

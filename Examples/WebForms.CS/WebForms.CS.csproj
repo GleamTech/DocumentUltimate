@@ -47,26 +47,32 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GleamTech.Core">
-      <HintPath>..\packages\GleamTech.Core.1.5.5\lib\net40\GleamTech.Core.dll</HintPath>
+      <HintPath>..\packages\GleamTech.Core.1.6.2\lib\net40\GleamTech.Core.dll</HintPath>
     </Reference>
     <Reference Include="GleamTech.DocumentUltimate">
-      <HintPath>..\packages\DocumentUltimate.2.1.6\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
+      <HintPath>..\packages\DocumentUltimate.2.2.2\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
     </Reference>
     <Reference Include="GleamTech.ExamplesCore">
-      <HintPath>..\packages\GleamTech.ExamplesCore.1.5.9\lib\net40\GleamTech.ExamplesCore.dll</HintPath>
+      <HintPath>..\packages\GleamTech.ExamplesCore.1.6.2\lib\net40\GleamTech.ExamplesCore.dll</HintPath>
     </Reference>
     <Reference Include="System"/>
     <Reference Include="System.Core"/>
+    <Reference Include="System.Data"/>
+    <Reference Include="System.Drawing"/>
     <Reference Include="System.Web"/>
+    <Reference Include="System.Xml"/>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx"/>
+    <Content Include="Descriptions\DocumentConverter\Possible.html"/>
+    <Content Include="Descriptions\DocumentConverter\Overview.html"/>
     <Content Include="Descriptions\DocumentViewer\Watermark.html"/>
     <Content Include="Descriptions\DocumentViewer\Highlight.html"/>
     <Content Include="Descriptions\DocumentViewer\Overview.html"/>
     <Content Include="Descriptions\DocumentViewer\Protection.html"/>
     <Content Include="Descriptions\DocumentViewer\Stream.html"/>
     <Content Include="DocumentConverter\Overview.aspx"/>
+    <Content Include="DocumentConverter\Possible.aspx"/>
     <Content Include="DocumentViewer\Watermark.aspx"/>
     <Content Include="DocumentViewer\Highlight.aspx"/>
     <Content Include="DocumentViewer\Overview.aspx"/>
@@ -97,6 +103,13 @@
     </Compile>
     <Compile Include="DocumentConverter\Overview.aspx.designer.cs">
       <DependentUpon>Overview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentConverter\Possible.aspx.cs">
+      <DependentUpon>Possible.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DocumentConverter\Possible.aspx.designer.cs">
+      <DependentUpon>Possible.aspx</DependentUpon>
     </Compile>
     <Compile Include="DocumentViewer\Watermark.aspx.cs">
       <DependentUpon>Watermark.aspx</DependentUpon>

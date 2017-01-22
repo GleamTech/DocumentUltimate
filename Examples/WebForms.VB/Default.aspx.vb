@@ -40,6 +40,23 @@ Public Class DefaultPage
 		                .DescriptionFile = "Descriptions/DocumentViewer/Stream.html" 
 	                }
                 }
+            },
+            New ExampleFolder() With {
+	            .Title = "Document Converter",
+	            .Children = New ExampleBase() {
+                    New Example() With {
+		                .Title = "Overview",
+		                .Url = "DocumentConverter/Overview.aspx",
+		                .SourceFiles = New String() {"DocumentConverter/Overview.aspx", "DocumentConverter/Overview.aspx.vb"},
+		                .DescriptionFile = "Descriptions/DocumentConverter/Overview.html"
+	                }, 
+                    New Example() With {
+		                .Title = "Possible conversions",
+		                .Url = "DocumentConverter/Possible.aspx",
+		                .SourceFiles = New String() {"DocumentConverter/Possible.aspx", "DocumentConverter/Possible.aspx.vb"},
+		                .DescriptionFile = "Descriptions/DocumentConverter/Possible.html"
+	                }
+                }
             }
         }
 

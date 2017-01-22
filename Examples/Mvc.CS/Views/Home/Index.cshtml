@@ -48,6 +48,27 @@
                         DescriptionFile = "Descriptions/DocumentViewer/Stream.html"
                     }
                 }
+            },
+            new ExampleFolder
+            {
+                Title = "Document Converter",
+                Children = new ExampleBase[]
+                {
+                    new Example
+                    {
+                        Title = "Overview",
+                        Url = "DocumentConverter/Overview",
+                        SourceFiles = new[] { "Views/DocumentConverter/Overview.cshtml", "Controllers/DocumentConverterController.Overview.cs"},
+                        DescriptionFile = "Descriptions/DocumentConverter/Overview.html"
+                    },
+                    new Example
+                    {
+                        Title = "Possible conversions",
+                        Url = "DocumentConverter/Possible",
+                        SourceFiles = new[] { "Views/DocumentConverter/Possible.cshtml", "Controllers/DocumentConverterController.Possible.cs"},
+                        DescriptionFile = "Descriptions/DocumentConverter/Possible.html"
+                    }
+                }
             }
         },
         ExampleProjectName = "ASP.NET MVC (C#)",

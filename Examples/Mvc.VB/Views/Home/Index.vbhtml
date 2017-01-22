@@ -39,6 +39,23 @@
                         .DescriptionFile = "Descriptions/DocumentViewer/Stream.html"
                     }
                 }
+            },
+            New ExampleFolder() With {
+                .Title = "Document Converter",
+                .Children = New ExampleBase() {
+                    New Example() With {
+                        .Title = "Overview",
+                        .Url = "DocumentConverter/Overview",
+                        .SourceFiles = New String() {"Views/DocumentConverter/Overview.vbhtml", "Controllers/DocumentConverterController.Overview.vb"},
+                        .DescriptionFile = "Descriptions/DocumentConverter/Overview.html"
+                    },
+                    New Example() With {
+                        .Title = "Possible conversions",
+                        .Url = "DocumentConverter/Possible",
+                        .SourceFiles = New String() {"Views/DocumentConverter/Possible.vbhtml", "Controllers/DocumentConverterController.Possible.vb"},
+                        .DescriptionFile = "Descriptions/DocumentConverter/Possible.html"
+                    }
+                }
             }
         },
         .ExampleProjectName = "ASP.NET MVC (VB)",

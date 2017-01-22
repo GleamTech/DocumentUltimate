@@ -1,28 +1,27 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Overview.aspx.cs" Inherits="GleamTech.DocumentUltimateExamples.WebForms.CS.DocumentConverter.OverviewPage" %>
-<%@ Register TagPrefix="GleamTech" Namespace="GleamTech.ExamplesCore" Assembly="GleamTech.ExamplesCore" %>
-
+﻿@ModelType GleamTech.DocumentUltimateExamples.Mvc.VB.Models.PossibleViewModel
 <!DOCTYPE html>
 
 <html>
-<head runat="server">
-    <title>Overview</title>
+<head>
+    <title>Possible conversions</title>
     <script type="text/javascript">
-        function select(sender) {
-            document.getElementById("convertButton").disabled = false;
-        }
-
-        function convert(sender) {
+        function canConvert(sender) {
+            var inputFormats = document.getElementById("InputFormats");
+            if (inputFormats.selectedIndex === -1)
+                inputFormats.selectedIndex = 0;
+            var inputFormat = inputFormats.options[inputFormats.selectedIndex].value;
             var outputFormats = document.getElementById("OutputFormats");
+            if (outputFormats.selectedIndex === -1)
+                outputFormats.selectedIndex = 0;
             var outputFormat = outputFormats.options[outputFormats.selectedIndex].value;
 
-            var iframe = document.getElementById("convertIframe");
+            var iframe = document.getElementById("resultIframe");
             (iframe.contentDocument || iframe.contentWindow.document).documentElement.innerHTML = "";
             iframe.className = "loading";
             iframe.contentWindow.location.replace(
-                document.getElementById("convertHandlerUrl").value +
+                document.getElementById("resultHandlerUrl").value +
+                "&inputFormat=" + inputFormat +
                 "&outputFormat=" + outputFormat);
-
-            sender.disabled = true;
         }
 
         function load(sender) {
@@ -36,34 +35,39 @@
     </style>
 </head>
 <body style="margin: 20px;">
-    <GleamTech:ExampleFileSelector ID="exampleFileSelector" runat="server"
-        InitialFile="PDF Document.pdf" />
-    
-    <p>Input format: <b><%=InputFormat%></b></p>
-    <p>
-        Choose output format:
-        <asp:Repeater ID="OutputFormats" runat="server" EnableViewState="False">
-            <HeaderTemplate>
-                <select id="<%=OutputFormats.ClientID %>" onchange="select(this)">
-            </HeaderTemplate>
-            <ItemTemplate>
-                    <optgroup label="<%# Eval("Key") %>">
-                        <asp:Repeater runat="server" DataSource='<%# Eval("Value") %>'>
-                            <ItemTemplate>
-                                <option value="<%# Eval("Value") %>"><%# Eval("Text") %></option>
-                            </ItemTemplate>
-                        </asp:Repeater>
+
+    <div style="text-align: center; display:inline-block; width: 720px">
+        <div style="float: left;">
+            <p>Input formats (@Model.InputFormatCount):</p>
+            <select id="InputFormats" size="20">
+                @For Each kvp In Model.InputFormats
+                    @<optgroup label="@kvp.Key">
+                        @For Each item In kvp.Value
+                            @<option value="@item.Value">@item.Text</option>
+                        Next
                     </optgroup>
-            </ItemTemplate>
-            <FooterTemplate>
-                </select>
-            </FooterTemplate>
-        </asp:Repeater>
-    </p>
-    <input type="hidden" value="<%=ConvertHandlerUrl %>" id="convertHandlerUrl"/>
-    <input type="button" value="Convert" id="convertButton" onclick="convert(this)"/>
-    <br/><br/>Conversion Result:<br/>
-    <iframe id="convertIframe" src="javascript:''" style="width: 500px; height: 200px; background-color: white" onload="load(this)"></iframe>
+                Next
+            </select>
+        </div>
+        <div style="float: right; margin-left:20px">
+            <p>Output formats (@Model.OutputFormatCount):</p>
+            <select id="OutputFormats" size="20">
+                @For Each kvp In Model.OutputFormats
+                    @<optgroup label="@kvp.Key">
+                        @For Each item In kvp.Value
+                            @<option value="@item.Value">@item.Text</option>
+                        Next
+                    </optgroup>
+                Next
+            </select>
+        </div>
+        <div style="clear: both;"></div>
+        <p>
+            <input type="hidden" value="@Model.ResultHandlerUrl" id="resultHandlerUrl" />
+            <input type="button" value="Can convert?" id="canConvertButton" onclick="canConvert(this)" />
+        </p>
+        <iframe id="resultIframe" src="javascript:''" style="width: 400px; height: 100px; background-color: white" onload="load(this)"></iframe>
+    </div>
 
 </body>
 </html>

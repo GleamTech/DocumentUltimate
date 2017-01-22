@@ -1,28 +1,28 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Overview.aspx.cs" Inherits="GleamTech.DocumentUltimateExamples.WebForms.CS.DocumentConverter.OverviewPage" %>
-<%@ Register TagPrefix="GleamTech" Namespace="GleamTech.ExamplesCore" Assembly="GleamTech.ExamplesCore" %>
+﻿<%@ Page Language="vb" AutoEventWireup="true" CodeBehind="Possible.aspx.vb" Inherits="GleamTech.DocumentUltimateExamples.WebForms.VB.DocumentConverter.PossiblePage" %>
 
 <!DOCTYPE html>
 
 <html>
 <head runat="server">
-    <title>Overview</title>
+    <title>Possible conversions</title>
     <script type="text/javascript">
-        function select(sender) {
-            document.getElementById("convertButton").disabled = false;
-        }
-
-        function convert(sender) {
+        function canConvert(sender) {
+            var inputFormats = document.getElementById("InputFormats");
+            if (inputFormats.selectedIndex === -1)
+                inputFormats.selectedIndex = 0;
+            var inputFormat = inputFormats.options[inputFormats.selectedIndex].value;
             var outputFormats = document.getElementById("OutputFormats");
+            if (outputFormats.selectedIndex === -1)
+                outputFormats.selectedIndex = 0;
             var outputFormat = outputFormats.options[outputFormats.selectedIndex].value;
 
-            var iframe = document.getElementById("convertIframe");
+            var iframe = document.getElementById("resultIframe");
             (iframe.contentDocument || iframe.contentWindow.document).documentElement.innerHTML = "";
             iframe.className = "loading";
             iframe.contentWindow.location.replace(
-                document.getElementById("convertHandlerUrl").value +
+                document.getElementById("resultHandlerUrl").value +
+                "&inputFormat=" + inputFormat +
                 "&outputFormat=" + outputFormat);
-
-            sender.disabled = true;
         }
 
         function load(sender) {
@@ -36,34 +36,55 @@
     </style>
 </head>
 <body style="margin: 20px;">
-    <GleamTech:ExampleFileSelector ID="exampleFileSelector" runat="server"
-        InitialFile="PDF Document.pdf" />
-    
-    <p>Input format: <b><%=InputFormat%></b></p>
-    <p>
-        Choose output format:
-        <asp:Repeater ID="OutputFormats" runat="server" EnableViewState="False">
-            <HeaderTemplate>
-                <select id="<%=OutputFormats.ClientID %>" onchange="select(this)">
-            </HeaderTemplate>
-            <ItemTemplate>
-                    <optgroup label="<%# Eval("Key") %>">
-                        <asp:Repeater runat="server" DataSource='<%# Eval("Value") %>'>
-                            <ItemTemplate>
-                                <option value="<%# Eval("Value") %>"><%# Eval("Text") %></option>
-                            </ItemTemplate>
-                        </asp:Repeater>
-                    </optgroup>
-            </ItemTemplate>
-            <FooterTemplate>
-                </select>
-            </FooterTemplate>
-        </asp:Repeater>
-    </p>
-    <input type="hidden" value="<%=ConvertHandlerUrl %>" id="convertHandlerUrl"/>
-    <input type="button" value="Convert" id="convertButton" onclick="convert(this)"/>
-    <br/><br/>Conversion Result:<br/>
-    <iframe id="convertIframe" src="javascript:''" style="width: 500px; height: 200px; background-color: white" onload="load(this)"></iframe>
+
+    <div style="text-align: center; display:inline-block; width: 720px">
+        <div style="float: left;">
+            <p>Input formats (<%=InputFormatCount%>):</p>
+            <asp:Repeater ID="InputFormats" runat="server" EnableViewState="False">
+                <HeaderTemplate>
+                    <select id="<%=InputFormats.ClientID %>" size="20">
+                </HeaderTemplate>
+                <ItemTemplate>
+                        <optgroup label="<%# Eval("Key") %>">
+                            <asp:Repeater runat="server" DataSource='<%# Eval("Value") %>'>
+                                <ItemTemplate>
+                                    <option value="<%# Eval("Value") %>"><%# Eval("Text") %></option>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </optgroup>
+                </ItemTemplate>
+                <FooterTemplate>
+                    </select>
+                </FooterTemplate>
+            </asp:Repeater>
+        </div>
+        <div style="float: right; margin-left:20px">
+            <p>Output formats (<%=OutputFormatCount%>):</p>
+            <asp:Repeater ID="OutputFormats" runat="server" EnableViewState="False">
+                <HeaderTemplate>
+                    <select id="<%=OutputFormats.ClientID %>" size="20">
+                </HeaderTemplate>
+                <ItemTemplate>
+                        <optgroup label="<%# Eval("Key") %>">
+                            <asp:Repeater runat="server" DataSource='<%# Eval("Value") %>'>
+                                <ItemTemplate>
+                                    <option value="<%# Eval("Value") %>"><%# Eval("Text") %></option>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </optgroup>
+                </ItemTemplate>
+                <FooterTemplate>
+                    </select>
+                </FooterTemplate>
+            </asp:Repeater>
+        </div>
+        <div style="clear: both;"></div>
+        <p>
+            <input type="hidden" value="<%=ResultHandlerUrl %>" id="resultHandlerUrl"/>
+            <input type="button" value="Can convert?" id="canConvertButton" onclick="canConvert(this)"/>
+        </p>
+        <iframe id="resultIframe" src="javascript:''" style="width: 400px; height: 100px; background-color: white" onload="load(this)"></iframe>
+   </div>
 
 </body>
 </html>

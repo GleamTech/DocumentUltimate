@@ -51,7 +51,7 @@ namespace GleamTech.DocumentUltimateExamples.WebForms.CS
                             DescriptionFile = "Descriptions/DocumentViewer/Stream.html"
                         }
                     }
-                }/*,
+                },
                 new ExampleFolder
                 {
                     Title = "Document Converter",
@@ -63,9 +63,16 @@ namespace GleamTech.DocumentUltimateExamples.WebForms.CS
                             Url = "DocumentConverter/Overview.aspx",
                             SourceFiles = new[] { "DocumentConverter/Overview.aspx", "DocumentConverter/Overview.aspx.cs"},
                             DescriptionFile = "Descriptions/DocumentConverter/Overview.html"
+                        },
+                        new Example
+                        {
+                            Title = "Possible conversions",
+                            Url = "DocumentConverter/Possible.aspx",
+                            SourceFiles = new[] { "DocumentConverter/Possible.aspx", "DocumentConverter/Possible.aspx.cs"},
+                            DescriptionFile = "Descriptions/DocumentConverter/Possible.html"
                         }
                     }
-                }*/
+                }
             };
 
             exampleExplorer.ExampleProjectName = "ASP.NET Web Forms (C#)";

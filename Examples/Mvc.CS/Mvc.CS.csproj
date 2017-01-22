@@ -49,13 +49,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GleamTech.Core">
-      <HintPath>..\packages\GleamTech.Core.1.5.5\lib\net40\GleamTech.Core.dll</HintPath>
+      <HintPath>..\packages\GleamTech.Core.1.6.2\lib\net40\GleamTech.Core.dll</HintPath>
     </Reference>
     <Reference Include="GleamTech.DocumentUltimate">
-      <HintPath>..\packages\DocumentUltimate.2.1.6\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
+      <HintPath>..\packages\DocumentUltimate.2.2.2\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
     </Reference>
     <Reference Include="GleamTech.ExamplesCore">
-      <HintPath>..\packages\GleamTech.ExamplesCore.1.5.9\lib\net40\GleamTech.ExamplesCore.dll</HintPath>
+      <HintPath>..\packages\GleamTech.ExamplesCore.1.6.2\lib\net40\GleamTech.ExamplesCore.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp"/>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -100,6 +100,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\DocumentConverterController.cs"/>
+    <Compile Include="Controllers\DocumentConverterController.Possible.cs"/>
+    <Compile Include="Controllers\DocumentConverterController.Overview.cs"/>
     <Compile Include="Controllers\DocumentViewerController.Watermark.cs"/>
     <Compile Include="Controllers\DocumentViewerController.Stream.cs"/>
     <Compile Include="Controllers\DocumentViewerController.Highlight.cs"/>
@@ -110,9 +113,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\PossibleViewModel.cs"/>
+    <Compile Include="Models\OverviewViewModel.cs"/>
     <Compile Include="Properties\AssemblyInfo.cs"/>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Descriptions\DocumentConverter\Overview.html"/>
+    <Content Include="Descriptions\DocumentConverter\Possible.html"/>
     <Content Include="Descriptions\DocumentViewer\Stream.html"/>
     <Content Include="Descriptions\DocumentViewer\Highlight.html"/>
     <Content Include="Descriptions\DocumentViewer\Protection.html"/>
@@ -154,6 +161,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config"/>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DocumentConverter\Overview.cshtml"/>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DocumentConverter\Possible.cshtml"/>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

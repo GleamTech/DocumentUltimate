@@ -3,62 +3,68 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Web.Mvc;
 using GleamTech.DocumentUltimate;
+using GleamTech.DocumentUltimateExamples.Mvc.CS.Models;
 using GleamTech.ExamplesCore;
 using GleamTech.IO;
 using GleamTech.Util;
 using GleamTech.Web;
 
-namespace GleamTech.DocumentUltimateExamples.WebForms.CS.DocumentConverter
+namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
 {
-    public partial class OverviewPage : Page
+    public partial class DocumentConverterController
     {
-        protected string InputFormat;
-        protected string ConvertHandlerUrl;
-
-        protected void Page_Load(object sender, EventArgs e)
+        public ActionResult Overview()
         {
-            var inputDocument = exampleFileSelector.SelectedFile;
+            var model = new OverviewViewModel
+            {
+                ExampleFileSelector = new ExampleFileSelector
+                {
+                    ID = "exampleFileSelector",
+                    InitialFile = "PDF Document.pdf"
+                }
+            };
+
+            var inputDocument = model.ExampleFileSelector.SelectedFile;
             var fileInfo = new FileInfo(inputDocument);
-
             var inputFormat = DocumentFormatInfo.Get(inputDocument);
-            InputFormat = inputFormat != null ? inputFormat.Description : "(not supported)";
+            model.InputFormat = inputFormat != null ? inputFormat.Description : "(not supported)";
 
-            PopulatePossibleOutputFormats(inputDocument);
+            PopulatePossibleOutputFormats(inputDocument, model);
 
-            ConvertHandlerUrl = ExamplesCoreConfiguration.GetDynamicDownloadUrl(
+            model.ConvertHandlerUrl = ExamplesCoreConfiguration.GetDynamicDownloadUrl(
                 ConvertHandlerName,
                 new NameValueCollection
                 {
                     {"inputDocument", ExamplesCoreConfiguration.ProtectString(inputDocument)},
                     {"version", fileInfo.LastWriteTimeUtc.Ticks + "-" +  fileInfo.Length}
                 });
+
+            return View(model);
         }
 
-        private void PopulatePossibleOutputFormats(string inputDocument)
+        private void PopulatePossibleOutputFormats(string inputDocument, OverviewViewModel model)
         {
-            var outputFormats = new Dictionary<string, List<ListItem>>();
-
-            foreach (var format in DocumentUltimate.DocumentConverter.EnumeratePossibleOutputFormats(inputDocument))
+            foreach (var format in DocumentConverter.EnumeratePossibleOutputFormats(inputDocument))
             {
                 var formatInfo = DocumentFormatInfo.Get(format);
 
-                List<ListItem> groupData;
-                if (!outputFormats.TryGetValue(formatInfo.Group.Description, out groupData))
+                List<SelectListItem> groupData;
+                if (!model.OutputFormats.TryGetValue(formatInfo.Group.Description, out groupData))
                 {
-                    groupData = new List<ListItem>();
-                    outputFormats.Add(formatInfo.Group.Description, groupData);
+                    groupData = new List<SelectListItem>();
+                    model.OutputFormats.Add(formatInfo.Group.Description, groupData);
                 }
-                groupData.Add(new ListItem(formatInfo.Description, formatInfo.Value.ToString()));
+                groupData.Add(new SelectListItem
+                {
+                    Text = formatInfo.Description,
+                    Value = formatInfo.Value.ToString()
+                });
             }
 
-            if (outputFormats.Count == 0)
-                outputFormats.Add("(not supported)", new List<ListItem>());
-
-            OutputFormats.DataSource = outputFormats;
-            OutputFormats.DataBind();
+            if (model.OutputFormats.Count == 0)
+                model.OutputFormats.Add("(not supported)", new List<SelectListItem>());
         }
 
         public static void ConvertHandler(HttpContext context)
@@ -68,7 +74,7 @@ namespace GleamTech.DocumentUltimateExamples.WebForms.CS.DocumentConverter
             try
             {
                 var inputDocument = new BackSlashPath(ExamplesCoreConfiguration.UnprotectString(context.Request["inputDocument"]));
-                var outputFormat = (DocumentFormat) Enum.Parse(typeof(DocumentFormat), context.Request["outputFormat"]);
+                var outputFormat = (DocumentFormat)Enum.Parse(typeof(DocumentFormat), context.Request["outputFormat"]);
                 var fileName = inputDocument.FileNameWithoutExtension + "." + DocumentFormatInfo.Get(outputFormat).DefaultExtension;
                 var outputPath = ConvertedPath.Append(context.Session.SessionID).Append(fileName);
                 var outputDocument = outputPath.Append(fileName);
@@ -76,7 +82,7 @@ namespace GleamTech.DocumentUltimateExamples.WebForms.CS.DocumentConverter
                 if (Directory.Exists(outputPath))
                     Directory.Delete(outputPath, true);
                 Directory.CreateDirectory(outputPath);
-                result = DocumentUltimate.DocumentConverter.Convert(inputDocument, outputDocument, outputFormat);
+                result = DocumentConverter.Convert(inputDocument, outputDocument, outputFormat);
             }
             catch (Exception exception)
             {

@@ -53,13 +53,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GleamTech.Core">
-      <HintPath>..\packages\GleamTech.Core.1.5.5\lib\net40\GleamTech.Core.dll</HintPath>
+      <HintPath>..\packages\GleamTech.Core.1.6.2\lib\net40\GleamTech.Core.dll</HintPath>
     </Reference>
     <Reference Include="GleamTech.DocumentUltimate">
-      <HintPath>..\packages\DocumentUltimate.2.1.6\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
+      <HintPath>..\packages\DocumentUltimate.2.2.2\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
     </Reference>
     <Reference Include="GleamTech.ExamplesCore">
-      <HintPath>..\packages\GleamTech.ExamplesCore.1.5.9\lib\net40\GleamTech.ExamplesCore.dll</HintPath>
+      <HintPath>..\packages\GleamTech.ExamplesCore.1.6.2\lib\net40\GleamTech.ExamplesCore.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing"/>
     <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -98,6 +98,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\DocumentConverterController.Possible.vb"/>
+    <Compile Include="Controllers\DocumentConverterController.vb"/>
+    <Compile Include="Controllers\DocumentConverterController.Overview.vb"/>
     <Compile Include="Controllers\DocumentViewerController.Watermark.vb"/>
     <Compile Include="Controllers\DocumentViewerController.Stream.vb"/>
     <Compile Include="Controllers\DocumentViewerController.Highlight.vb"/>
@@ -108,6 +111,8 @@
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\OverviewViewModel.vb"/>
+    <Compile Include="Models\PossibleViewModel.vb"/>
     <Compile Include="My Project\AssemblyInfo.vb"/>
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -142,6 +147,8 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <Content Include="Descriptions\DocumentConverter\Overview.html"/>
+    <Content Include="Descriptions\DocumentConverter\Possible.html"/>
     <Content Include="Descriptions\DocumentViewer\Highlight.html"/>
     <Content Include="Descriptions\DocumentViewer\Overview.html"/>
     <Content Include="Descriptions\DocumentViewer\Protection.html"/>
@@ -153,6 +160,8 @@
     <Content Include="Views\DocumentViewer\Highlight.vbhtml"/>
     <Content Include="Views\DocumentViewer\Stream.vbhtml"/>
     <Content Include="Views\DocumentViewer\Watermark.vbhtml"/>
+    <Content Include="Views\DocumentConverter\Overview.vbhtml"/>
+    <Content Include="Views\DocumentConverter\Possible.vbhtml"/>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax"/>

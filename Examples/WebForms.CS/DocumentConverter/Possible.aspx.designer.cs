@@ -10,16 +10,16 @@
 namespace GleamTech.DocumentUltimateExamples.WebForms.CS.DocumentConverter {
     
     
-    public partial class OverviewPage {
+    public partial class PossiblePage {
         
         /// <summary>
-        /// exampleFileSelector control.
+        /// InputFormats control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::GleamTech.ExamplesCore.ExampleFileSelector exampleFileSelector;
+        protected global::System.Web.UI.WebControls.Repeater InputFormats;
         
         /// <summary>
         /// OutputFormats control.
