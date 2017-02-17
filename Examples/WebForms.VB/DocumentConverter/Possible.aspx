@@ -37,7 +37,7 @@
 </head>
 <body style="margin: 20px;">
 
-    <div style="text-align: center; display:inline-block; width: 720px">
+    <div style="text-align: center; display:inline-block; width: 800px">
         <div style="float: left;">
             <p>Input formats (<%=InputFormatCount%>):</p>
             <asp:Repeater ID="InputFormats" runat="server" EnableViewState="False">

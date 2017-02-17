@@ -36,7 +36,7 @@
 </head>
 <body style="margin: 20px;">
 
-    <div style="text-align: center; display:inline-block; width: 720px">
+    <div style="text-align: center; display:inline-block; width: 800px">
         <div style="float: left;">
             <p>Input formats (@Model.InputFormatCount):</p>
             <select id="InputFormats" size="20">
