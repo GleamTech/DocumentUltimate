@@ -1,7 +1,7 @@
 # ![DocumentUltimate Logo](documentultimate-logo.png) DocumentUltimate: ASP.NET Document Viewer
 DocumentUltimate is an ASP.NET Document Viewer and Converter which supports both ASP.NET MVC and ASP.NET WebForms web applications/web sites. DocumentUltimate can also be used with .NET desktop applications for conversion between several document formats.
 
-- View almost any document type (50+ file formats, including PDF & Microsoft Office).
+- View almost any document type (70+ file formats, including PDF & Microsoft Office).
 
 - HTML5 Zero-footprint viewer.
 

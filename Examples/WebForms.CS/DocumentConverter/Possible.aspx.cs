@@ -82,19 +82,17 @@ namespace GleamTech.DocumentUltimateExamples.WebForms.CS.DocumentConverter
                     inputFormat, outputFormat)
                 );
 
-                foreach (var engineEnforcement in Enum<DocumentEngineEnforcement>.GetValues())
+                foreach (var engine in Enum<DocumentEngine>.GetValues())
                 {
-                    if (engineEnforcement == DocumentEngineEnforcement.Auto)
-                        continue;
-                    
-                    if (DocumentUltimate.DocumentConverter.CanConvert(inputFormat, outputFormat, engineEnforcement))
+                   
+                    if (DocumentUltimate.DocumentConverter.CanConvert(inputFormat, outputFormat, engine))
                         context.Response.Write(string.Format(
                             "<br/><span style=\"color: green; font-weight: bold\">Via {0} Engine &#x2713;</span>",
-                            engineEnforcement.ToString().Replace("Force", "")));
+                            engine));
                     else
                         context.Response.Write(string.Format(
                             "<br/><span style=\"color: red; font-weight: bold\">Via {0} Engine &#x2717;</span>",
-                            engineEnforcement.ToString().Replace("Force", "")));
+                            engine));
                 }
             }
             else

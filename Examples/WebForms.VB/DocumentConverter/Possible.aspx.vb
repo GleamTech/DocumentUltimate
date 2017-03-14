@@ -62,15 +62,15 @@ Namespace DocumentConverter
 		If DocumentUltimate.DocumentConverter.CanConvert(inputFormat, outputFormat) Then
 			context.Response.Write(String.Format("<span style=""color: green; font-weight: bold"">Direct conversion from {0} to {1} is possible</span>", inputFormat, outputFormat))
 
-			For Each engineEnforcement As DocumentEngineEnforcement In [Enum](Of DocumentEngineEnforcement).GetValues()
-				If engineEnforcement = DocumentEngineEnforcement.Auto Then
-					Continue For
-				End If
-
-				If DocumentUltimate.DocumentConverter.CanConvert(inputFormat, outputFormat, engineEnforcement) Then
-					context.Response.Write(String.Format("<br/><span style=""color: green; font-weight: bold"">Via {0} Engine &#x2713;</span>", engineEnforcement.ToString().Replace("Force", "")))
+			For Each engine As DocumentEngine In [Enum](Of DocumentEngine).GetValues()
+				If DocumentUltimate.DocumentConverter.CanConvert(inputFormat, outputFormat, engine) Then
+					context.Response.Write(String.Format(
+                        "<br/><span style=""color: green; font-weight: bold"">Via {0} Engine &#x2713;</span>", 
+                        engine))
 				Else
-					context.Response.Write(String.Format("<br/><span style=""color: red; font-weight: bold"">Via {0} Engine &#x2717;</span>", engineEnforcement.ToString().Replace("Force", "")))
+					context.Response.Write(String.Format(
+                        "<br/><span style=""color: red; font-weight: bold"">Via {0} Engine &#x2717;</span>", 
+                        engine))
 				End If
 			Next
 		Else

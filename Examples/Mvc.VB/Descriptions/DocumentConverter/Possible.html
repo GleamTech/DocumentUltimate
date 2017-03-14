@@ -2,39 +2,10 @@
 <ul>
     <li>
         <p>
-            DocumentConverter internally uses 3 document conversion engines: Native, Managed and Cad engines.
-            By default (DocumentEngineEnforcement.Auto), the best document engine will be chosen automatically according to the input and output formats.
-            So normally, you don't need to think about engine types.
+            DocumentConverter, by default will chooose the best document engine automatically according to the input and output formats.
+            So normally, you don't need to think about engine types, however you can enforce a specific engine if you ever need.
             This example shows all possible document conversions and also notes which engines support a specific conversion.
         </p>
-        <p>DocumentEngineEnforcement options:</p>
-        <p>
-            <table id="enumMemberList" class="members">
-                <tbody>
-                    <tr>
-                        <td target="F:GleamTech.DocumentUltimate.DocumentEngineEnforcement.ForceNative"><span class="selflink"><b>ForceNative</b></span></td>
-                        <td>
-                            Force conversion via the native document engine.
-                            The native document engine is usually faster but it supports a limited set of document formats.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td target="F:GleamTech.DocumentUltimate.DocumentEngineEnforcement.ForceManaged"><span class="selflink"><b>ForceManaged</b></span></td>
-                        <td>
-                            Force conversion via the managed document engine.
-                            The managed document engine supports wide range of document formats.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td target="F:GleamTech.DocumentUltimate.DocumentEngineEnforcement.ForceCad"><span class="selflink"><b>ForceCad</b></span></td>
-                        <td>
-                            Force conversion via the CAD engine.
-                            The CAD engine supports only AutoCAD Drawing formats.
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </p> 
     </li>
     <li>
         <p>

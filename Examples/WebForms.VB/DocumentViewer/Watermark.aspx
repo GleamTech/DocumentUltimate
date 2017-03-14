@@ -16,21 +16,23 @@
         Resizable="True"
         Document="~/App_Data/ExampleFiles/DOC Document.doc">
 
-        <GleamTech:TextWatermark 
-            Text="Contoso" 
-            Rotation="-45"
-            Opacity="50" 
-            FontColor="Red"
-            Width="50"
-            Height="50"
-            SizeIsPercentage="True" />
+        <Watermarks>
+            <GleamTech:TextWatermark 
+                Text="Contoso" 
+                Rotation="-45"
+                Opacity="50" 
+                FontColor="Red"
+                Width="50"
+                Height="50"
+                SizeIsPercentage="True" />
         
-        <GleamTech:ImageWatermark
-            ImageFile="~/App_Data/contoso-logo.png"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Top"
-            Opacity="50"
-            PageRange="Odd" />
+            <GleamTech:ImageWatermark
+                ImageFile="~/App_Data/contoso-logo.png"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Opacity="50"
+                PageRange="Odd" />
+        </Watermarks>
 
     </GleamTech:DocumentViewer>
 
