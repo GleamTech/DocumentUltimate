@@ -44,7 +44,7 @@ DocumentUltimate is an ASP.NET Document Viewer and Converter which supports both
     </appSettings>
     ```
 
-    As you would notice, ```DocumentUltimate:``` prefix maps to ```DocumentUltimateConfiguration.Current``` and ```DocumentUltimateWeb:``` prefix maps to ```DocumentUltimateWebConfiguration.Current```.
+    As you would notice, `DocumentUltimate:` prefix maps to `DocumentUltimateConfiguration.Current` and `DocumentUltimateWeb:` prefix maps to ```DocumentUltimateWebConfiguration.Current```.
 
 3.  Open one of your View pages (eg. Index.cshtml) and at the top of your page add the necessary namespaces:
 
@@ -77,7 +77,7 @@ DocumentUltimate is an ASP.NET Document Viewer and Converter which supports both
         {
             Width = 800,
             Height = 600,
-            DocumentPath = "~/Documents/Document.docx"
+            Document = "~/Documents/Document.docx"
         };
     }              
     <html> 
@@ -91,7 +91,7 @@ DocumentUltimate is an ASP.NET Document Viewer and Converter which supports both
     </html>
     ```
 
-    This will load the source document "~/Documents/Document.docx", do the necessary conversions for web viewing, cache the result and render a document viewer control which displays the document in your page. For consecutive page views, the document will be served directly from the cache and no processing will be done.
+    This will render a DocumentViewer control in the page which loads and displays the source document "~/Documents/Document.docx". Upon first view, internally DocumentViewer will convert the source document to PDF (used for "Download as Pdf" and also for next conversion step) and then to XPZ (a special web-friendly format which DocumentViewer uses to actually render documents in the browser). So in this case the user will see "please wait awhile..." message in the viewer for a few seconds. These generated PDF and XPZ files will be cached and upon consecutive page views, the document will be served directly from the cache so the user will see the document instantly on second viewing. The cached files are invalidated when you modify the source document "~/Documents/Document.docx" so your original document and the corresponding cached files are always synced automatically. Note that it's also possible to pre-cache documents via `DocumentCache.PreCacheDocument` mehod (e.g. when your user uploads a document).
 
 ### To use DocumentUltimate in an ASP.NET WebForms Project, do the following in Visual Studio:
 
@@ -126,7 +126,7 @@ DocumentUltimate is an ASP.NET Document Viewer and Converter which supports both
     </appSettings>
     ```
 
-    As you would notice, ```DocumentUltimate:``` prefix maps to ```DocumentUltimateConfiguration.Current``` and ```DocumentUltimateWeb:``` prefix maps to ```DocumentUltimateWebConfiguration.Current```.
+    As you would notice, `DocumentUltimate:` prefix maps to `DocumentUltimateConfiguration.Current` and `DocumentUltimateWeb:` prefix maps to ```DocumentUltimateWebConfiguration.Current```.
 
 3.  Open one of your pages (eg. Default.aspx) and at the top of your page add add the necessary namespaces:
 
@@ -155,7 +155,7 @@ DocumentUltimate is an ASP.NET Document Viewer and Converter which supports both
     <GleamTech:DocumentViewer runat="server" 
         Width="800" 
         Height="600" 
-        DocumentPath="~/Documents/Document.docx" />
+        Document="~/Documents/Document.docx" />
     ```
 
-    This will load the source document "~/Documents/Document.docx", do the necessary conversions for web viewing, cache the result and render a document viewer control which displays the document in your page. For consecutive page views, the document will be served directly from the cache and no processing will be done.
+    This will render a DocumentViewer control in the page which loads and displays the source document "~/Documents/Document.docx". Upon first view, internally DocumentViewer will convert the source document to PDF (used for "Download as Pdf" and also for next conversion step) and then to XPZ (a special web-friendly format which DocumentViewer uses to actually render documents in the browser). So in this case the user will see "please wait awhile..." message in the viewer for a few seconds. These generated PDF and XPZ files will be cached and upon consecutive page views, the document will be served directly from the cache so the user will see the document instantly on second viewing. The cached files are invalidated when you modify the source document "~/Documents/Document.docx" so your original document and the corresponding cached files are always synced automatically. Note that it's also possible to pre-cache documents via `DocumentCache.PreCacheDocument` mehod (e.g. when your user uploads a document).
