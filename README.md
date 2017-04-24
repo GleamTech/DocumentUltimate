@@ -17,11 +17,21 @@ DocumentUltimate is an ASP.NET Document Viewer and Converter which supports both
 
     -   Add reference to **GleamTech.Core.dll** and **GleamTech.DocumentUltimate.dll** found in "Bin" folder of DocumentUltimate-vX.X.X.X.zip package which you already downloaded and extracted.
 
-    -   Or install NuGet package and add references automatically via NuGet Package Manager in Visual Studio: open **Tools -&gt; NuGet Package Manager -&gt; Package Manager Console** and run this command:
+    -   Or install NuGet package and add references automatically via NuGet Package Manager in Visual Studio: 
+        Go to **Tools -> NuGet Package Manager -> Package Manager Console** and run this command:
 
-        `Install-Package DocumentUltimate`
+			`Install-Package DocumentUltimate -Source https://get.gleamtech.com/nuget/default/`
 
-        If you prefer using the user interface when working with NuGet, you can also install the package this way: open **Tools -&gt; NuGet Package Manager -&gt; Manage NuGet Packages for Solution**, enter **DocumentUltimate** in the search field, and click **Install** button on the found package.
+		If you prefer using the user interface when working with NuGet, you can also install the package this way:
+		
+			-  GleamTech has its own NuGet feed so first you need to add this feed to be able to find GleamTech's packages. 
+			    Go to **Tools -> NuGet Package Manager -> Package Manager Settings** and then click the **+** button to add a 
+			    new package source. Enter `GleamTech` in **Name** field and `https://get.gleamtech.com/nuget/default/` 
+			    in **Source** field and click **OK**.
+			    
+			-  Go to **Tools -> NuGet Package Manager -> Manage NuGet Packages for Solution**, select `GleamTech` or `All` 
+			   in the Package source dropdown on the top right. Now enter `DocumentUltimate` in the search field, 
+			   and click **Install** button on the found package.
 
 2.  Set DocumentUltimate's global configuration. For example, you may want to set the license key and the cache path. Insert some of the following lines (if overriding a default value is required) into the ```Application_Start``` method of your **Global.asax.cs**:
 
@@ -99,11 +109,21 @@ DocumentUltimate is an ASP.NET Document Viewer and Converter which supports both
 
     -   Add reference to **GleamTech.Core.dll** and **GleamTech.DocumentUltimate.dll** found in "Bin" folder of DocumentUltimate-vX.X.X.X.zip package which you already downloaded and extracted.
 
-    -   Or install NuGet package and add references automatically via NuGet Package Manager in Visual Studio: open **Tools -&gt; NuGet Package Manager -&gt; Package Manager Console** and run this command:
+    -   Or install NuGet package and add references automatically via NuGet Package Manager in Visual Studio: 
+        Go to **Tools -> NuGet Package Manager -> Package Manager Console** and run this command:
 
-        `Install-Package DocumentUltimate`
+			`Install-Package DocumentUltimate -Source https://get.gleamtech.com/nuget/default/`
 
-        If you prefer using the user interface when working with NuGet, you can also install the package this way: open **Tools -&gt; NuGet Package Manager -&gt; Manage NuGet Packages for Solution**, enter **DocumentUltimate**, in the search field, and click **Install** button on the found package.
+		If you prefer using the user interface when working with NuGet, you can also install the package this way:
+		
+			-  GleamTech has its own NuGet feed so first you need to add this feed to be able to find GleamTech's packages. 
+			    Go to **Tools -> NuGet Package Manager -> Package Manager Settings** and then click the **+** button to add a 
+			    new package source. Enter `GleamTech` in **Name** field and `https://get.gleamtech.com/nuget/default/` 
+			    in **Source** field and click **OK**.
+			    
+			-  Go to **Tools -> NuGet Package Manager -> Manage NuGet Packages for Solution**, select `GleamTech` or `All` 
+			   in the Package source dropdown on the top right. Now enter `DocumentUltimate` in the search field, 
+			   and click **Install** button on the found package.
 
 2.  Set DocumentUltimate's global configuration. For example, you may want to set the license key and the cache path. Insert some of the following lines (if overriding a default value is required) into the ```Application_Start``` method of your **Global.asax.cs**:
 
