@@ -37,6 +37,12 @@
                         .Url = "DocumentViewer/Stream",
                         .SourceFiles = New String() {"Views/DocumentViewer/Stream.vbhtml", "Controllers/DocumentViewerController.Stream.vb"},
                         .DescriptionFile = "Descriptions/DocumentViewer/Stream.html"
+                    },
+                    New Example() With {
+                        .Title = "Events",
+                        .Url = "DocumentViewer/Events",
+                        .SourceFiles = New String() {"Views/DocumentViewer/Events.vbhtml", "Controllers/DocumentViewerController.Events.vb"},
+                        .DescriptionFile = "Descriptions/DocumentViewer/Events.html"
                     }
                 }
             },

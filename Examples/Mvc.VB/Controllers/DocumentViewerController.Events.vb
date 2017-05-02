@@ -6,7 +6,7 @@ Namespace Controllers
         Inherits Controller
 
         <AcceptVerbs(HttpVerbs.Get Or HttpVerbs.Post)>
-	    Public Function Overview(fileSelector As String) As ActionResult
+	    Public Function Events(fileSelector As String) As ActionResult
             Dim exampleFileSelector =  new ExampleFileSelector() With {
                 .ID = "exampleFileSelector",
                 .InitialFile = "PDF Document.pdf"
@@ -17,7 +17,17 @@ Namespace Controllers
 			    .Width = 800, 
 			    .Height = 600,
                 .Resizable = True,
-			    .Document = exampleFileSelector.SelectedFile
+			    .Document = exampleFileSelector.SelectedFile,
+		        .ClientLoad = "documentViewerLoad",
+		        .ClientError = "documentViewerError",
+		        .ClientDocumentLoad = "documentViewerDocumentLoad",
+		        .ClientPageChange = "documentViewerPageChange",
+		        .ClientPageComplete = "documentViewerPageComplete",
+		        .ClientPrint = "documentViewerPrint",
+		        .ClientDownload = "documentViewerDownload",
+		        .ClientDownloadAsPdf = "documentViewerDownloadAsPdf",
+		        .ClientPrintStart = "documentViewerPrintStart",
+		        .ClientPrintProgress = "documentViewerPrintProgress"
 		    }
 
 		    Return View(documentViewer)

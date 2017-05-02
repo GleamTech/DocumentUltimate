@@ -49,6 +49,13 @@ namespace GleamTech.DocumentUltimateExamples.WebForms.CS
                             Url = "DocumentViewer/Stream.aspx",
                             SourceFiles = new[] {"DocumentViewer/Stream.aspx", "DocumentViewer/Stream.aspx.cs"},
                             DescriptionFile = "Descriptions/DocumentViewer/Stream.html"
+                        },
+                        new Example
+                        {
+                            Title = "Events",
+                            Url = "DocumentViewer/Events.aspx",
+                            SourceFiles = new[] { "DocumentViewer/Events.aspx", "DocumentViewer/Events.aspx.cs"},
+                            DescriptionFile = "Descriptions/DocumentViewer/Events.html"
                         }
                     }
                 },

@@ -38,7 +38,13 @@ Public Class DefaultPage
 		                .Url = "DocumentViewer/Stream.aspx", 
 		                .SourceFiles = New String() {"DocumentViewer/Stream.aspx", "DocumentViewer/Stream.aspx.vb"}, 
 		                .DescriptionFile = "Descriptions/DocumentViewer/Stream.html" 
-	                }
+	                },
+                    New Example() With {
+                        .Title = "Events", 
+                        .Url = "DocumentViewer/Events.aspx", 
+                        .SourceFiles = New String() {"DocumentViewer/Events.aspx", "DocumentViewer/Events.aspx.vb"}, 
+                        .DescriptionFile = "Descriptions/DocumentViewer/Events.html" 
+                        }
                 }
             },
             New ExampleFolder() With {

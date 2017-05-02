@@ -53,13 +53,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GleamTech.Core">
-      <HintPath>..\packages\GleamTech.Core.1.8.0\lib\net40\GleamTech.Core.dll</HintPath>
+      <HintPath>..\packages\GleamTech.Core.1.8.2\lib\net40\GleamTech.Core.dll</HintPath>
     </Reference>
     <Reference Include="GleamTech.DocumentUltimate">
-      <HintPath>..\packages\DocumentUltimate.2.7.0\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
+      <HintPath>..\packages\DocumentUltimate.2.7.5\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
     </Reference>
     <Reference Include="GleamTech.ExamplesCore">
-      <HintPath>..\packages\GleamTech.ExamplesCore.1.7.0\lib\net40\GleamTech.ExamplesCore.dll</HintPath>
+      <HintPath>..\packages\GleamTech.ExamplesCore.1.7.1\lib\net40\GleamTech.ExamplesCore.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing"/>
     <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -101,6 +101,7 @@
     <Compile Include="Controllers\DocumentConverterController.Possible.vb"/>
     <Compile Include="Controllers\DocumentConverterController.vb"/>
     <Compile Include="Controllers\DocumentConverterController.Overview.vb"/>
+    <Compile Include="Controllers\DocumentViewerController.Events.vb"/>
     <Compile Include="Controllers\DocumentViewerController.Watermark.vb"/>
     <Compile Include="Controllers\DocumentViewerController.Stream.vb"/>
     <Compile Include="Controllers\DocumentViewerController.Highlight.vb"/>
@@ -149,6 +150,7 @@
     </None>
     <Content Include="Descriptions\DocumentConverter\Overview.html"/>
     <Content Include="Descriptions\DocumentConverter\Possible.html"/>
+    <Content Include="Descriptions\DocumentViewer\Events.html"/>
     <Content Include="Descriptions\DocumentViewer\Highlight.html"/>
     <Content Include="Descriptions\DocumentViewer\Overview.html"/>
     <Content Include="Descriptions\DocumentViewer\Protection.html"/>
@@ -162,6 +164,7 @@
     <Content Include="Views\DocumentViewer\Watermark.vbhtml"/>
     <Content Include="Views\DocumentConverter\Overview.vbhtml"/>
     <Content Include="Views\DocumentConverter\Possible.vbhtml"/>
+    <Content Include="Views\DocumentViewer\Events.vbhtml"/>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax"/>
