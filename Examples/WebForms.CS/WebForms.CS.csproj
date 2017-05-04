@@ -50,7 +50,7 @@
       <HintPath>..\packages\GleamTech.Core.1.8.2\lib\net40\GleamTech.Core.dll</HintPath>
     </Reference>
     <Reference Include="GleamTech.DocumentUltimate">
-      <HintPath>..\packages\DocumentUltimate.2.7.5\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
+      <HintPath>..\packages\DocumentUltimate.2.8.0\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
     </Reference>
     <Reference Include="GleamTech.ExamplesCore">
       <HintPath>..\packages\GleamTech.ExamplesCore.1.7.1\lib\net40\GleamTech.ExamplesCore.dll</HintPath>
