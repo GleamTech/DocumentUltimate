@@ -1,5 +1,9 @@
-﻿using System.IO;
+﻿using System;
+using System.Data.SqlClient;
+using System.IO;
+using System.Web;
 using System.Web.Mvc;
+using GleamTech.DocumentUltimate;
 using GleamTech.DocumentUltimate.Web;
 
 namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
@@ -15,69 +19,146 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
                 Resizable = true
             };
 
-            var fileInfo = new FileInfo(Server.MapPath("~/App_Data/ExampleFiles/DOCX Document.docx"));
+            // The document handler type which provides a custom way of loading the input files.
+            // This class should implement IDocumentHandler interface and should have a parameterless
+            // constructor so that it can be instantiated internally when necessary.
+            // Value of Document property will be passed to this handler which should open 
+            // and return a readable stream according to that file identifier.
+            // See below for CustomDocumentHandler class which implements IDocumentHandler interface
+            documentViewer.DocumentHandlerType = typeof(CustomDocumentHandler);
 
-            documentViewer.Document = new DocumentSource(
-                //Pass a method that returns a Stream or Byte[].
-                //For the simplicity of this example, we are getting a stream from a file on disk.
-                //Otherwise the stream can come from network or a database or even a zip file.
-                //This parameter is implemented as callback so that it's only called when necessary
-                //i.e. when the document is opened for the first time and it's not converted and cached yet.
-                //For consecutive views, the document will be served from cache unless cached key is changed
-                //as a result of changing any of the 3 parameters below.
-                () => fileInfo.Open(FileMode.Open),
+            // If a custom document handler is provided via DocumentHandlerType property, then
+            // this value will be passed to that handler which should open and return a readable stream according 
+            // to this file identifier. 
+            // So it can be any string value that your IDocumentHandler implementation understands.
+            documentViewer.Document = "~/App_Data/ExampleFiles/DOCX Document.docx";
 
-                //These 3 parameters are used for generating a unique cache key. If one of them (file extension,
-                //file size, file modified date) changes, cache key changes so the source will be considered 
-                //as another document file. This way DocumentViewer can know if your Stream or Byte[] source
-                //is the same file or not without even calling your method and without reading whole Stream or Byte[]
-                //every time this page is hit.
-                //If you don't have file size or last modified date, you can pass 0 and DateTime.MinValue respectively.
-                //However you should always pass a file name with correct file extension (e.g. MyFile.docx)
-                //The extension is required for determining source format correctly, also only the extension
-                //is used for cache key, file name before extension can be changed without causing a change 
-                //in cache key.
-                fileInfo.Name,
-                fileInfo.Length,
-                fileInfo.LastWriteTimeUtc
-            );
 
-            //Here is an example (commented out) for loading a document from database
-            //GetDocumentFromDb loads the document with passed ID (176) from the database as byte array 
-            //and returns a DocumentSource instance with all information filled in.
-            //This sample only demonstrates raw db access with System.Data objects
-            //but you can use any type of db access (e.g. Entity Framework), the idea is same.
+            // Here is an example (commented out) for loading a document from database.
+            // See below for CustomDocumentHandler2 class which implements IDocumentHandler interface.
+            // This loads the document with passed ID (176) from the database
             /*
-            documentViewer.Document = GetDocumentFromDb(176);
+            documentViewer.DocumentHandlerType = typeof(CustomDocumentHandler2);
+            documentViewer.Document = "176";
             */
 
             return View(documentViewer);
         }
+    }
 
-        /*
-        public DocumentSource GetDocumentFromDb(int fileId)
+    // Implement IDocumentHandler interface to provide a custom way of loading the input files.
+    // You can instruct DocumentViewer to use this handler by setting DocumentViewer.DocumentHandlerType
+    // property to type of this class, i.e. typeof(CustomDocumentHandler)
+    // For the simplicity of this example, we are getting a stream from a file on disk.
+    // Otherwise the stream can come from network or a database or even a zip file.
+    public class CustomDocumentHandler : IDocumentHandler
+    {
+        // Get the document information required for the current input file.
+        // This is called before loading the document for determining the cache key and document format.
+        //
+        // inputFile parameter will be the value that was set in DocumentViewer.Document property, i.e.
+        // the input file that was requested to be loaded in DocumentViewer
+        //
+        // Return a DocumentInfo instance initialized with required information from this method.
+        public DocumentInfo GetInfo(string inputFile)
         {
+            var physicalPath = HttpContext.Current.Server.MapPath(inputFile);
+            var fileInfo = new FileInfo(physicalPath);
+
+            return new DocumentInfo(
+                // uniqueId parameter (required):
+                // The unique identifier that will be used for generating the cache key for this document.
+                // For instance, it can be an ID from your database table or a simple file name; 
+                // you just need to make sure this ID varies for each different document so that they are cached correctly.
+                // For example for files on disk,
+                // we internally use a string combination of file extension, file size and file date for uniquely
+                // identifying them, this way cache collisions do not occur and we can resuse the cached file
+                // even if the file name before extension is changed (because it's still the same document).
+                string.Concat(
+                    fileInfo.Extension.ToLowerInvariant(),
+                    fileInfo.Length,
+                    fileInfo.LastWriteTimeUtc.Ticks),
+
+                // fileName parameter (optional but recommended):
+                // The file name which will be used for display purposes such as when downloading the document
+                // within DocumentViewer> or for the subfolder name prefix in cache folder. 
+                // It will also be used to determine the document format from extension if format 
+                // parameter is not specified. If not specified or empty, uniqueId will be used 
+                // as the file name.
+                fileInfo.Name
+            );
+        }
+
+        // Open a readable stream for the current input file.
+        //
+        // inputFile parameter will be the value that was set in DocumentViewer.Document property, i.e.
+        // the input file that was requested to be loaded in DocumentViewer
+        //
+        // inputOptions parameter will be determined according to the input document format
+        // Usually you will not need to check this parameter as inputFile parameter should be sufficient
+        // for you to locate and open a corresponding stream.
+        //
+        // Return a StreamResult instance initialized with a readable System.IO.Stream object.
+        public StreamResult OpenRead(string inputFile, InputOptions inputOptions)
+        {
+            var stream = File.OpenRead(inputFile);
+
+            return new StreamResult(stream);
+        }
+    }
+
+    // This sample demonstrates raw db access with System.Data objects
+    // but you can use any type of db access (e.g. Entity Framework), the idea is same.
+    public class CustomDocumentHandler2 : IDocumentHandler
+    {
+        public DocumentInfo GetInfo(string inputFile)
+        {
+            var fileId = inputFile;
+            var sql = "SELECT FileName FROM FileTable WHERE FileId=" + fileId;
+
             using (var connection = new SqlConnection("CONNECTION STRING"))
             {
                 connection.Open();
 
-                using (var command = new SqlCommand("SELECT FileBytes, FileName, FileDate, FROM FileTable WHERE FileId='" + fileId + "' ", connection))
+                using (var command = new SqlCommand(sql, connection))
                 using (var reader = command.ExecuteReader())
                 {
-                    if (reader.Read())
-                        throw  new Exception("File not found");
+                    if (!reader.Read())
+                        throw new Exception("File not found");
 
-                    var fileBytes = (byte[])reader.GetValue(0); // read the file data from the selected row (first column in above query)
+                    // read the file name from the selected row (first column in above query)
+                    var fileName = reader.GetString(0);
 
-                    return new DocumentSource(
-                        () => fileBytes,
-                        reader.GetValue(1),  // pass the file name here (second column in above query)
-                        fileBytes.Length, // pass the file size here (we already know the size because we have a byte array)
-                        reader.GetValue(2) // pass the file date here (third column in above query) or if you don't have a date just pass DateTime.MinValue
+                    return new DocumentInfo(
+                        fileId,
+                        fileName
                     );
                 }
             }
         }
-        */
+
+        public StreamResult OpenRead(string inputFile, InputOptions inputOptions)
+        {
+            var fileId = inputFile;
+            var sql = "SELECT FileBytes FROM FileTable WHERE FileId=" + fileId;
+
+            using (var connection = new SqlConnection("CONNECTION STRING"))
+            {
+                connection.Open();
+
+                using (var command = new SqlCommand(sql))
+                using (var reader = command.ExecuteReader())
+                {
+                    if (!reader.Read())
+                        throw new Exception("File not found");
+
+                    // read the file data from the selected row (first column in above query)
+                    var fileBytes = (byte[])reader.GetValue(0);
+
+                    return new StreamResult(new MemoryStream(fileBytes));
+                }
+            }
+        }
     }
+
 }
