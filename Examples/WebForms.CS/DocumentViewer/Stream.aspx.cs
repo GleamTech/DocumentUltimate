@@ -92,7 +92,8 @@ namespace GleamTech.DocumentUltimateExamples.WebForms.CS.DocumentViewer
         // Return a StreamResult instance initialized with a readable System.IO.Stream object.
         public StreamResult OpenRead(string inputFile, InputOptions inputOptions)
         {
-            var stream = File.OpenRead(inputFile);
+            var physicalPath = HttpContext.Current.Server.MapPath(inputFile);
+            var stream = File.OpenRead(physicalPath);
 
             return new StreamResult(stream);
         }

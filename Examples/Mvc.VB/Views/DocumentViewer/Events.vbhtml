@@ -17,6 +17,7 @@
 
         function documentViewerError(sender, e) {
             //e.message
+
             log("ClientError", "An error has occured: " + e.message);
         }
 
@@ -25,13 +26,25 @@
         }
 
         function documentViewerPageChange(sender, e) {
-            //e.pageNumber
+            //e.pageNumber (1-based)
+
             log("ClientPageChange", "Viewing page " + e.pageNumber);
         }
 
         function documentViewerPageComplete(sender, e) {
-            //e.pageNumber
+            //e.pageNumber (1-based)
+
             log("ClientPageComplete", "Rendered page " + e.pageNumber);
+        }
+
+        function documentViewerRotationChange(sender, e) {
+            //e.pageNumber (1-based)
+            //e.rotation (0, 90, 180 or 270 degrees)
+
+            if (e.pageNumber)
+                log("ClientRotationChange", "Page " + e.pageNumber + " is rotated " + e.rotation + " degrees");
+            else
+                log("ClientRotationChange", "All pages are rotated " + e.rotation + " degrees");
         }
 
         function documentViewerPrint(sender, e) {
@@ -47,14 +60,16 @@
         }
 
         function documentViewerPrintStart(sender, e) {
-            //e.totalPages
+            //e.totalPages (total pages that will be printed)
+
             log("ClientPrintStart", "Started printing " + e.totalPages + " pages");
         }
 
         function documentViewerPrintProgress(sender, e) {
-            //e.pageNumber
-            //e.printNumber
-            //e.totalPages
+            //e.pageNumber (1-based original page number)
+            //e.printNumber (1-based printed page number)
+            //e.totalPages (total pages being printed)
+
             log("ClientPrintProgress", "Printing page " + e.pageNumber + " (" + e.printNumber + " of " + e.totalPages + ")");
         }
 

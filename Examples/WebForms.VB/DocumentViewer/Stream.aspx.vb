@@ -92,7 +92,8 @@ Namespace DocumentViewer
         ' Return a StreamResult instance initialized with a readable System.IO.Stream object.
         Public Function OpenRead(inputFile As String, inputOptions As InputOptions) As StreamResult Implements IDocumentHandler.OpenRead
 
-            Dim stream = File.OpenRead(inputFile)
+            Dim physicalPath = HttpContext.Current.Server.MapPath(inputFile)
+            Dim stream = File.OpenRead(physicalPath)
 
             Return New StreamResult(stream)
 

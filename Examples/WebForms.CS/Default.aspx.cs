@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.UI;
+using GleamTech.DocumentUltimate;
 using GleamTech.ExamplesCore;
 
 namespace GleamTech.DocumentUltimateExamples.WebForms.CS
@@ -8,6 +9,8 @@ namespace GleamTech.DocumentUltimateExamples.WebForms.CS
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            exampleExplorer.VersionTitle = "v" + DocumentUltimateConfiguration.AssemblyInfo.FileVersion;
+
             exampleExplorer.Examples = new ExampleBase[]
             {
                 new ExampleFolder

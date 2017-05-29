@@ -1,9 +1,11 @@
 ﻿@Imports GleamTech.ExamplesCore
 @Imports GleamTech.Web.Mvc
+@Imports GleamTech.DocumentUltimate
 @Code
     Dim exampleExplorer = New ExampleExplorer() With {
         .FullViewport = True,
         .NavigationTitle = "DocumentUltimate Examples",
+        .VersionTitle = "v" + DocumentUltimateConfiguration.AssemblyInfo.FileVersion.ToString(),
         .Examples = New ExampleBase() {
             New ExampleFolder() With {
                 .Title = "Document Viewer",

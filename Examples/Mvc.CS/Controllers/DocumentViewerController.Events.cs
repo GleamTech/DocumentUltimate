@@ -26,6 +26,7 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
                 ClientDocumentLoad = "documentViewerDocumentLoad",
                 ClientPageChange = "documentViewerPageChange",
                 ClientPageComplete = "documentViewerPageComplete",
+                ClientRotationChange = "documentViewerRotationChange",
                 ClientPrint = "documentViewerPrint",
                 ClientDownload = "documentViewerDownload",
                 ClientDownloadAsPdf = "documentViewerDownloadAsPdf",

@@ -1,10 +1,12 @@
-﻿@using GleamTech.ExamplesCore
+﻿@using GleamTech.DocumentUltimate
+@using GleamTech.ExamplesCore
 @using GleamTech.Web.Mvc
 @{
     var exampleExplorer = new ExampleExplorer
     {
         FullViewport = true,
         NavigationTitle = "DocumentUltimate Examples",
+        VersionTitle = "v" + DocumentUltimateConfiguration.AssemblyInfo.FileVersion,
         Examples = new ExampleBase[]
         {
             new ExampleFolder
