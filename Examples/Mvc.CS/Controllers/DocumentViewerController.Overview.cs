@@ -12,7 +12,7 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
             var exampleFileSelector = ViewBag.ExampleFileSelector = new ExampleFileSelector
             {
                 ID = "exampleFileSelector",
-                InitialFile = "PDF Document.pdf"
+                InitialFile = "Default.pdf"
             };
 
             var documentViewer = new DocumentViewer

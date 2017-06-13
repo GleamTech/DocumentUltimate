@@ -9,7 +9,7 @@ Namespace Controllers
 	    Public Function Overview(fileSelector As String) As ActionResult
             Dim exampleFileSelector =  new ExampleFileSelector() With {
                 .ID = "exampleFileSelector",
-                .InitialFile = "PDF Document.pdf"
+                .InitialFile = "Default.pdf"
             }
             ViewBag.ExampleFileSelector = exampleFileSelector
 

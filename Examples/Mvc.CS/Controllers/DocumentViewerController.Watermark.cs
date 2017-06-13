@@ -14,7 +14,7 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
                 Width = 800,
                 Height = 600,
                 Resizable = true,
-                Document = "~/App_Data/ExampleFiles/DOC Document.doc",
+                Document = "~/App_Data/ExampleFiles/Default.doc",
                 Watermarks = {
                     new TextWatermark
                     {

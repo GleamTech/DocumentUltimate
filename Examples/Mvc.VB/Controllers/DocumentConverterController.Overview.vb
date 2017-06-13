@@ -17,7 +17,7 @@ Namespace Controllers
 		    Dim model = New OverviewViewModel() With {
 			    .ExampleFileSelector = New ExampleFileSelector() With {
 				    .ID = "exampleFileSelector",
-				    .InitialFile = "PDF Document.pdf"
+				    .InitialFile = "Default.pdf"
 			    }
 		    }
 

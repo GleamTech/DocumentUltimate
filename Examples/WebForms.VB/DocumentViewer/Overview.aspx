@@ -10,7 +10,7 @@
 </head>
 <body style="margin: 20px;">
     <GleamTech:ExampleFileSelector ID="exampleFileSelector" runat="server"
-        InitialFile="PDF Document.pdf" />
+        InitialFile="Default.pdf" />
 
     <GleamTech:DocumentViewer ID="documentViewer" runat="server" 
         Width="800" 

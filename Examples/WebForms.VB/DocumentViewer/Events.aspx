@@ -90,7 +90,7 @@
 </head>
 <body style="margin: 20px;">
 <GleamTech:ExampleFileSelector ID="exampleFileSelector" runat="server"
-                               InitialFile="PDF Document.pdf" />
+                               InitialFile="Default.pdf" />
 
 <p>
     Events:<br/>

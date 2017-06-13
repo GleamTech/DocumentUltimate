@@ -22,7 +22,7 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
                 ExampleFileSelector = new ExampleFileSelector
                 {
                     ID = "exampleFileSelector",
-                    InitialFile = "PDF Document.pdf"
+                    InitialFile = "Default.pdf"
                 }
             };
 

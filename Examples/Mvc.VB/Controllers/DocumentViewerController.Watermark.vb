@@ -11,7 +11,7 @@ Namespace Controllers
 			.Width = 800,
 			.Height = 600,
 			.Resizable = True,
-			.Document = "~/App_Data/ExampleFiles/DOC Document.doc"
+			.Document = "~/App_Data/ExampleFiles/Default.doc"
 		}
 
         documentViewer.Watermarks.Add(

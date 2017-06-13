@@ -13,7 +13,7 @@
         Width="800" 
         Height="600"
         Resizable="True"
-        Document="~/App_Data/ExampleFiles/PDF Document.pdf"
+        Document="~/App_Data/ExampleFiles/Default.pdf"
         DownloadEnabled="False"
         DownloadAsPdfEnabled="False"
         PrintEnabled="False"
