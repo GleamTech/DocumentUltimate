@@ -53,13 +53,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GleamTech.Core">
-      <HintPath>..\packages\GleamTech.Core.1.9.0\lib\net40\GleamTech.Core.dll</HintPath>
+      <HintPath>..\packages\GleamTech.Core.1.9.1\lib\net40\GleamTech.Core.dll</HintPath>
     </Reference>
     <Reference Include="GleamTech.DocumentUltimate">
-      <HintPath>..\packages\DocumentUltimate.3.2.0\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
+      <HintPath>..\packages\DocumentUltimate.3.2.1\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
     </Reference>
     <Reference Include="GleamTech.ExamplesCore">
-      <HintPath>..\packages\GleamTech.ExamplesCore.1.8.3\lib\net40\GleamTech.ExamplesCore.dll</HintPath>
+      <HintPath>..\packages\GleamTech.ExamplesCore.1.8.4\lib\net40\GleamTech.ExamplesCore.dll</HintPath>
     </Reference>
     <Reference Include="System.Data"/>
     <Reference Include="System.Drawing"/>
