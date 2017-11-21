@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using GleamTech.DocumentUltimate;
-using GleamTech.ExamplesCore;
+using GleamTech.Examples;
 using GleamTech.IO;
 using GleamTech.Util;
 using GleamTech.Web;
@@ -28,11 +28,11 @@ namespace GleamTech.DocumentUltimateExamples.WebForms.CS.DocumentConverter
 
             PopulatePossibleOutputFormats(inputDocument);
 
-            ConvertHandlerUrl = ExamplesCoreConfiguration.GetDynamicDownloadUrl(
+            ConvertHandlerUrl = ExamplesConfiguration.GetDynamicDownloadUrl(
                 ConvertHandlerName,
                 new NameValueCollection
                 {
-                    {"inputDocument", ExamplesCoreConfiguration.ProtectString(inputDocument)},
+                    {"inputDocument", ExamplesConfiguration.ProtectString(inputDocument)},
                     {"version", fileInfo.LastWriteTimeUtc.Ticks + "-" +  fileInfo.Length}
                 });
         }
@@ -67,7 +67,7 @@ namespace GleamTech.DocumentUltimateExamples.WebForms.CS.DocumentConverter
 
             try
             {
-                var inputDocument = new BackSlashPath(ExamplesCoreConfiguration.UnprotectString(context.Request["inputDocument"]));
+                var inputDocument = new BackSlashPath(ExamplesConfiguration.UnprotectString(context.Request["inputDocument"]));
                 var outputFormat = (DocumentFormat) Enum.Parse(typeof(DocumentFormat), context.Request["outputFormat"]);
                 var fileName = inputDocument.FileNameWithoutExtension + "." + DocumentFormatInfo.Get(outputFormat).DefaultExtension;
                 var outputPath = ConvertedPath.Append(context.Session.SessionID).Append(fileName);
@@ -122,25 +122,25 @@ namespace GleamTech.DocumentUltimateExamples.WebForms.CS.DocumentConverter
         {
             return string.Format(
                 "<a href=\"{0}\">Download</a>",
-                ExamplesCoreConfiguration.GetDownloadUrl(fileInfo.FullName, fileInfo.LastWriteTimeUtc.Ticks.ToString()));
+                ExamplesConfiguration.GetDownloadUrl(fileInfo.FullName, fileInfo.LastWriteTimeUtc.Ticks.ToString()));
         }
 
         private static string GetZipDownloadLink(DirectoryInfo directoryInfo)
         {
             return string.Format(
                 "<a href=\"{0}\">Download as Zip</a>",
-                ExamplesCoreConfiguration.GetDynamicDownloadUrl(
+                ExamplesConfiguration.GetDynamicDownloadUrl(
                     ZipDownloadHandlerName,
                     new NameValueCollection
                     {
-                        {"path", ExamplesCoreConfiguration.ProtectString(directoryInfo.FullName)},
+                        {"path", ExamplesConfiguration.ProtectString(directoryInfo.FullName)},
                         {"version", directoryInfo.LastWriteTimeUtc.Ticks.ToString()},
                     }));
         }
 
         public static void ZipDownloadHandler(HttpContext context)
         {
-            var path = new BackSlashPath(ExamplesCoreConfiguration.UnprotectString(context.Request["path"])).RemoveTrailingSlash();
+            var path = new BackSlashPath(ExamplesConfiguration.UnprotectString(context.Request["path"])).RemoveTrailingSlash();
 
             var fileResponse = new FileResponse(context, 0);
             fileResponse.Transmit((targetStream, copyFileCallback) =>
@@ -157,7 +157,7 @@ namespace GleamTech.DocumentUltimateExamples.WebForms.CS.DocumentConverter
                 if (convertHandlerName == null)
                 {
                     convertHandlerName = "ConvertHandler";
-                    ExamplesCoreConfiguration.RegisterDynamicDownloadHandler(convertHandlerName, ConvertHandler);
+                    ExamplesConfiguration.RegisterDynamicDownloadHandler(convertHandlerName, ConvertHandler);
                 }
 
                 return convertHandlerName;
@@ -172,7 +172,7 @@ namespace GleamTech.DocumentUltimateExamples.WebForms.CS.DocumentConverter
                 if (zipDownloadHandlerName == null)
                 {
                     zipDownloadHandlerName = "ZipDownloadHandler";
-                    ExamplesCoreConfiguration.RegisterDynamicDownloadHandler(zipDownloadHandlerName, ZipDownloadHandler);
+                    ExamplesConfiguration.RegisterDynamicDownloadHandler(zipDownloadHandlerName, ZipDownloadHandler);
                 }
 
                 return zipDownloadHandlerName;

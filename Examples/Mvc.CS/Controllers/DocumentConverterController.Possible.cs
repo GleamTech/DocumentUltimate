@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using GleamTech.DocumentUltimate;
 using GleamTech.DocumentUltimateExamples.Mvc.CS.Models;
-using GleamTech.ExamplesCore;
+using GleamTech.Examples;
 
 namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
 {
@@ -18,7 +18,7 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
             PopulateInputFormats(model);
             PopulateOutputFormats(model);
 
-            model.ResultHandlerUrl = ExamplesCoreConfiguration.GetDynamicDownloadUrl(
+            model.ResultHandlerUrl = ExamplesConfiguration.GetDynamicDownloadUrl(
                 ResultHandlerName,
                 new NameValueCollection
                 {
@@ -108,7 +108,7 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
                 if (resultHandlerName == null)
                 {
                     resultHandlerName = "ResultHandler";
-                    ExamplesCoreConfiguration.RegisterDynamicDownloadHandler(resultHandlerName, ResultHandler);
+                    ExamplesConfiguration.RegisterDynamicDownloadHandler(resultHandlerName, ResultHandler);
                 }
 
                 return resultHandlerName;

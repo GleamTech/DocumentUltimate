@@ -4,7 +4,7 @@ Imports System.Collections.Specialized
 Imports System.Web
 Imports GleamTech.DocumentUltimate
 Imports GleamTech.DocumentUltimateExamples.Mvc.VB.Models
-Imports GleamTech.ExamplesCore
+Imports GleamTech.Examples
 
 Namespace Controllers
     Partial Public Class  DocumentConverterController
@@ -16,7 +16,7 @@ Namespace Controllers
 		    PopulateInputFormats(model)
 		    PopulateOutputFormats(model)
 
-		    model.ResultHandlerUrl = ExamplesCoreConfiguration.GetDynamicDownloadUrl(ResultHandlerName, 
+		    model.ResultHandlerUrl = ExamplesConfiguration.GetDynamicDownloadUrl(ResultHandlerName, 
                 New NameValueCollection() From {
 			        {"version", DateTime.UtcNow.Ticks.ToString()}
 		        })
@@ -85,7 +85,7 @@ Namespace Controllers
 		    Get
 			    If m_resultHandlerName Is Nothing Then
 				    m_resultHandlerName = "ResultHandler"
-				    ExamplesCoreConfiguration.RegisterDynamicDownloadHandler(m_resultHandlerName, AddressOf ResultHandler)
+				    ExamplesConfiguration.RegisterDynamicDownloadHandler(m_resultHandlerName, AddressOf ResultHandler)
 			    End If
 
 			    Return m_resultHandlerName

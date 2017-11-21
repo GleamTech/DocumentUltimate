@@ -1,5 +1,5 @@
 ﻿Imports GleamTech.DocumentUltimate
-Imports GleamTech.ExamplesCore
+Imports GleamTech.Examples
 
 Namespace DocumentConverter
     Public Class PossiblePage
@@ -13,7 +13,7 @@ Namespace DocumentConverter
 		PopulateInputFormats()
 		PopulateOutputFormats()
 
-		ResultHandlerUrl = ExamplesCoreConfiguration.GetDynamicDownloadUrl(ResultHandlerName, 
+		ResultHandlerUrl = ExamplesConfiguration.GetDynamicDownloadUrl(ResultHandlerName, 
             New NameValueCollection() From { 
 			    {"version", DateTime.UtcNow.Ticks.ToString()} 
 		    })
@@ -84,7 +84,7 @@ Namespace DocumentConverter
 		Get
 			If m_resultHandlerName Is Nothing Then
 				m_resultHandlerName = "ResultHandler"
-				ExamplesCoreConfiguration.RegisterDynamicDownloadHandler(m_resultHandlerName, AddressOf ResultHandler)
+				ExamplesConfiguration.RegisterDynamicDownloadHandler(m_resultHandlerName, AddressOf ResultHandler)
 			End If
 
 			Return m_resultHandlerName

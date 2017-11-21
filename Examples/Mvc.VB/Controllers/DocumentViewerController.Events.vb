@@ -1,5 +1,5 @@
 ﻿Imports GleamTech.DocumentUltimate.Web
-Imports GleamTech.ExamplesCore
+Imports GleamTech.Examples
 
 Namespace Controllers
     Partial Public Class  DocumentViewerController

@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 using GleamTech.DocumentUltimate.Web;
-using GleamTech.ExamplesCore;
+using GleamTech.Examples;
 
 namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
 {

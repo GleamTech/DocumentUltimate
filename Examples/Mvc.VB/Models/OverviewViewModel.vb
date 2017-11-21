@@ -1,5 +1,5 @@
 ﻿Imports System.Collections.Generic
-Imports GleamTech.ExamplesCore
+Imports GleamTech.Examples
 
 Namespace Models
 

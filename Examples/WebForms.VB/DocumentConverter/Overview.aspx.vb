@@ -1,6 +1,6 @@
 ﻿Imports System.IO
 Imports GleamTech.DocumentUltimate
-Imports GleamTech.ExamplesCore
+Imports GleamTech.Examples
 Imports GleamTech.IO
 Imports GleamTech.Util
 Imports GleamTech.Web
@@ -21,9 +21,9 @@ Namespace DocumentConverter
 
             PopulatePossibleOutputFormats(inputDocument)
 
-            ConvertHandlerUrl = ExamplesCoreConfiguration.GetDynamicDownloadUrl(ConvertHandlerName, 
+            ConvertHandlerUrl = ExamplesConfiguration.GetDynamicDownloadUrl(ConvertHandlerName, 
                 New NameValueCollection() From {
-                    {"inputDocument", ExamplesCoreConfiguration.ProtectString(inputDocument)},
+                    {"inputDocument", ExamplesConfiguration.ProtectString(inputDocument)},
                     {"version", fileInfo.LastWriteTimeUtc.Ticks & "-" & fileInfo.Length}
                 })
         End Sub
@@ -54,7 +54,7 @@ Namespace DocumentConverter
             Dim result As DocumentConverterResult
 
             Try
-                Dim inputDocument = New BackSlashPath(ExamplesCoreConfiguration.UnprotectString(context.Request("inputDocument")))
+                Dim inputDocument = New BackSlashPath(ExamplesConfiguration.UnprotectString(context.Request("inputDocument")))
                 Dim outputFormat = DirectCast([Enum].Parse(GetType(DocumentFormat), context.Request("outputFormat")), DocumentFormat)
                 Dim fileName = inputDocument.FileNameWithoutExtension + "." + DocumentFormatInfo.[Get](outputFormat).DefaultExtension
                 Dim outputPath = ConvertedPath.Append(context.Session.SessionID).Append(fileName)
@@ -93,18 +93,18 @@ Namespace DocumentConverter
         End Sub
 
         Private Shared Function GetDownloadLink(fileInfo As FileInfo) As String
-            Return String.Format("<a href=""{0}"">Download</a>", ExamplesCoreConfiguration.GetDownloadUrl(fileInfo.FullName, fileInfo.LastWriteTimeUtc.Ticks.ToString()))
+            Return String.Format("<a href=""{0}"">Download</a>", ExamplesConfiguration.GetDownloadUrl(fileInfo.FullName, fileInfo.LastWriteTimeUtc.Ticks.ToString()))
         End Function
 
         Private Shared Function GetZipDownloadLink(directoryInfo As DirectoryInfo) As String
-            Return String.Format("<a href=""{0}"">Download as Zip</a>", ExamplesCoreConfiguration.GetDynamicDownloadUrl(ZipDownloadHandlerName, New NameValueCollection() From {
-                {"path", ExamplesCoreConfiguration.ProtectString(directoryInfo.FullName)},
+            Return String.Format("<a href=""{0}"">Download as Zip</a>", ExamplesConfiguration.GetDynamicDownloadUrl(ZipDownloadHandlerName, New NameValueCollection() From {
+                {"path", ExamplesConfiguration.ProtectString(directoryInfo.FullName)},
                 {"version", directoryInfo.LastWriteTimeUtc.Ticks.ToString()}
             }))
         End Function
 
         Public Shared Sub ZipDownloadHandler(context As HttpContext)
-            Dim path = New BackSlashPath(ExamplesCoreConfiguration.UnprotectString(context.Request("path"))).RemoveTrailingSlash()
+            Dim path = New BackSlashPath(ExamplesConfiguration.UnprotectString(context.Request("path"))).RemoveTrailingSlash()
 
             Dim fileResponse = New FileResponse(context, 0)
             fileResponse.Transmit(Sub(targetStream, copyFileCallback)
@@ -117,7 +117,7 @@ Namespace DocumentConverter
             Get
                 If m_convertHandlerName Is Nothing Then
                     m_convertHandlerName = "ConvertHandler"
-                    ExamplesCoreConfiguration.RegisterDynamicDownloadHandler(m_convertHandlerName, AddressOf ConvertHandler)
+                    ExamplesConfiguration.RegisterDynamicDownloadHandler(m_convertHandlerName, AddressOf ConvertHandler)
                 End If
 
                 Return m_convertHandlerName
@@ -129,7 +129,7 @@ Namespace DocumentConverter
             Get
                 If m_zipDownloadHandlerName Is Nothing Then
                     m_zipDownloadHandlerName = "ZipDownloadHandler"
-                    ExamplesCoreConfiguration.RegisterDynamicDownloadHandler(m_zipDownloadHandlerName, AddressOf ZipDownloadHandler)
+                    ExamplesConfiguration.RegisterDynamicDownloadHandler(m_zipDownloadHandlerName, AddressOf ZipDownloadHandler)
                 End If
 
                 Return m_zipDownloadHandlerName

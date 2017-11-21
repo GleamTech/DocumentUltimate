@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using GleamTech.DocumentUltimate;
-using GleamTech.ExamplesCore;
+using GleamTech.Examples;
 
 namespace GleamTech.DocumentUltimateExamples.WebForms.CS.DocumentConverter
 {
@@ -20,7 +20,7 @@ namespace GleamTech.DocumentUltimateExamples.WebForms.CS.DocumentConverter
             PopulateInputFormats();
             PopulateOutputFormats();
 
-            ResultHandlerUrl = ExamplesCoreConfiguration.GetDynamicDownloadUrl(
+            ResultHandlerUrl = ExamplesConfiguration.GetDynamicDownloadUrl(
                 ResultHandlerName,
                 new NameValueCollection
                 {
@@ -111,7 +111,7 @@ namespace GleamTech.DocumentUltimateExamples.WebForms.CS.DocumentConverter
                 if (resultHandlerName == null)
                 {
                     resultHandlerName = "ResultHandler";
-                    ExamplesCoreConfiguration.RegisterDynamicDownloadHandler(resultHandlerName, ResultHandler);
+                    ExamplesConfiguration.RegisterDynamicDownloadHandler(resultHandlerName, ResultHandler);
                 }
 
                 return resultHandlerName;

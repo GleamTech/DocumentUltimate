@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using GleamTech.ExamplesCore;
+using GleamTech.Examples;
 
 namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Models
 {
