@@ -20,22 +20,22 @@ DocumentUltimate is an ASP.NET Document Viewer and Converter which supports both
     -   Or install NuGet package and add references automatically via NuGet Package Manager in Visual Studio: 
         Go to **Tools -> NuGet Package Manager -> Package Manager Console** and run this command:
 
-			`Install-Package DocumentUltimate -Source https://get.gleamtech.com/nuget/default/`
+        `Install-Package DocumentUltimate -Source https://get.gleamtech.com/nuget/default/`
 
-		If you prefer using the user interface when working with NuGet, you can also install the package this way:
+        If you prefer using the user interface when working with NuGet, you can also install the package this way:
 		
-			-  GleamTech has its own NuGet feed so first you need to add this feed to be able to find GleamTech's packages. 
-			    Go to **Tools -> NuGet Package Manager -> Package Manager Settings** and then click the **+** button to add a 
+        - Â GleamTech has its own NuGet feed so first you need to add this feed to be able to find GleamTech's packages. 
+           Go to **Tools -> NuGet Package Manager -> Package Manager Settings** and then click the **+** button to add a 
 			    new package source. Enter `GleamTech` in **Name** field and `https://get.gleamtech.com/nuget/default/` 
 			    in **Source** field and click **OK**.
 			    
-			-  Go to **Tools -> NuGet Package Manager -> Manage NuGet Packages for Solution**, select `GleamTech` or `All` 
+        -  Go to **Tools -> NuGet Package Manager -> Manage NuGet Packages for Solution**, select `GleamTech` or `All` 
 			   in the Package source dropdown on the top right. Now enter `DocumentUltimate` in the search field, 
 			   and click **Install** button on the found package.
 
 2.  Set DocumentUltimate's global configuration. For example, you may want to set the license key and the cache path. Insert some of the following lines (if overriding a default value is required) into the ```Application_Start``` method of your **Global.asax.cs**:
 
-    ```
+    ```c#
     //Set this property only if you have a valid license key, otherwise do not
     //set it so DocumentUltimate runs in trial mode.
     DocumentUltimateConfiguration.Current.LicenseKey = "QQJDJLJP34...";
@@ -47,7 +47,7 @@ DocumentUltimate is an ASP.NET Document Viewer and Converter which supports both
 
     Alternatively you can specify the configuration in ```<appSettings>``` tag of your Web.config.
 
-    ```
+    ```xml
     <appSettings>
       <add key="DocumentUltimate:LicenseKey" value="QQJDJLJP34..." />
       <add key="DocumentUltimateWeb:CachePath" value="~/App_Data/DocumentCache" />
@@ -58,14 +58,14 @@ DocumentUltimate is an ASP.NET Document Viewer and Converter which supports both
 
 3.  Open one of your View pages (eg. Index.cshtml) and at the top of your page add the necessary namespaces:
 
-    ```
+    ```cshtml
     @using GleamTech.Web.Mvc
     @using GleamTech.DocumentUltimate.Web
     ```
 
     Alternatively you can add the namespaces globally in **Views/web.config** to avoid adding namespaces in your pages every time:
 
-    ```
+    ```xml
     <system.web.webPages.razor>
       <pages pageBaseType="System.Web.Mvc.WebViewPage">
         <namespaces>
@@ -81,7 +81,7 @@ DocumentUltimate is an ASP.NET Document Viewer and Converter which supports both
 
     Now in your page insert these lines:
 
-    ```
+    ```cshtml
     @{
         var documentViewer = new DocumentViewer 
         {
@@ -112,22 +112,22 @@ DocumentUltimate is an ASP.NET Document Viewer and Converter which supports both
     -   Or install NuGet package and add references automatically via NuGet Package Manager in Visual Studio: 
         Go to **Tools -> NuGet Package Manager -> Package Manager Console** and run this command:
 
-			`Install-Package DocumentUltimate -Source https://get.gleamtech.com/nuget/default/`
+        `Install-Package DocumentUltimate -Source https://get.gleamtech.com/nuget/default/`
 
-		If you prefer using the user interface when working with NuGet, you can also install the package this way:
+        If you prefer using the user interface when working with NuGet, you can also install the package this way:
 		
-			-  GleamTech has its own NuGet feed so first you need to add this feed to be able to find GleamTech's packages. 
-			    Go to **Tools -> NuGet Package Manager -> Package Manager Settings** and then click the **+** button to add a 
+        - Â GleamTech has its own NuGet feed so first you need to add this feed to be able to find GleamTech's packages. 
+           Go to **Tools -> NuGet Package Manager -> Package Manager Settings** and then click the **+** button to add a 
 			    new package source. Enter `GleamTech` in **Name** field and `https://get.gleamtech.com/nuget/default/` 
 			    in **Source** field and click **OK**.
 			    
-			-  Go to **Tools -> NuGet Package Manager -> Manage NuGet Packages for Solution**, select `GleamTech` or `All` 
+        -  Go to **Tools -> NuGet Package Manager -> Manage NuGet Packages for Solution**, select `GleamTech` or `All` 
 			   in the Package source dropdown on the top right. Now enter `DocumentUltimate` in the search field, 
 			   and click **Install** button on the found package.
 
 2.  Set DocumentUltimate's global configuration. For example, you may want to set the license key and the cache path. Insert some of the following lines (if overriding a default value is required) into the ```Application_Start``` method of your **Global.asax.cs**:
 
-    ```
+    ```c#
     //Set this property only if you have a valid license key, otherwise do not
     //set it so DocumentUltimate runs in trial mode.
     DocumentUltimateConfiguration.Current.LicenseKey = "QQJDJLJP34...";
@@ -139,7 +139,7 @@ DocumentUltimate is an ASP.NET Document Viewer and Converter which supports both
 
     Alternatively you can specify the configuration in ```<appSettings>``` tag of your Web.config.
 
-    ```
+    ```xml
     <appSettings>
       <add key="DocumentUltimate:LicenseKey" value="QQJDJLJP34..." />
       <add key="DocumentUltimateWeb:CachePath" value="~/App_Data/DocumentCache" />
@@ -150,13 +150,13 @@ DocumentUltimate is an ASP.NET Document Viewer and Converter which supports both
 
 3.  Open one of your pages (eg. Default.aspx) and at the top of your page add add the necessary namespaces:
 
-    ```
+    ```aspx
     <%@ Register TagPrefix="GleamTech" Namespace="GleamTech.DocumentUltimate.Web" Assembly="GleamTech.DocumentUltimate" %>
     ```
 
     Alternatively you can add the namespaces globally in **Web.config** to avoid adding namespaces in your pages every time:
 
-    ```
+    ```xml
     <system.web>
       <pages>
         <controls>
@@ -171,7 +171,7 @@ DocumentUltimate is an ASP.NET Document Viewer and Converter which supports both
 
     Now in your page insert these lines:
 
-    ```
+    ```aspx
     <GleamTech:DocumentViewer runat="server" 
         Width="800" 
         Height="600" 
