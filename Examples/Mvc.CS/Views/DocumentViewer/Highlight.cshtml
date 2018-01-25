@@ -1,15 +1,14 @@
-﻿@using GleamTech.Web.Mvc
-@using GleamTech.DocumentUltimate.Web
+﻿@using GleamTech.AspNet.Mvc
+@using GleamTech.DocumentUltimate.AspNet.UI
 @model DocumentViewer
 <!DOCTYPE html>
 
 <html>
 <head>
     <title>Highlighting keywords</title>
-    @Html.RenderCss(Model)
-    @Html.RenderJs(Model)
+    @this.RenderHead(Model)
 </head>
 <body style="margin: 20px;">
-    @Html.RenderControl(Model)
+    @this.RenderBody(Model)
 </body>
 </html>

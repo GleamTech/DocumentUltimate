@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Stream.aspx.cs" Inherits="GleamTech.DocumentUltimateExamples.WebForms.CS.DocumentViewer.StreamPage" %>
-<%@ Register TagPrefix="GleamTech" Namespace="GleamTech.DocumentUltimate.Web" Assembly="GleamTech.DocumentUltimate" %>
+<%@ Register TagPrefix="GleamTech" Namespace="GleamTech.DocumentUltimate.AspNet.WebForms" Assembly="GleamTech.DocumentUltimate" %>
 
 <!DOCTYPE html>
 
@@ -9,7 +9,7 @@
 </head>
 <body style="margin: 20px;">
 
-    <GleamTech:DocumentViewer ID="documentViewer" runat="server" 
+    <GleamTech:DocumentViewerControl ID="documentViewer" runat="server" 
         Width="800" 
         Height="600"
         Resizable="True" />

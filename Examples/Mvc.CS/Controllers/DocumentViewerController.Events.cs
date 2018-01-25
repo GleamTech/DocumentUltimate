@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using GleamTech.DocumentUltimate.Web;
+using GleamTech.DocumentUltimate.AspNet.UI;
 using GleamTech.Examples;
 
 namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
@@ -11,7 +11,7 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
         {
             var exampleFileSelector = ViewBag.ExampleFileSelector = new ExampleFileSelector
             {
-                ID = "exampleFileSelector",
+                Id = "exampleFileSelector",
                 InitialFile = "Default.pdf"
             };
 

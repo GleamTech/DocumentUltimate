@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports System.IO
 Imports GleamTech.DocumentUltimate
-Imports GleamTech.DocumentUltimate.Web
+Imports GleamTech.DocumentUltimate.AspNet
 
 Namespace DocumentViewer
     Public Class StreamPage

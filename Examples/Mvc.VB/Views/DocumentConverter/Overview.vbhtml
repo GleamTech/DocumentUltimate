@@ -1,4 +1,4 @@
-﻿@Imports GleamTech.Web.Mvc
+﻿@Imports GleamTech.AspNet.Mvc
 @ModelType GleamTech.DocumentUltimateExamples.Mvc.VB.Models.OverviewViewModel
 <!DOCTYPE html>
 
@@ -34,20 +34,20 @@
         }
     </style>
 </head>
-<body style="margin: 20px;" >
-    @Html.RenderControl(Model.ExampleFileSelector)
+<body style="margin: 20px;">
+    @Me.RenderBody(Model.ExampleFileSelector)
 
     <p>Input format: <b>@Model.InputFormat</b></p>
     <p>
         Choose output format:
         <select id="OutputFormats" onchange="select(this)">
-        @For Each kvp in Model.OutputFormats
-            @<optgroup label="@kvp.Key">
-            @For Each item In kvp.Value
-                @<option value="@item.Value" >@item.Text</option>
+            @For Each kvp in Model.OutputFormats
+                @<optgroup label="@kvp.Key">
+                    @For Each item In kvp.Value
+                        @<option value="@item.Value">@item.Text</option>
+                    Next
+                </optgroup>
             Next
-            </optgroup>
-        Next
         </select>
     </p>
     <input type="hidden" value="@Model.ConvertHandlerUrl" id="convertHandlerUrl" />

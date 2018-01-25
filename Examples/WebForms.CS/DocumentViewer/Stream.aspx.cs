@@ -4,7 +4,7 @@ using System.IO;
 using System.Web;
 using System.Web.UI;
 using GleamTech.DocumentUltimate;
-using GleamTech.DocumentUltimate.Web;
+using GleamTech.DocumentUltimate.AspNet;
 
 namespace GleamTech.DocumentUltimateExamples.WebForms.CS.DocumentViewer
 {

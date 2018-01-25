@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="Events.aspx.vb" Inherits="GleamTech.DocumentUltimateExamples.WebForms.VB.DocumentViewer.EventsPage" %>
 <%@ Register TagPrefix="GleamTech" Namespace="GleamTech.Examples" Assembly="GleamTech.Core" %>
-<%@ Register TagPrefix="GleamTech" Namespace="GleamTech.DocumentUltimate.Web" Assembly="GleamTech.DocumentUltimate" %>
+<%@ Register TagPrefix="GleamTech" Namespace="GleamTech.DocumentUltimate.AspNet.WebForms" Assembly="GleamTech.DocumentUltimate" %>
 
 <!DOCTYPE html>
 
@@ -89,7 +89,7 @@
 
 </head>
 <body style="margin: 20px;">
-<GleamTech:ExampleFileSelector ID="exampleFileSelector" runat="server"
+<GleamTech:ExampleFileSelectorControl ID="exampleFileSelector" runat="server"
                                InitialFile="Default.pdf" />
 
 <p>
@@ -98,7 +98,7 @@
     <button onclick="clearLog()">Clear</button>
 </p>
 
-<GleamTech:DocumentViewer ID="documentViewer" runat="server" 
+<GleamTech:DocumentViewerControl ID="documentViewer" runat="server" 
                           Width="800" 
                           Height="600"
                           Resizable="True"

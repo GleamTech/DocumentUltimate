@@ -8,6 +8,6 @@
     <title>DocumentUltimate Examples - ASP.NET Web Forms (C#)</title>
 </head>
     <body>
-        <GleamTech:ExampleExplorer ID="exampleExplorer" FullViewport="True" NavigationTitle="DocumentUltimate Examples" runat="server" />
+        <GleamTech:ExampleExplorerControl ID="exampleExplorer" DisplayMode="Viewport" NavigationTitle="DocumentUltimate Examples" runat="server" />
     </body>
 </html>

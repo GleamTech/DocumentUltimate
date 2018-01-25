@@ -21,6 +21,6 @@ Namespace DocumentViewer
         '''Auto-generated field.
         '''To modify move field declaration from designer file to code-behind file.
         '''</remarks>
-        Protected WithEvents documentViewer As Global.GleamTech.DocumentUltimate.Web.DocumentViewer
+        Protected WithEvents documentViewer As Global.GleamTech.DocumentUltimate.AspNet.WebForms.DocumentViewerControl
     End Class
 End Namespace

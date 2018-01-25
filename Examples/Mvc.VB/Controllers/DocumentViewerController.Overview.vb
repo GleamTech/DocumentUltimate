@@ -1,4 +1,4 @@
-﻿Imports GleamTech.DocumentUltimate.Web
+﻿Imports GleamTech.DocumentUltimate.AspNet.UI
 Imports GleamTech.Examples
 
 Namespace Controllers
@@ -8,7 +8,7 @@ Namespace Controllers
         <AcceptVerbs(HttpVerbs.Get Or HttpVerbs.Post)>
 	    Public Function Overview(fileSelector As String) As ActionResult
             Dim exampleFileSelector =  new ExampleFileSelector() With {
-                .ID = "exampleFileSelector",
+                .Id = "exampleFileSelector",
                 .InitialFile = "Default.pdf"
             }
             ViewBag.ExampleFileSelector = exampleFileSelector

@@ -1,4 +1,4 @@
-﻿Imports GleamTech.DocumentUltimate.Web
+﻿Imports GleamTech.DocumentUltimate.AspNet.UI
 
 Namespace Controllers
     Partial Public Class  DocumentViewerController

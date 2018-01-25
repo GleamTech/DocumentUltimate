@@ -4,7 +4,8 @@ using System.IO;
 using System.Web;
 using System.Web.Mvc;
 using GleamTech.DocumentUltimate;
-using GleamTech.DocumentUltimate.Web;
+using GleamTech.DocumentUltimate.AspNet;
+using GleamTech.DocumentUltimate.AspNet.UI;
 
 namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
 {

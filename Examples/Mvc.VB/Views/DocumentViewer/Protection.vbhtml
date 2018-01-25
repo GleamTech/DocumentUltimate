@@ -1,15 +1,14 @@
-﻿@Imports GleamTech.Web.Mvc
-@Imports GleamTech.DocumentUltimate.Web
+﻿@Imports GleamTech.AspNet.Mvc
+@Imports GleamTech.DocumentUltimate.AspNet.UI
 @ModelType DocumentViewer
 <!DOCTYPE html>
 
 <html>
 <head>
     <title>Copy protection (DRM)</title>
-    @Html.RenderCss(Model)
-    @Html.RenderJs(Model)
+    @Me.RenderHead(Model)
 </head>
 <body style="margin: 20px;">
-    @Html.RenderControl(Model)
+    @Me.RenderBody(Model)
 </body>
 </html>

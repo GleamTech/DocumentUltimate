@@ -4,12 +4,12 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Web;
 using System.Web.Mvc;
+using GleamTech.AspNet;
 using GleamTech.DocumentUltimate;
 using GleamTech.DocumentUltimateExamples.Mvc.CS.Models;
 using GleamTech.Examples;
 using GleamTech.IO;
 using GleamTech.Util;
-using GleamTech.Web;
 
 namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
 {
@@ -21,7 +21,7 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
             {
                 ExampleFileSelector = new ExampleFileSelector
                 {
-                    ID = "exampleFileSelector",
+                    Id = "exampleFileSelector",
                     InitialFile = "Default.pdf"
                 }
             };

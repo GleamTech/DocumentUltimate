@@ -2,13 +2,9 @@
 <html>
 <head>
     <title>@ViewBag.Title</title>
-    @if (IsSectionDefined("DocumentUltimateCss"))
+    @if (IsSectionDefined("documentViewerHead"))
     {
-        @RenderSection("DocumentUltimateCss")
-    }
-    @if (IsSectionDefined("DocumentUltimateJs"))
-    {
-        @RenderSection("DocumentUltimateJs")
+        @RenderSection("documentViewerHead")
     }
 </head>
 <body style="margin: 20px;">

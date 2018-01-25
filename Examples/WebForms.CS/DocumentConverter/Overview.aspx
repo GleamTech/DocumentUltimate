@@ -36,7 +36,7 @@
     </style>
 </head>
 <body style="margin: 20px;">
-    <GleamTech:ExampleFileSelector ID="exampleFileSelector" runat="server"
+    <GleamTech:ExampleFileSelectorControl ID="exampleFileSelector" runat="server"
         InitialFile="Default.pdf" />
     
     <p>Input format: <b><%=InputFormat%></b></p>

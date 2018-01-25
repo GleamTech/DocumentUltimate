@@ -3,12 +3,12 @@ Imports System.Collections.Generic
 Imports System.Collections.Specialized
 Imports System.IO
 Imports System.Web
+Imports GleamTech.AspNet
 Imports GleamTech.DocumentUltimate
 Imports GleamTech.DocumentUltimateExamples.Mvc.VB.Models
 Imports GleamTech.Examples
 Imports GleamTech.IO
 Imports GleamTech.Util
-Imports GleamTech.Web
 
 Namespace Controllers
     Partial Public Class  DocumentConverterController
@@ -16,7 +16,7 @@ Namespace Controllers
 	    Public Function Overview() As ActionResult
 		    Dim model = New OverviewViewModel() With {
 			    .ExampleFileSelector = New ExampleFileSelector() With {
-				    .ID = "exampleFileSelector",
+				    .Id = "exampleFileSelector",
 				    .InitialFile = "Default.pdf"
 			    }
 		    }

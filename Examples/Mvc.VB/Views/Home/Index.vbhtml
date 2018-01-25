@@ -1,9 +1,9 @@
-﻿@Imports GleamTech.Examples
-@Imports GleamTech.Web.Mvc
+﻿@Imports GleamTech.AspNet.Mvc
 @Imports GleamTech.DocumentUltimate
+@Imports GleamTech.Examples
 @Code
     Dim exampleExplorer = New ExampleExplorer() With {
-        .FullViewport = True,
+        .DisplayMode = GleamTech.AspNet.UI.DisplayMode.Viewport,
         .NavigationTitle = "DocumentUltimate Examples",
         .VersionTitle = "v" + DocumentUltimateConfiguration.AssemblyInfo.FileVersion.ToString(),
         .Examples = New ExampleBase() {
@@ -76,11 +76,9 @@ End Code
 <head>
     <title>DocumentUltimate Examples - ASP.NET MVC (VB)</title>
 
-    @Html.RenderCss(exampleExplorer)
-    @Html.RenderJs(exampleExplorer)
-
+    @Me.RenderHead(exampleExplorer)
 </head>
 <body>
-    @Html.RenderControl(exampleExplorer)
+    @Me.RenderBody(exampleExplorer)
 </body>
 </html>

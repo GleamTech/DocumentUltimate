@@ -3,7 +3,8 @@ Imports System.Data.SqlClient
 Imports System.IO
 Imports System.Web
 Imports GleamTech.DocumentUltimate
-Imports GleamTech.DocumentUltimate.Web
+Imports GleamTech.DocumentUltimate.AspNet
+Imports GleamTech.DocumentUltimate.AspNet.UI
 
 Namespace Controllers
     Partial Public Class  DocumentViewerController

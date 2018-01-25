@@ -1,14 +1,13 @@
-﻿@using GleamTech.Web
-@using GleamTech.Web.Mvc
-@using GleamTech.DocumentUltimate.Web
+﻿@using GleamTech.AspNet.UI
+@using GleamTech.AspNet.Mvc
+@using GleamTech.DocumentUltimate.AspNet.UI
 @model DocumentViewer
 <!DOCTYPE html>
 
 <html>
 <head>
     <title>Events</title>
-    @Html.RenderCss(Model)
-    @Html.RenderJs(Model)
+    @this.RenderHead(Model)
 
     <script type="text/javascript">
         function documentViewerLoad(sender, e) {
@@ -91,7 +90,7 @@
 
 </head>
 <body style="margin: 20px;">
-    @Html.RenderControl(ViewBag.ExampleFileSelector as IHtmlWriterControl)
+    @this.RenderBody(ViewBag.ExampleFileSelector as Component)
 
     <p>
         Events:<br/>
@@ -99,6 +98,6 @@
         <button onclick="clearLog()">Clear</button>
     </p>
 
-    @Html.RenderControl(Model)
+    @this.RenderBody(Model)
 </body>
 </html>
