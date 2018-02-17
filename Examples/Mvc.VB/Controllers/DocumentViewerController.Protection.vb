@@ -10,10 +10,10 @@ Namespace Controllers
 			    .Height = 600,
 			    .Resizable = True,
 			    .Document = "~/App_Data/ExampleFiles/Default.pdf",
-                .DownloadEnabled = False,
-                .DownloadAsPdfEnabled = False,
-                .PrintEnabled = False,
-                .TextSelectionEnabled = False
+                .DeniedPermissions = DocumentViewerPermissions.Download _
+                                     Or DocumentViewerPermissions.DownloadAsPdf _
+	                                 Or DocumentViewerPermissions.Print _
+                                     Or DocumentViewerPermissions.SelectText
 		    }
 
 		    Return View(documentViewer)

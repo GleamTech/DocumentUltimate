@@ -45,6 +45,18 @@
                         .Url = "DocumentViewer/Events",
                         .SourceFiles = New String() {"Views/DocumentViewer/Events.vbhtml", "Controllers/DocumentViewerController.Events.vb"},
                         .DescriptionFile = "Descriptions/DocumentViewer/Events.html"
+                    },
+                    New Example() With {
+                        .Title = "Using MVC layout",
+                        .Url = "DocumentViewer/UsingLayout",
+                        .SourceFiles = New String() {"Views/DocumentViewer/UsingLayout.vbhtml", "Views/Shared/_Layout.vbhtml", "Controllers/DocumentViewerController.UsingLayout.vb"},
+                        .DescriptionFile = "Descriptions/DocumentViewer/UsingLayout.html"
+                    },
+                    New Example() With {
+                        .Title = "Using MVC partial view",
+                        .Url = "DocumentViewer/UsingPartial",
+                        .SourceFiles = New String() {"Views/DocumentViewer/UsingPartial.vbhtml", "Views/DocumentViewer/DocumentViewerPartialView.vbhtml", "Controllers/DocumentViewerController.UsingPartial.vb"},
+                        .DescriptionFile = "Descriptions/DocumentViewer/UsingPartial.html"
                     }
                 }
             },

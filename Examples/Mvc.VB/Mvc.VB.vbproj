@@ -54,10 +54,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GleamTech.Core">
-      <HintPath>..\packages\GleamTech.Core.2.2.0\lib\net40\GleamTech.Core.dll</HintPath>
+      <HintPath>..\packages\GleamTech.Core.2.3.0\lib\net40\GleamTech.Core.dll</HintPath>
     </Reference>
     <Reference Include="GleamTech.DocumentUltimate">
-      <HintPath>..\packages\DocumentUltimate.3.10.5\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
+      <HintPath>..\packages\DocumentUltimate.3.11.0\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
     </Reference>
     <Reference Include="System.Data"/>
     <Reference Include="System.Drawing"/>
@@ -101,6 +101,8 @@
     <Compile Include="Controllers\DocumentConverterController.vb"/>
     <Compile Include="Controllers\DocumentConverterController.Overview.vb"/>
     <Compile Include="Controllers\DocumentViewerController.Events.vb"/>
+    <Compile Include="Controllers\DocumentViewerController.UsingLayout.vb"/>
+    <Compile Include="Controllers\DocumentViewerController.UsingPartial.vb"/>
     <Compile Include="Controllers\DocumentViewerController.Watermark.vb"/>
     <Compile Include="Controllers\DocumentViewerController.Stream.vb"/>
     <Compile Include="Controllers\DocumentViewerController.Highlight.vb"/>
@@ -158,6 +160,8 @@
     <Content Include="Descriptions\DocumentViewer\Overview.html"/>
     <Content Include="Descriptions\DocumentViewer\Protection.html"/>
     <Content Include="Descriptions\DocumentViewer\Stream.html"/>
+    <Content Include="Descriptions\DocumentViewer\UsingLayout.html"/>
+    <Content Include="Descriptions\DocumentViewer\UsingPartial.html"/>
     <Content Include="Descriptions\DocumentViewer\Watermark.html"/>
     <Content Include="Views\Home\Index.vbhtml"/>
     <Content Include="Views\DocumentViewer\Overview.vbhtml"/>
@@ -168,6 +172,9 @@
     <Content Include="Views\DocumentConverter\Overview.vbhtml"/>
     <Content Include="Views\DocumentConverter\Possible.vbhtml"/>
     <Content Include="Views\DocumentViewer\Events.vbhtml"/>
+    <Content Include="Views\DocumentViewer\DocumentViewerPartialView.vbhtml"/>
+    <Content Include="Views\DocumentViewer\UsingPartial.vbhtml"/>
+    <Content Include="Views\DocumentViewer\UsingLayout.vbhtml"/>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax"/>

@@ -5,18 +5,14 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
 {
     public partial class DocumentViewerController
     {
-        public ActionResult Protection()
+        public ActionResult UsingLayout()
         {
             var documentViewer = new DocumentViewer
             {
                 Width = 800,
                 Height = 600,
                 Resizable = true,
-                Document = "~/App_Data/ExampleFiles/Default.pdf",
-                DeniedPermissions = DocumentViewerPermissions.Download 
-                                    | DocumentViewerPermissions.DownloadAsPdf 
-                                    | DocumentViewerPermissions.Print 
-                                    | DocumentViewerPermissions.SelectText
+                Document = "~/App_Data/ExampleFiles/Default.pdf"
             };
 
             return View(documentViewer);

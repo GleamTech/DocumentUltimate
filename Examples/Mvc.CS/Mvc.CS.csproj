@@ -50,10 +50,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GleamTech.Core">
-      <HintPath>..\packages\GleamTech.Core.2.2.0\lib\net40\GleamTech.Core.dll</HintPath>
+      <HintPath>..\packages\GleamTech.Core.2.3.0\lib\net40\GleamTech.Core.dll</HintPath>
     </Reference>
     <Reference Include="GleamTech.DocumentUltimate">
-      <HintPath>..\packages\DocumentUltimate.3.10.5\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
+      <HintPath>..\packages\DocumentUltimate.3.11.0\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp"/>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -103,6 +103,8 @@
     <Compile Include="Controllers\DocumentConverterController.Possible.cs"/>
     <Compile Include="Controllers\DocumentConverterController.Overview.cs"/>
     <Compile Include="Controllers\DocumentViewerController.Events.cs"/>
+    <Compile Include="Controllers\DocumentViewerController.UsingLayout.cs"/>
+    <Compile Include="Controllers\DocumentViewerController.UsingPartial.cs"/>
     <Compile Include="Controllers\DocumentViewerController.Watermark.cs"/>
     <Compile Include="Controllers\DocumentViewerController.Stream.cs"/>
     <Compile Include="Controllers\DocumentViewerController.Highlight.cs"/>
@@ -122,6 +124,8 @@
     <Content Include="Descriptions\DocumentConverter\Overview.html"/>
     <Content Include="Descriptions\DocumentConverter\Possible.html"/>
     <Content Include="Descriptions\DocumentViewer\Events.html"/>
+    <Content Include="Descriptions\DocumentViewer\UsingLayout.html"/>
+    <Content Include="Descriptions\DocumentViewer\UsingPartial.html"/>
     <Content Include="Descriptions\DocumentViewer\Stream.html"/>
     <Content Include="Descriptions\DocumentViewer\Highlight.html"/>
     <Content Include="Descriptions\DocumentViewer\Protection.html"/>
@@ -140,7 +144,9 @@
     <Content Include="Views\Web.config"/>
     <Content Include="Views\Shared\_Layout.cshtml"/>
   </ItemGroup>
-  <ItemGroup/>
+  <ItemGroup>
+    <Content Include="Views\DocumentViewer\UsingPartial.cshtml"/>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml"/>
   </ItemGroup>
@@ -175,6 +181,12 @@
     <Content Include="App_Data\ExampleFiles\Default.doc"/>
     <Content Include="App_Data\ExampleFiles\Default.docx"/>
     <Content Include="App_Data\ExampleFiles\Default.pdf"/>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DocumentViewer\DocumentViewerPartialView.cshtml"/>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DocumentViewer\UsingLayout.cshtml"/>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

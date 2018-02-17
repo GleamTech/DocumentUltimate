@@ -14,10 +14,7 @@
         Height="600"
         Resizable="True"
         Document="~/App_Data/ExampleFiles/Default.pdf"
-        DownloadEnabled="False"
-        DownloadAsPdfEnabled="False"
-        PrintEnabled="False"
-        TextSelectionEnabled="False" />
+        DeniedPermissions="Download, DownloadAsPdf, Print, SelectText" />
 
 </body>
 </html>
