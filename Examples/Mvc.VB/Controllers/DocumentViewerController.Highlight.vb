@@ -10,10 +10,12 @@ Namespace Controllers
 			.Height = 600,
 			.Resizable = True,
 			.Document = "~/App_Data/ExampleFiles/Default.doc",
-			.HighlightedKeywords = New String () {"ancient", "ship"}
+			.SearchOptions = New SearchOptions With
+		        {
+		            .Term = "ancient mariner",
+		            .MatchOptions = MatchOptions.MatchAnyWord
+		        }
 		}
-        'You can also split your whole search term into keywords like this:
-        '.HighlightedKeywords = "ancient ship".Split(new String() { " " }, StringSplitOptions.RemoveEmptyEntries)
 
 		Return View(documentViewer)
 	End Function

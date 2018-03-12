@@ -5,7 +5,7 @@
 
 <html>
 <head>
-    <title>Highlighting keywords</title>
+    <title>Auto searching and highlighting keywords</title>
     @Me.RenderHead(Model)
 </head>
 <body style="margin: 20px;">

@@ -34,7 +34,7 @@ namespace GleamTech.DocumentUltimateExamples.WebForms.CS
                         },
                         new Example
                         {
-                            Title = "Highlighting keywords",
+                            Title = "Auto searching and highlighting keywords",
                             Url = "DocumentViewer/Highlight.aspx",
                             SourceFiles = new[] {"DocumentViewer/Highlight.aspx", "DocumentViewer/Highlight.aspx.cs"},
                             DescriptionFile = "Descriptions/DocumentViewer/Highlight.html"

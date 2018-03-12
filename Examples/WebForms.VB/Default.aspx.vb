@@ -25,7 +25,7 @@ Public Class DefaultPage
 		                .DescriptionFile = "Descriptions/DocumentViewer/Protection.html" 
 	                },
                     New Example() With {
-		                .Title = "Highlighting keywords", 
+		                .Title = "Auto searching and highlighting keywords", 
 		                .Url = "DocumentViewer/Highlight.aspx", 
 		                .SourceFiles = New String() {"DocumentViewer/Highlight.aspx", "DocumentViewer/Highlight.aspx.vb"}, 
 		                .DescriptionFile = "Descriptions/DocumentViewer/Highlight.html" 

@@ -23,7 +23,7 @@
                         .DescriptionFile = "Descriptions/DocumentViewer/Protection.html"
                     },
                     New Example() With {
-                        .Title = "Highlighting keywords",
+                        .Title = "Auto searching and highlighting keywords",
                         .Url = "DocumentViewer/Highlight",
                         .SourceFiles = New String() {"Views/DocumentViewer/Highlight.vbhtml", "Controllers/DocumentViewerController.Highlight.vb"},
                         .DescriptionFile = "Descriptions/DocumentViewer/Highlight.html"

@@ -5,7 +5,7 @@
 
 <html>
 <head runat="server">
-    <title>Highlighting keywords</title>
+    <title>Auto searching and highlighting keywords</title>
 </head>
 <body style="margin: 20px;">
 
@@ -13,7 +13,9 @@
         Width="800" 
         Height="600"
         Resizable="True"
-        Document="~/App_Data/ExampleFiles/Default.doc" />
+        Document="~/App_Data/ExampleFiles/Default.doc" 
+        SearchOptions-Term="ancient mariner"
+        SearchOptions-MatchOptions="MatchAnyWord" />
 
 </body>
 </html>
