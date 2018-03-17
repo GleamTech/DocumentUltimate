@@ -31,6 +31,7 @@ Namespace Controllers
             ' So it can be any string value that your IDocumentHandler implementation understands.
             documentViewer.Document = "~/App_Data/ExampleFiles/Default.docx"
 
+
             ' ---------------------------------------------
             ' Here is an example (commented out) for loading a document from database.
             ' See below for DbDocumentHandler class which implements IDocumentHandler interface.
@@ -38,6 +39,12 @@ Namespace Controllers
             
             'documentViewer.DocumentHandlerType = typeof(DbDocumentHandler);
             'documentViewer.Document = "176"; ' a file path or identifier
+            ' When you need to pass custom parameters along with the input file to your handler implementation,
+            ' use documentViewer.DocumentHandlerParameters property to set your parameters.
+            ' These will be passed to the methods of your handler implementation:
+            'documentViewer.DocumentHandlerParameters.Set("connectionString", "SOME CONNECTION STRING")
+            ' ---------------------------------------------
+
 
             ' ---------------------------------------------
             ' When you don't have a file on disk and implementing IDocumentHandler interface is not convenient, 
@@ -57,7 +64,7 @@ Namespace Controllers
             '    New DocumentInfo(uniqueId, fileName), 
             '    byteArray
             ')
-
+            ' ---------------------------------------------
 
 		    Return View(documentViewer)
 	    End Function
@@ -80,7 +87,7 @@ Namespace Controllers
         ' the input file that was requested to be loaded in DocumentViewer
         '
         ' Return a DocumentInfo instance initialized with required information from this method.
-        Public Function GetInfo(inputFile As String) As DocumentInfo Implements IDocumentHandler.GetInfo
+        Public Function GetInfo(inputFile As String, handlerParameters As DocumentHandlerParameters) As DocumentInfo Implements IDocumentHandler.GetInfo
 
             Dim physicalPath = HttpContext.Current.Server.MapPath(inputFile)
             Dim fileInfo As New FileInfo(physicalPath)
@@ -120,7 +127,7 @@ Namespace Controllers
         ' for you to locate and open a corresponding stream.
         '
         ' Return a StreamResult instance initialized with a readable System.IO.Stream object.
-        Public Function OpenRead(inputFile As String, inputOptions As InputOptions) As StreamResult Implements IDocumentHandler.OpenRead
+        Public Function OpenRead(inputFile As String, inputOptions As InputOptions, handlerParameters As DocumentHandlerParameters) As StreamResult Implements IDocumentHandler.OpenRead
 
             Dim physicalPath = HttpContext.Current.Server.MapPath(inputFile)
             Dim stream = File.OpenRead(physicalPath)
@@ -148,11 +155,15 @@ Namespace Controllers
         ' the input file that was requested to be loaded in DocumentViewer
         '
         ' Return a DocumentInfo instance initialized with required information from this method.
-        Public Function GetInfo(inputFile As String) As DocumentInfo Implements IDocumentHandler.GetInfo
+        Public Function GetInfo(inputFile As String, handlerParameters As DocumentHandlerParameters) As DocumentInfo Implements IDocumentHandler.GetInfo
             Dim fileId = inputFile
             Dim fileName As String
 
-            Using connection As New SqlConnection("CONNECTION STRING")
+            ' Get your parameters that were set in documentViewer.DocumentHandlerParameters property
+            ' The type for the generic Get<T> method should be the same as the set value's type.
+            Dim connectionString = handlerParameters.Get(Of String)("connectionString")
+
+            Using connection As New SqlConnection(connectionString)
                 connection.Open()
 
                 Dim sql = "SELECT FileName FROM FileTable WHERE FileId=" + fileId
@@ -199,11 +210,15 @@ Namespace Controllers
         ' for you to locate and open a corresponding stream.
         '
         ' Return a StreamResult instance initialized with a readable System.IO.Stream object.
-        Public Function OpenRead(inputFile As String, inputOptions As InputOptions) As StreamResult Implements IDocumentHandler.OpenRead
+        Public Function OpenRead(inputFile As String, inputOptions As InputOptions, handlerParameters As DocumentHandlerParameters) As StreamResult Implements IDocumentHandler.OpenRead
             Dim fileId = inputFile
             Dim fileBytes As Byte()
 
-            Using connection As New SqlConnection("CONNECTION STRING")
+            ' Get your parameters that were set in documentViewer.DocumentHandlerParameters property
+            ' The type for the generic Get<T> method should be the same as the set value's type.
+            Dim connectionString = handlerParameters.Get(Of String)("connectionString")
+
+            Using connection As New SqlConnection(connectionString)
                 connection.Open()
 
                 Dim sql = "SELECT FileBytes FROM FileTable WHERE FileId=" + fileId
@@ -225,4 +240,5 @@ Namespace Controllers
             Return New StreamResult(stream)
         End Function
     End Class
+
 End Namespace

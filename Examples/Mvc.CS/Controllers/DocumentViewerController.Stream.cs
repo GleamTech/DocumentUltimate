@@ -34,6 +34,7 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
             // So it can be any string value that your IDocumentHandler implementation understands.
             documentViewer.Document = "~/App_Data/ExampleFiles/Default.docx";
 
+
             //---------------------------------------------
             // Here is an example (commented out) for loading a document from database.
             // See below for DbDocumentHandler class which implements IDocumentHandler interface.
@@ -41,7 +42,14 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
             /*
             documentViewer.DocumentHandlerType = typeof(DbDocumentHandler);
             documentViewer.Document = "176"; // a file path or identifier
+
+            // When you need to pass custom parameters along with the input file to your handler implementation,
+            // use documentViewer.DocumentHandlerParameters property to set your parameters.
+            // These will be passed to the methods of your handler implementation:
+            documentViewer.DocumentHandlerParameters.Set("connectionString", "SOME CONNECTION STRING");
             */
+            //---------------------------------------------
+
 
             //---------------------------------------------
             //When you don't have a file on disk and implementing IDocumentHandler interface is not convenient, 
@@ -65,6 +73,8 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
                 byteArray
             );
             */
+            //---------------------------------------------
+
 
             return View(documentViewer);
         }
@@ -84,7 +94,7 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
         // the input file that was requested to be loaded in DocumentViewer
         //
         // Return a DocumentInfo instance initialized with required information from this method.
-        public DocumentInfo GetInfo(string inputFile)
+        public DocumentInfo GetInfo(string inputFile, DocumentHandlerParameters handlerParameters)
         {
             var physicalPath = HttpContext.Current.Server.MapPath(inputFile);
             var fileInfo = new FileInfo(physicalPath);
@@ -123,7 +133,7 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
         // for you to locate and open a corresponding stream.
         //
         // Return a StreamResult instance initialized with a readable System.IO.Stream object.
-        public StreamResult OpenRead(string inputFile, InputOptions inputOptions)
+        public StreamResult OpenRead(string inputFile, InputOptions inputOptions, DocumentHandlerParameters handlerParameters)
         {
             var physicalPath = HttpContext.Current.Server.MapPath(inputFile);
             var stream = File.OpenRead(physicalPath);
@@ -148,12 +158,16 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
         // the input file that was requested to be loaded in DocumentViewer
         // 
         // Return a DocumentInfo instance initialized with required information from this method.
-        public DocumentInfo GetInfo(string inputFile)
+        public DocumentInfo GetInfo(string inputFile, DocumentHandlerParameters handlerParameters)
         {
             var fileId = inputFile;
             string fileName;
 
-            using (var connection = new SqlConnection("CONNECTION STRING"))
+            // Get your parameters that were set in documentViewer.DocumentHandlerParameters property
+            // The type for the generic Get<T> method should be the same as the set value's type.
+            var connectionString = handlerParameters.Get<string>("connectionString");
+
+            using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
@@ -203,12 +217,16 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
         // for you to locate and open a corresponding stream.
         // 
         // Return a StreamResult instance initialized with a readable System.IO.Stream object.
-        public StreamResult OpenRead(string inputFile, InputOptions inputOptions)
+        public StreamResult OpenRead(string inputFile, InputOptions inputOptions, DocumentHandlerParameters handlerParameters)
         {
             var fileId = inputFile;
             byte[] fileBytes;
 
-            using (var connection = new SqlConnection("CONNECTION STRING"))
+            // Get your parameters that were set in documentViewer.DocumentHandlerParameters property
+            // The type for the generic Get<T> method should be the same as the set value's type.
+            var connectionString = handlerParameters.Get<string>("connectionString");
+
+            using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
