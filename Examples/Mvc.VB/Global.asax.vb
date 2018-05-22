@@ -1,6 +1,7 @@
 ﻿' Note: For instructions on enabling IIS6 or IIS7 classic mode, 
 ' visit http://go.microsoft.com/?LinkId=9394802
 Imports System.IO
+Imports GleamTech.AspNet
 Imports GleamTech.DocumentUltimate
 
 Public Class MvcApplication
@@ -13,10 +14,10 @@ Public Class MvcApplication
         ' (1) Route name
         ' (2) URL with parameters
         ' (3) Parameter defaults
-        routes.MapRoute( _
-            "Default", _
-            "{controller}/{action}/{id}", _
-            New With {.controller = "Home", .action = "Index", .id = UrlParameter.Optional} _
+        routes.MapRoute(
+            "Default",
+            "{controller}/{action}/{id}",
+            New With {.controller = "Home", .action = "Index", .id = UrlParameter.Optional}
         )
 
     End Sub
@@ -26,7 +27,7 @@ Public Class MvcApplication
 
         RegisterRoutes(RouteTable.Routes)
 
-        Dim licenseFile = Server.MapPath("~/App_Data/License.dat")
+        Dim licenseFile = Hosting.ResolvePhysicalPath("~/App_Data/License.dat")
         If File.Exists(licenseFile) Then
 	        DocumentUltimateConfiguration.Current.LicenseKey = File.ReadAllText(licenseFile)
         End If

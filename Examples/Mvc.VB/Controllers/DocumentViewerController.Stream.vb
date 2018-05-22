@@ -2,6 +2,7 @@
 Imports System.Data.SqlClient
 Imports System.IO
 Imports System.Web
+Imports GleamTech.AspNet
 Imports GleamTech.DocumentUltimate
 Imports GleamTech.DocumentUltimate.AspNet
 Imports GleamTech.DocumentUltimate.AspNet.UI
@@ -89,7 +90,7 @@ Namespace Controllers
         ' Return a DocumentInfo instance initialized with required information from this method.
         Public Function GetInfo(inputFile As String, handlerParameters As DocumentHandlerParameters) As DocumentInfo Implements IDocumentHandler.GetInfo
 
-            Dim physicalPath = HttpContext.Current.Server.MapPath(inputFile)
+            Dim physicalPath = Hosting.ResolvePhysicalPath(inputFile)
             Dim fileInfo As New FileInfo(physicalPath)
 
             ' uniqueId parameter (required):
@@ -129,7 +130,7 @@ Namespace Controllers
         ' Return a StreamResult instance initialized with a readable System.IO.Stream object.
         Public Function OpenRead(inputFile As String, inputOptions As InputOptions, handlerParameters As DocumentHandlerParameters) As StreamResult Implements IDocumentHandler.OpenRead
 
-            Dim physicalPath = HttpContext.Current.Server.MapPath(inputFile)
+            Dim physicalPath = Hosting.ResolvePhysicalPath(inputFile)
             Dim stream = File.OpenRead(physicalPath)
 
             Return New StreamResult(stream)

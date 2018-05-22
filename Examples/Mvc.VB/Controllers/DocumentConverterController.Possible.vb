@@ -2,6 +2,7 @@
 Imports System.Collections.Generic
 Imports System.Collections.Specialized
 Imports System.Web
+Imports GleamTech.AspNet
 Imports GleamTech.DocumentUltimate
 Imports GleamTech.DocumentUltimateExamples.Mvc.VB.Models
 Imports GleamTech.Examples
@@ -54,34 +55,34 @@ Namespace Controllers
 		    Next
 	    End Sub
 
-	    Public Shared Sub ResultHandler(context As HttpContext)
-		    Dim inputFormat = DirectCast([Enum].Parse(GetType(DocumentFormat), context.Request("inputFormat")), DocumentFormat)
-		    Dim outputFormat = DirectCast([Enum].Parse(GetType(DocumentFormat), context.Request("outputFormat")), DocumentFormat)
+        Public Shared Sub ResultHandler(context As IHttpContext)
+            Dim inputFormat = DirectCast([Enum].Parse(GetType(DocumentFormat), context.Request("inputFormat")), DocumentFormat)
+            Dim outputFormat = DirectCast([Enum].Parse(GetType(DocumentFormat), context.Request("outputFormat")), DocumentFormat)
 
-		    context.Response.Write("<center>")
+            context.Response.Output.Write("<center>")
 
-		    If DocumentConverter.CanConvert(inputFormat, outputFormat) Then
-			    context.Response.Write(String.Format("<span style=""color: green; font-weight: bold"">Direct conversion from {0} to {1} is possible</span>", inputFormat, outputFormat))
+            If DocumentConverter.CanConvert(inputFormat, outputFormat) Then
+                context.Response.Output.Write(String.Format("<span style=""color: green; font-weight: bold"">Direct conversion from {0} to {1} is possible</span>", inputFormat, outputFormat))
 
-			    For Each engine As DocumentEngine In [Enum](Of DocumentEngine).GetValues()
-				    If DocumentConverter.CanConvert(inputFormat, outputFormat, engine) Then
-					    context.Response.Write(String.Format(
-                            "<br/><span style=""color: green; font-weight: bold"">Via {0} Engine &#x2713;</span>", 
+                For Each engine As DocumentEngine In [Enum](Of DocumentEngine).GetValues()
+                    If DocumentConverter.CanConvert(inputFormat, outputFormat, engine) Then
+                        context.Response.Output.Write(String.Format(
+                            "<br/><span style=""color: green; font-weight: bold"">Via {0} Engine &#x2713;</span>",
                             engine))
-				    Else
-					    context.Response.Write(String.Format(
-                            "<br/><span style=""color: red; font-weight: bold"">Via {0} Engine &#x2717;</span>", 
+                    Else
+                        context.Response.Output.Write(String.Format(
+                            "<br/><span style=""color: red; font-weight: bold"">Via {0} Engine &#x2717;</span>",
                             engine))
-				    End If
-			    Next
-		    Else
-			    context.Response.Write(String.Format("<span style=""color: red; font-weight: bold"">Direct conversion from {0} to {1} is not possible</span>", inputFormat, outputFormat))
-		    End If
+                    End If
+                Next
+            Else
+                context.Response.Output.Write(String.Format("<span style=""color: red; font-weight: bold"">Direct conversion from {0} to {1} is not possible</span>", inputFormat, outputFormat))
+            End If
 
-		    context.Response.Write("</center>")
-	    End Sub
+            context.Response.Output.Write("</center>")
+        End Sub
 
-	    Private Shared ReadOnly Property ResultHandlerName() As String
+        Private Shared ReadOnly Property ResultHandlerName() As String
 		    Get
 			    If m_resultHandlerName Is Nothing Then
 				    m_resultHandlerName = "ResultHandler"

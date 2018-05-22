@@ -1,0 +1,113 @@
+﻿@using GleamTech.AspNet
+@using GleamTech.AspNet.Core
+@using GleamTech.DocumentUltimate
+@using GleamTech.Examples
+@{
+    var exampleExplorer = new ExampleExplorer
+    {
+        DisplayMode = GleamTech.AspNet.UI.DisplayMode.Viewport,
+        NavigationTitle = "DocumentUltimate Examples",
+        VersionTitle = "v" + DocumentUltimateConfiguration.AssemblyInfo.FileVersion,
+        Examples = new ExampleBase[]
+        {
+            new ExampleFolder
+            {
+                Title = "Document Viewer",
+                Children = new ExampleBase[]
+                {
+                    new Example
+                    {
+                        Title = "Overview",
+                        Url = "DocumentViewer/Overview",
+                        SourceFiles = new[] {"Views/DocumentViewer/Overview.cshtml", "Controllers/DocumentViewerController.Overview.cs"},
+                        DescriptionFile = "Descriptions/DocumentViewer/Overview.html"
+                    },
+                    new Example
+                    {
+                        Title = "Copy protection (DRM)",
+                        Url = "DocumentViewer/Protection",
+                        SourceFiles = new[] {"Views/DocumentViewer/Protection.cshtml", "Controllers/DocumentViewerController.Protection.cs"},
+                        DescriptionFile = "Descriptions/DocumentViewer/Protection.html"
+                    },
+                    new Example
+                    {
+                        Title = "Auto searching and highlighting keywords",
+                        Url = "DocumentViewer/Highlight",
+                        SourceFiles = new[] {"Views/DocumentViewer/Highlight.cshtml", "Controllers/DocumentViewerController.Highlight.cs"},
+                        DescriptionFile = "Descriptions/DocumentViewer/Highlight.html"
+                    },
+                    new Example
+                    {
+                        Title = "Watermarking pages",
+                        Url = "DocumentViewer/Watermark",
+                        SourceFiles = new[] { "Views/DocumentViewer/Watermark.cshtml", "Controllers/DocumentViewerController.Watermark.cs"},
+                        DescriptionFile = "Descriptions/DocumentViewer/Watermark.html"
+                    },
+                    new Example
+                    {
+                        Title = "Using with a stream",
+                        Url = "DocumentViewer/Stream",
+                        SourceFiles = new[] {"Views/DocumentViewer/Stream.cshtml", "Controllers/DocumentViewerController.Stream.cs"},
+                        DescriptionFile = "Descriptions/DocumentViewer/Stream.html"
+                    },
+                    new Example
+                    {
+                        Title = "Events",
+                        Url = "DocumentViewer/Events",
+                        SourceFiles = new[] { "Views/DocumentViewer/Events.cshtml", "Controllers/DocumentViewerController.Events.cs"},
+                        DescriptionFile = "Descriptions/DocumentViewer/Events.html"
+                    },
+                    new Example
+                    {
+                        Title = "Using MVC layout",
+                        Url = "DocumentViewer/UsingLayout",
+                        SourceFiles = new[] { "Views/DocumentViewer/UsingLayout.cshtml", "Views/Shared/_Layout.cshtml", "Controllers/DocumentViewerController.UsingLayout.cs"},
+                        DescriptionFile = "Descriptions/DocumentViewer/UsingLayout.html"
+                    },
+                    new Example
+                    {
+                        Title = "Using MVC partial view",
+                        Url = "DocumentViewer/UsingPartial",
+                        SourceFiles = new[] {"Views/DocumentViewer/UsingPartial.cshtml", "Views/DocumentViewer/DocumentViewerPartialView.cshtml", "Controllers/DocumentViewerController.UsingPartial.cs" },
+                        DescriptionFile = "Descriptions/DocumentViewer/UsingPartial.html"
+                    }
+                }
+            },
+            new ExampleFolder
+            {
+                Title = "Document Converter",
+                Children = new ExampleBase[]
+                {
+                    new Example
+                    {
+                        Title = "Overview",
+                        Url = "DocumentConverter/Overview",
+                        SourceFiles = new[] { "Views/DocumentConverter/Overview.cshtml", "Controllers/DocumentConverterController.Overview.cs"},
+                        DescriptionFile = "Descriptions/DocumentConverter/Overview.html"
+                    },
+                    new Example
+                    {
+                        Title = "Possible conversions",
+                        Url = "DocumentConverter/Possible",
+                        SourceFiles = new[] { "Views/DocumentConverter/Possible.cshtml", "Controllers/DocumentConverterController.Possible.cs"},
+                        DescriptionFile = "Descriptions/DocumentConverter/Possible.html"
+                    }
+                }
+            }
+        },
+        ExampleProjectName = "ASP.NET MVC (C#)",
+        ExampleProjects = ExamplesConfiguration.LoadExampleProjects("~/App_Data/ExampleProjects.json")
+    };
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>DocumentUltimate Examples - ASP.NET MVC (C#)</title>
+
+    @this.RenderHead(exampleExplorer)
+</head>
+<body>
+    @this.RenderBody(exampleExplorer)
+</body>
+</html>

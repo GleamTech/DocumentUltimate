@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using GleamTech.AspNet;
 using GleamTech.DocumentUltimate;
 using GleamTech.Examples;
 
@@ -68,16 +68,16 @@ namespace GleamTech.DocumentUltimateExamples.WebForms.CS.DocumentConverter
             OutputFormats.DataBind();
         }
 
-        public static void ResultHandler(HttpContext context)
+        public static void ResultHandler(IHttpContext context)
         {
             var inputFormat = (DocumentFormat)Enum.Parse(typeof(DocumentFormat), context.Request["inputFormat"]);
             var outputFormat = (DocumentFormat)Enum.Parse(typeof(DocumentFormat), context.Request["outputFormat"]);
 
-            context.Response.Write("<center>");
+            context.Response.Output.Write("<center>");
 
             if (DocumentUltimate.DocumentConverter.CanConvert(inputFormat, outputFormat))
             {
-                context.Response.Write(string.Format(
+                context.Response.Output.Write(string.Format(
                     "<span style=\"color: green; font-weight: bold\">Direct conversion from {0} to {1} is possible</span>",
                     inputFormat, outputFormat)
                 );
@@ -86,22 +86,22 @@ namespace GleamTech.DocumentUltimateExamples.WebForms.CS.DocumentConverter
                 {
                    
                     if (DocumentUltimate.DocumentConverter.CanConvert(inputFormat, outputFormat, engine))
-                        context.Response.Write(string.Format(
+                        context.Response.Output.Write(string.Format(
                             "<br/><span style=\"color: green; font-weight: bold\">Via {0} Engine &#x2713;</span>",
                             engine));
                     else
-                        context.Response.Write(string.Format(
+                        context.Response.Output.Write(string.Format(
                             "<br/><span style=\"color: red; font-weight: bold\">Via {0} Engine &#x2717;</span>",
                             engine));
                 }
             }
             else
-                context.Response.Write(string.Format(
+                context.Response.Output.Write(string.Format(
                     "<span style=\"color: red; font-weight: bold\">Direct conversion from {0} to {1} is not possible</span>",
                     inputFormat, outputFormat)
                     );
 
-            context.Response.Write("</center>");
+            context.Response.Output.Write("</center>");
         }
 
         private static string ResultHandlerName

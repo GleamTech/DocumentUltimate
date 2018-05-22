@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
-using System.Web;
 using System.Web.Mvc;
 using GleamTech.AspNet;
 using GleamTech.DocumentUltimate;
@@ -67,7 +66,7 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
                 model.OutputFormats.Add("(not supported)", new List<SelectListItem>());
         }
 
-        public static void ConvertHandler(HttpContext context)
+        public static void ConvertHandler(IHttpContext context)
         {
             DocumentConverterResult result;
 
@@ -76,7 +75,7 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
                 var inputDocument = new BackSlashPath(ExamplesConfiguration.UnprotectString(context.Request["inputDocument"]));
                 var outputFormat = (DocumentFormat)Enum.Parse(typeof(DocumentFormat), context.Request["outputFormat"]);
                 var fileName = inputDocument.FileNameWithoutExtension + "." + DocumentFormatInfo.Get(outputFormat).DefaultExtension;
-                var outputPath = ConvertedPath.Append(context.Session.SessionID).Append(fileName);
+                var outputPath = ConvertedPath.Append(context.Session.Id).Append(fileName);
                 var outputDocument = outputPath.Append(fileName);
 
                 if (Directory.Exists(outputPath))
@@ -86,25 +85,25 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
             }
             catch (Exception exception)
             {
-                context.Response.Write("<span style=\"color: red; font-weight: bold\">Conversion failed</span><br/>");
-                context.Response.Write(exception.Message);
+                context.Response.Output.Write("<span style=\"color: red; font-weight: bold\">Conversion failed</span><br/>");
+                context.Response.Output.Write(exception.Message);
                 return;
             }
 
-            context.Response.Write("<span style=\"color: green; font-weight: bold\">Conversion successful</span>");
-            context.Response.Write("<br/>Conversion time: " + result.ElapsedTime);
-            context.Response.Write("<br/>Output files:");
+            context.Response.Output.Write("<span style=\"color: green; font-weight: bold\">Conversion successful</span>");
+            context.Response.Output.Write("<br/>Conversion time: " + result.ElapsedTime);
+            context.Response.Output.Write("<br/>Output files:");
 
             if (result.OutputFiles.Length > 1)
-                context.Response.Write(" - " + GetZipDownloadLink(new FileInfo(result.OutputFiles[0]).Directory));
+                context.Response.Output.Write(" - " + GetZipDownloadLink(new FileInfo(result.OutputFiles[0]).Directory));
 
-            context.Response.Write("<br/><ol>");
+            context.Response.Output.Write("<br/><ol>");
             foreach (var outputFile in result.OutputFiles)
             {
                 if (outputFile.EndsWith("\\"))
                 {
                     var directoryInfo = new DirectoryInfo(outputFile);
-                    context.Response.Write(string.Format(
+                    context.Response.Output.Write(string.Format(
                         "<br/><li><b>{0}\\</b> - {1}</li>",
                         directoryInfo.Name,
                         GetZipDownloadLink(directoryInfo))
@@ -113,7 +112,7 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
                 else
                 {
                     var fileInfo = new FileInfo(outputFile);
-                    context.Response.Write(string.Format(
+                    context.Response.Output.Write(string.Format(
                         "<br/><li><b>{0}</b> ({1} bytes) - {2}</li>",
                         fileInfo.Name,
                         fileInfo.Length,
@@ -121,7 +120,7 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
                     );
                 }
             }
-            context.Response.Write("<br/></ol>");
+            context.Response.Output.Write("<br/></ol>");
         }
 
         private static string GetDownloadLink(FileInfo fileInfo)
@@ -144,7 +143,7 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
                     }));
         }
 
-        public static void ZipDownloadHandler(HttpContext context)
+        public static void ZipDownloadHandler(IHttpContext context)
         {
             var path = new BackSlashPath(ExamplesConfiguration.UnprotectString(context.Request["path"])).RemoveTrailingSlash();
 
@@ -186,6 +185,6 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
         }
         private static string zipDownloadHandlerName;
 
-        private static readonly BackSlashPath ConvertedPath = HostingPathHelper.MapPath("~/App_Data/ConvertedDocuments");
+        private static readonly BackSlashPath ConvertedPath = Hosting.ResolvePhysicalPath("~/App_Data/ConvertedDocuments");
     }
 }

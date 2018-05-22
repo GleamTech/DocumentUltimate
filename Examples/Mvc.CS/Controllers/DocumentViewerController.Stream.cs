@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Web;
 using System.Web.Mvc;
+using GleamTech.AspNet;
 using GleamTech.DocumentUltimate;
 using GleamTech.DocumentUltimate.AspNet;
 using GleamTech.DocumentUltimate.AspNet.UI;
@@ -96,7 +97,7 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
         // Return a DocumentInfo instance initialized with required information from this method.
         public DocumentInfo GetInfo(string inputFile, DocumentHandlerParameters handlerParameters)
         {
-            var physicalPath = HttpContext.Current.Server.MapPath(inputFile);
+            var physicalPath = Hosting.ResolvePhysicalPath(inputFile);
             var fileInfo = new FileInfo(physicalPath);
 
             return new DocumentInfo(
@@ -135,7 +136,7 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
         // Return a StreamResult instance initialized with a readable System.IO.Stream object.
         public StreamResult OpenRead(string inputFile, InputOptions inputOptions, DocumentHandlerParameters handlerParameters)
         {
-            var physicalPath = HttpContext.Current.Server.MapPath(inputFile);
+            var physicalPath = Hosting.ResolvePhysicalPath(inputFile);
             var stream = File.OpenRead(physicalPath);
 
             return new StreamResult(stream);

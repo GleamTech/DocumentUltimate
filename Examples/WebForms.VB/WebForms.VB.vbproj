@@ -62,10 +62,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GleamTech.Core">
-      <HintPath>..\packages\GleamTech.Core.2.4.5\lib\net40\GleamTech.Core.dll</HintPath>
+      <HintPath>..\packages\GleamTech.Core.3.0.0\lib\net40\GleamTech.Core.dll</HintPath>
     </Reference>
     <Reference Include="GleamTech.DocumentUltimate">
-      <HintPath>..\packages\DocumentUltimate.3.16.0\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
+      <HintPath>..\packages\DocumentUltimate.4.0.0\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
     </Reference>
     <Reference Include="System"/>
     <Reference Include="System.Core"/>
@@ -96,7 +96,10 @@
     <Import Include="System.Web.UI.HtmlControls"/>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\contoso-logo.png"/>
+    <Content Include="App_Data\**\*"/>
+    <Content Include="App_GlobalResources\**\*"/>
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Default.aspx"/>
     <Content Include="Descriptions\DocumentConverter\Overview.html"/>
     <Content Include="Descriptions\DocumentConverter\Possible.html"/>
@@ -219,9 +222,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\ExampleFiles\Default.doc"/>
-    <Content Include="App_Data\ExampleFiles\Default.docx"/>
-    <Content Include="App_Data\ExampleFiles\Default.pdf"/>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports System.IO
+Imports GleamTech.AspNet
 Imports GleamTech.DocumentUltimate
 Imports GleamTech.DocumentUltimate.AspNet
 
@@ -28,7 +29,7 @@ Namespace DocumentViewer
             ' Here is an example (commented out) for loading a document from database.
             ' See below for DbDocumentHandler class which implements IDocumentHandler interface.
             ' This loads the document with passed ID (176) from the database
-            
+
             'documentViewer.DocumentHandlerType = typeof(DbDocumentHandler);
             'documentViewer.Document = "176"; ' a file path or identifier
             ' When you need to pass custom parameters along with the input file to your handler implementation,
@@ -79,7 +80,7 @@ Namespace DocumentViewer
         ' Return a DocumentInfo instance initialized with required information from this method.
         Public Function GetInfo(inputFile As String, handlerParameters As DocumentHandlerParameters) As DocumentInfo Implements IDocumentHandler.GetInfo
 
-            Dim physicalPath = HttpContext.Current.Server.MapPath(inputFile)
+            Dim physicalPath = Hosting.ResolvePhysicalPath(inputFile)
             Dim fileInfo As New FileInfo(physicalPath)
 
             ' uniqueId parameter (required):
@@ -119,7 +120,7 @@ Namespace DocumentViewer
         ' Return a StreamResult instance initialized with a readable System.IO.Stream object.
         Public Function OpenRead(inputFile As String, inputOptions As InputOptions, handlerParameters As DocumentHandlerParameters) As StreamResult Implements IDocumentHandler.OpenRead
 
-            Dim physicalPath = HttpContext.Current.Server.MapPath(inputFile)
+            Dim physicalPath = Hosting.ResolvePhysicalPath(inputFile)
             Dim stream = File.OpenRead(physicalPath)
 
             Return New StreamResult(stream)

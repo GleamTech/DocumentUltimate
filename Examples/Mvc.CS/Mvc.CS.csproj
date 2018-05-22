@@ -50,10 +50,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GleamTech.Core">
-      <HintPath>..\packages\GleamTech.Core.2.4.5\lib\net40\GleamTech.Core.dll</HintPath>
+      <HintPath>..\packages\GleamTech.Core.3.0.0\lib\net40\GleamTech.Core.dll</HintPath>
     </Reference>
     <Reference Include="GleamTech.DocumentUltimate">
-      <HintPath>..\packages\DocumentUltimate.3.16.0\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
+      <HintPath>..\packages\DocumentUltimate.4.0.0\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp"/>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -99,6 +99,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\**\*"/>
+    <Content Include="App_GlobalResources\**\*"/>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Controllers\DocumentConverterController.cs"/>
     <Compile Include="Controllers\DocumentConverterController.Possible.cs"/>
     <Compile Include="Controllers\DocumentConverterController.Overview.cs"/>
@@ -120,7 +124,6 @@
     <Compile Include="Properties\AssemblyInfo.cs"/>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\contoso-logo.png"/>
     <Content Include="Descriptions\DocumentConverter\Overview.html"/>
     <Content Include="Descriptions\DocumentConverter\Possible.html"/>
     <Content Include="Descriptions\DocumentViewer\Events.html"/>
@@ -176,11 +179,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\DocumentViewer\Events.cshtml"/>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_Data\ExampleFiles\Default.doc"/>
-    <Content Include="App_Data\ExampleFiles\Default.docx"/>
-    <Content Include="App_Data\ExampleFiles\Default.pdf"/>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\DocumentViewer\DocumentViewerPartialView.cshtml"/>
