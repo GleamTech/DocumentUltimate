@@ -24,10 +24,6 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCore.CS
             services.AddMvc();
 
             services.AddGleamTech();
-
-            var licenseFile = Hosting.ResolvePhysicalPath("~/App_Data/License.dat");
-            if (File.Exists(licenseFile))
-                DocumentUltimateConfiguration.Current.LicenseKey = File.ReadAllText(licenseFile);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,6 +40,10 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCore.CS
             }
 
             app.UseGleamTech();
+
+            var licenseFile = Hosting.ResolvePhysicalPath("~/App_Data/License.dat");
+            if (File.Exists(licenseFile))
+                DocumentUltimateConfiguration.Current.LicenseKey = File.ReadAllText(licenseFile);
 
             app.UseStaticFiles();
 
