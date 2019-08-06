@@ -50,10 +50,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GleamTech.Core">
-      <HintPath>..\packages\GleamTech.Core.3.5.0\lib\net40\GleamTech.Core.dll</HintPath>
+      <HintPath>..\packages\GleamTech.Core.3.5.5\lib\net40\GleamTech.Core.dll</HintPath>
     </Reference>
     <Reference Include="GleamTech.DocumentUltimate">
-      <HintPath>..\packages\DocumentUltimate.4.7.0\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
+      <HintPath>..\packages\DocumentUltimate.4.8.0\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp"/>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -106,7 +106,7 @@
     <Compile Include="Controllers\DocumentConverterController.cs"/>
     <Compile Include="Controllers\DocumentConverterController.Possible.cs"/>
     <Compile Include="Controllers\DocumentConverterController.Overview.cs"/>
-    <Compile Include="Controllers\DocumentViewerController.Events.cs"/>
+    <Compile Include="Controllers\DocumentViewerController.ClientEvents.cs"/>
     <Compile Include="Controllers\DocumentViewerController.UsingLayout.cs"/>
     <Compile Include="Controllers\DocumentViewerController.UsingPartial.cs"/>
     <Compile Include="Controllers\DocumentViewerController.Watermark.cs"/>
@@ -126,7 +126,7 @@
   <ItemGroup>
     <Content Include="Descriptions\DocumentConverter\Overview.html"/>
     <Content Include="Descriptions\DocumentConverter\Possible.html"/>
-    <Content Include="Descriptions\DocumentViewer\Events.html"/>
+    <Content Include="Descriptions\DocumentViewer\ClientEvents.html"/>
     <Content Include="Descriptions\DocumentViewer\UsingLayout.html"/>
     <Content Include="Descriptions\DocumentViewer\UsingPartial.html"/>
     <Content Include="Descriptions\DocumentViewer\Stream.html"/>
@@ -178,7 +178,7 @@
     <Content Include="Views\DocumentConverter\Possible.cshtml"/>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\DocumentViewer\Events.cshtml"/>
+    <Content Include="Views\DocumentViewer\ClientEvents.cshtml"/>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\DocumentViewer\DocumentViewerPartialView.cshtml"/>

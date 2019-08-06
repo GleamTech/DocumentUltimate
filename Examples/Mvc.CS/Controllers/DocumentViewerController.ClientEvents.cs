@@ -7,7 +7,7 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
     public partial class DocumentViewerController
     {
         [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
-        public ActionResult Events()
+        public ActionResult ClientEvents()
         {
             var exampleFileSelector = ViewBag.ExampleFileSelector = new ExampleFileSelector
             {
@@ -21,17 +21,18 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
                 Height = 600,
                 Resizable = true,
                 Document = exampleFileSelector.SelectedFile,
-                ClientLoad = "documentViewerLoad",
-                ClientError = "documentViewerError",
-                ClientDocumentLoad = "documentViewerDocumentLoad",
-                ClientPageChange = "documentViewerPageChange",
-                ClientPageComplete = "documentViewerPageComplete",
-                ClientRotationChange = "documentViewerRotationChange",
-                ClientPrint = "documentViewerPrint",
-                ClientDownload = "documentViewerDownload",
-                ClientDownloadAsPdf = "documentViewerDownloadAsPdf",
-                ClientPrintStart = "documentViewerPrintStart",
-                ClientPrintProgress = "documentViewerPrintProgress"
+                ClientEvents = new DocumentViewerClientEvents {
+                    Loaded = "documentViewerLoaded",
+                    Failed = "documentViewerFailed",
+                    DocumentLoaded = "documentViewerDocumentLoaded",
+                    PageChanged = "documentViewerPageChanged",
+                    PageRendered = "documentViewerPageRendered",
+                    RotationChanged = "documentViewerRotationChanged",
+                    Downloading = "documentViewerDownloading",
+                    Printing = "documentViewerPrinting",
+                    PrintProgress = "documentViewerPrintProgress",
+                    Printed = "documentViewerPrinted"
+                }
             };
 
             return View(documentViewer);

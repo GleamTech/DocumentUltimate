@@ -41,10 +41,10 @@
                         .DescriptionFile = "Descriptions/DocumentViewer/Stream.html"
                     },
                     New Example() With {
-                        .Title = "Events",
-                        .Url = "DocumentViewer/Events",
-                        .SourceFiles = New String() {"Views/DocumentViewer/Events.vbhtml", "Controllers/DocumentViewerController.Events.vb"},
-                        .DescriptionFile = "Descriptions/DocumentViewer/Events.html"
+                        .Title = "Client-side events",
+                        .Url = "DocumentViewer/ClientEvents",
+                        .SourceFiles = New String() {"Views/DocumentViewer/ClientEvents.vbhtml", "Controllers/DocumentViewerController.ClientEvents.vb"},
+                        .DescriptionFile = "Descriptions/DocumentViewer/ClientEvents.html"
                     },
                     New Example() With {
                         .Title = "Using MVC layout",

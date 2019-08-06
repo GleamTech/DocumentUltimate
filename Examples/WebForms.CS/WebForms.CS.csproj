@@ -48,10 +48,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GleamTech.Core">
-      <HintPath>..\packages\GleamTech.Core.3.5.0\lib\net40\GleamTech.Core.dll</HintPath>
+      <HintPath>..\packages\GleamTech.Core.3.5.5\lib\net40\GleamTech.Core.dll</HintPath>
     </Reference>
     <Reference Include="GleamTech.DocumentUltimate">
-      <HintPath>..\packages\DocumentUltimate.4.7.0\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
+      <HintPath>..\packages\DocumentUltimate.4.8.0\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
     </Reference>
     <Reference Include="System"/>
     <Reference Include="System.Core"/>
@@ -68,7 +68,7 @@
     <Content Include="Default.aspx"/>
     <Content Include="Descriptions\DocumentConverter\Possible.html"/>
     <Content Include="Descriptions\DocumentConverter\Overview.html"/>
-    <Content Include="Descriptions\DocumentViewer\Events.html"/>
+    <Content Include="Descriptions\DocumentViewer\ClientEvents.html"/>
     <Content Include="Descriptions\DocumentViewer\Watermark.html"/>
     <Content Include="Descriptions\DocumentViewer\Highlight.html"/>
     <Content Include="Descriptions\DocumentViewer\Overview.html"/>
@@ -76,7 +76,7 @@
     <Content Include="Descriptions\DocumentViewer\Stream.html"/>
     <Content Include="DocumentConverter\Overview.aspx"/>
     <Content Include="DocumentConverter\Possible.aspx"/>
-    <Content Include="DocumentViewer\Events.aspx"/>
+    <Content Include="DocumentViewer\ClientEvents.aspx"/>
     <Content Include="DocumentViewer\Watermark.aspx"/>
     <Content Include="DocumentViewer\Highlight.aspx"/>
     <Content Include="DocumentViewer\Overview.aspx"/>
@@ -115,12 +115,12 @@
     <Compile Include="DocumentConverter\Possible.aspx.designer.cs">
       <DependentUpon>Possible.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DocumentViewer\Events.aspx.cs">
-      <DependentUpon>Events.aspx</DependentUpon>
+    <Compile Include="DocumentViewer\ClientEvents.aspx.cs">
+      <DependentUpon>ClientEvents.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DocumentViewer\Events.aspx.designer.cs">
-      <DependentUpon>Events.aspx</DependentUpon>
+    <Compile Include="DocumentViewer\ClientEvents.aspx.designer.cs">
+      <DependentUpon>ClientEvents.aspx</DependentUpon>
     </Compile>
     <Compile Include="DocumentViewer\Watermark.aspx.cs">
       <DependentUpon>Watermark.aspx</DependentUpon>

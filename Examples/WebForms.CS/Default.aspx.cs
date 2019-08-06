@@ -55,10 +55,10 @@ namespace GleamTech.DocumentUltimateExamples.WebForms.CS
                         },
                         new Example
                         {
-                            Title = "Events",
-                            Url = "DocumentViewer/Events.aspx",
-                            SourceFiles = new[] { "DocumentViewer/Events.aspx", "DocumentViewer/Events.aspx.cs"},
-                            DescriptionFile = "Descriptions/DocumentViewer/Events.html"
+                            Title = "Client-side events",
+                            Url = "DocumentViewer/ClientEvents.aspx",
+                            SourceFiles = new[] { "DocumentViewer/ClientEvents.aspx", "DocumentViewer/ClientEvents.aspx.cs"},
+                            DescriptionFile = "Descriptions/DocumentViewer/ClientEvents.html"
                         }
                     }
                 },

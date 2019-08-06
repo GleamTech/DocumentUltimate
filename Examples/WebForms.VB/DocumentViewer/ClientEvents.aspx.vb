@@ -1,10 +1,10 @@
 ﻿
 Namespace DocumentViewer
-    Public Class EventsPage
+    Public Class ClientEventsPage
         Inherits Page
 
         Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
-            documentViewer.Document = exampleFileSelector.SelectedFile
+            DocumentViewer.Document = exampleFileSelector.SelectedFile
         End Sub
 
     End Class

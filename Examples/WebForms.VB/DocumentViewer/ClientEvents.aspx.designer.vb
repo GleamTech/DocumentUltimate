@@ -12,7 +12,7 @@ Option Explicit On
 
 Namespace DocumentViewer
     
-    Partial Public Class EventsPage
+    Partial Public Class ClientEventsPage
         
         '''<summary>
         '''exampleFileSelector control.

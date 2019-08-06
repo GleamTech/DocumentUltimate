@@ -9,62 +9,62 @@ Public Class DefaultPage
         exampleExplorer.VersionTitle = "v" + DocumentUltimateConfiguration.AssemblyInfo.FileVersion.ToString()
 
         exampleExplorer.Examples = New ExampleBase() {
-            New ExampleFolder() With { 
-	            .Title = "Document Viewer",
-	            .Children = New ExampleBase() {
+            New ExampleFolder() With {
+                .Title = "Document Viewer",
+                .Children = New ExampleBase() {
                     New Example() With {
-		                .Title = "Overview", 
-		                .Url = "DocumentViewer/Overview.aspx", 
-		                .SourceFiles = New String() {"DocumentViewer/Overview.aspx", "DocumentViewer/Overview.aspx.vb"}, 
-		                .DescriptionFile = "Descriptions/DocumentViewer/Overview.html" 
-	                },
+                        .Title = "Overview",
+                        .Url = "DocumentViewer/Overview.aspx",
+                        .SourceFiles = New String() {"DocumentViewer/Overview.aspx", "DocumentViewer/Overview.aspx.vb"},
+                        .DescriptionFile = "Descriptions/DocumentViewer/Overview.html"
+                    },
                     New Example() With {
-		                .Title = "Copy protection (DRM)", 
-		                .Url = "DocumentViewer/Protection.aspx", 
-		                .SourceFiles = New String() {"DocumentViewer/Protection.aspx", "DocumentViewer/Protection.aspx.vb"}, 
-		                .DescriptionFile = "Descriptions/DocumentViewer/Protection.html" 
-	                },
+                        .Title = "Copy protection (DRM)",
+                        .Url = "DocumentViewer/Protection.aspx",
+                        .SourceFiles = New String() {"DocumentViewer/Protection.aspx", "DocumentViewer/Protection.aspx.vb"},
+                        .DescriptionFile = "Descriptions/DocumentViewer/Protection.html"
+                    },
                     New Example() With {
-		                .Title = "Auto searching and highlighting keywords", 
-		                .Url = "DocumentViewer/Highlight.aspx", 
-		                .SourceFiles = New String() {"DocumentViewer/Highlight.aspx", "DocumentViewer/Highlight.aspx.vb"}, 
-		                .DescriptionFile = "Descriptions/DocumentViewer/Highlight.html" 
-	                },
+                        .Title = "Auto searching and highlighting keywords",
+                        .Url = "DocumentViewer/Highlight.aspx",
+                        .SourceFiles = New String() {"DocumentViewer/Highlight.aspx", "DocumentViewer/Highlight.aspx.vb"},
+                        .DescriptionFile = "Descriptions/DocumentViewer/Highlight.html"
+                    },
                     New Example() With {
-		                .Title = "Watermarking pages", 
-		                .Url = "DocumentViewer/Watermark.aspx", 
-		                .SourceFiles = New String() {"DocumentViewer/Watermark.aspx", "DocumentViewer/Watermark.aspx.vb"}, 
-		                .DescriptionFile = "Descriptions/DocumentViewer/Watermark.html" 
-	                },
+                        .Title = "Watermarking pages",
+                        .Url = "DocumentViewer/Watermark.aspx",
+                        .SourceFiles = New String() {"DocumentViewer/Watermark.aspx", "DocumentViewer/Watermark.aspx.vb"},
+                        .DescriptionFile = "Descriptions/DocumentViewer/Watermark.html"
+                    },
                     New Example() With {
-		                .Title = "Using with a stream", 
-		                .Url = "DocumentViewer/Stream.aspx", 
-		                .SourceFiles = New String() {"DocumentViewer/Stream.aspx", "DocumentViewer/Stream.aspx.vb"}, 
-		                .DescriptionFile = "Descriptions/DocumentViewer/Stream.html" 
-	                },
+                        .Title = "Using with a stream",
+                        .Url = "DocumentViewer/Stream.aspx",
+                        .SourceFiles = New String() {"DocumentViewer/Stream.aspx", "DocumentViewer/Stream.aspx.vb"},
+                        .DescriptionFile = "Descriptions/DocumentViewer/Stream.html"
+                    },
                     New Example() With {
-                        .Title = "Events", 
-                        .Url = "DocumentViewer/Events.aspx", 
-                        .SourceFiles = New String() {"DocumentViewer/Events.aspx", "DocumentViewer/Events.aspx.vb"}, 
-                        .DescriptionFile = "Descriptions/DocumentViewer/Events.html" 
+                        .Title = "Client-side events",
+                        .Url = "DocumentViewer/ClientEvents.aspx",
+                        .SourceFiles = New String() {"DocumentViewer/ClientEvents.aspx", "DocumentViewer/ClientEvents.aspx.vb"},
+                        .DescriptionFile = "Descriptions/DocumentViewer/ClientEvents.html"
                         }
                 }
             },
             New ExampleFolder() With {
-	            .Title = "Document Converter",
-	            .Children = New ExampleBase() {
+                .Title = "Document Converter",
+                .Children = New ExampleBase() {
                     New Example() With {
-		                .Title = "Overview",
-		                .Url = "DocumentConverter/Overview.aspx",
-		                .SourceFiles = New String() {"DocumentConverter/Overview.aspx", "DocumentConverter/Overview.aspx.vb"},
-		                .DescriptionFile = "Descriptions/DocumentConverter/Overview.html"
-	                }, 
+                        .Title = "Overview",
+                        .Url = "DocumentConverter/Overview.aspx",
+                        .SourceFiles = New String() {"DocumentConverter/Overview.aspx", "DocumentConverter/Overview.aspx.vb"},
+                        .DescriptionFile = "Descriptions/DocumentConverter/Overview.html"
+                    },
                     New Example() With {
-		                .Title = "Possible conversions",
-		                .Url = "DocumentConverter/Possible.aspx",
-		                .SourceFiles = New String() {"DocumentConverter/Possible.aspx", "DocumentConverter/Possible.aspx.vb"},
-		                .DescriptionFile = "Descriptions/DocumentConverter/Possible.html"
-	                }
+                        .Title = "Possible conversions",
+                        .Url = "DocumentConverter/Possible.aspx",
+                        .SourceFiles = New String() {"DocumentConverter/Possible.aspx", "DocumentConverter/Possible.aspx.vb"},
+                        .DescriptionFile = "Descriptions/DocumentConverter/Possible.html"
+                    }
                 }
             }
         }

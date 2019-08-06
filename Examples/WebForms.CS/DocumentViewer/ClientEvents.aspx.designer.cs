@@ -10,7 +10,7 @@
 namespace GleamTech.DocumentUltimateExamples.WebForms.CS.DocumentViewer {
     
     
-    public partial class EventsPage {
+    public partial class ClientEventsPage {
         
         /// <summary>
         /// exampleFileSelector control.

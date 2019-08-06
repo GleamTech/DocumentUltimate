@@ -8,7 +8,7 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCore.CS.Controllers
     {
         [HttpPost]
         [HttpGet]
-        public IActionResult Events()
+        public IActionResult ClientEvents()
         {
             var exampleFileSelector = ViewBag.ExampleFileSelector = new ExampleFileSelector
             {
@@ -22,17 +22,19 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCore.CS.Controllers
                 Height = 600,
                 Resizable = true,
                 Document = exampleFileSelector.SelectedFile,
-                ClientLoad = "documentViewerLoad",
-                ClientError = "documentViewerError",
-                ClientDocumentLoad = "documentViewerDocumentLoad",
-                ClientPageChange = "documentViewerPageChange",
-                ClientPageComplete = "documentViewerPageComplete",
-                ClientRotationChange = "documentViewerRotationChange",
-                ClientPrint = "documentViewerPrint",
-                ClientDownload = "documentViewerDownload",
-                ClientDownloadAsPdf = "documentViewerDownloadAsPdf",
-                ClientPrintStart = "documentViewerPrintStart",
-                ClientPrintProgress = "documentViewerPrintProgress"
+                ClientEvents = new DocumentViewerClientEvents
+                {
+                    Loaded = "documentViewerLoaded",
+                    Failed = "documentViewerFailed",
+                    DocumentLoaded = "documentViewerDocumentLoaded",
+                    PageChanged = "documentViewerPageChanged",
+                    PageRendered = "documentViewerPageRendered",
+                    RotationChanged = "documentViewerRotationChanged",
+                    Downloading = "documentViewerDownloading",
+                    Printing = "documentViewerPrinting",
+                    PrintProgress = "documentViewerPrintProgress",
+                    Printed = "documentViewerPrinted"
+                }
             };
 
             return View(documentViewer);

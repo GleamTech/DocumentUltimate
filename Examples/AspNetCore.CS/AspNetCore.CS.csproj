@@ -8,6 +8,11 @@
     <_CustomFiles Include="Controllers\**\*"/>
     <_CustomFiles Include="Views\**\*"/>
     <_CustomFiles Include="Descriptions\**\*"/>
+    <None Remove="Descriptions\DocumentViewer\ClientEvents.html"/>
+    <_CustomFiles Remove="Controllers\DocumentViewerController.ClientEvents.cs"/>
+    <_CustomFiles Remove="Descriptions\DocumentViewer\ClientEvents.html"/>
+    <_CustomFiles Remove="Views\DocumentViewer\ClientEvents.cshtml"/>
+    <Content Include="Descriptions\DocumentViewer\ClientEvents.html"/>
     <DotnetPublishFiles Include="@(_CustomFiles)">
       <DestinationRelativePath>%(Identity)</DestinationRelativePath>
     </DotnetPublishFiles>
