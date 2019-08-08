@@ -70,6 +70,18 @@
             logEvent(e);
         }
 
+        function documentViewerTextSelected(sender, e) {
+            var documentViewer = sender;
+
+            logEvent(e);
+        }
+
+        function documentViewerTextCopied(sender, e) {
+            var documentViewer = sender;
+
+            logEvent(e);
+        }
+
         function logEvent(e) {
             var logTextBox = document.getElementById("LogTextBox");
 

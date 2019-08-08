@@ -31,7 +31,9 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
                     Downloading = "documentViewerDownloading",
                     Printing = "documentViewerPrinting",
                     PrintProgress = "documentViewerPrintProgress",
-                    Printed = "documentViewerPrinted"
+                    Printed = "documentViewerPrinted",
+                    TextSelected = "documentViewerTextSelected",
+                    TextCopied = "documentViewerTextCopied"
                 }
             };
 

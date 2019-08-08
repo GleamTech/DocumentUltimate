@@ -69,6 +69,18 @@
             logEvent(e);
         }
 
+        function documentViewerTextSelected(sender, e) {
+            var documentViewer = sender;
+
+            logEvent(e);
+        }
+
+        function documentViewerTextCopied(sender, e) {
+            var documentViewer = sender;
+
+            logEvent(e);
+        }
+
         function logEvent(e) {
             var logTextBox = document.getElementById("LogTextBox");
 
@@ -109,7 +121,9 @@
                       Downloading="documentViewerDownloading"
                       Printing="documentViewerPrinting"
                       PrintProgress="documentViewerPrintProgress"
-                      Printed="documentViewerPrinted" />
+                      Printed="documentViewerPrinted"
+                      TextSelected="documentViewerTextSelected" 
+                      TextCopied="documentViewerTextCopied" />
 
     </GleamTech:DocumentViewerControl>
     
