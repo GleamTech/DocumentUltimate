@@ -27,9 +27,14 @@ Public Class MvcApplication
 
         RegisterRoutes(RouteTable.Routes)
 
-        Dim licenseFile = Hosting.ResolvePhysicalPath("~/App_Data/License.dat")
-        If File.Exists(licenseFile) Then
-	        DocumentUltimateConfiguration.Current.LicenseKey = File.ReadAllText(licenseFile)
+        Dim gleamTechConfig = Hosting.ResolvePhysicalPath("~/App_Data/GleamTech.config")
+        If File.Exists(gleamTechConfig) Then
+            GleamTechConfiguration.Current.Load(gleamTechConfig)
+        End If
+
+        Dim documentUltimateConfig = Hosting.ResolvePhysicalPath("~/App_Data/DocumentUltimate.config")
+        If File.Exists(documentUltimateConfig) Then
+            DocumentUltimateConfiguration.Current.Load(documentUltimateConfig)
         End If
     End Sub
 End Class

@@ -29,9 +29,13 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS
 
             RegisterRoutes(RouteTable.Routes);
 
-            var licenseFile = Hosting.ResolvePhysicalPath("~/App_Data/License.dat");
-            if (File.Exists(licenseFile))
-                DocumentUltimateConfiguration.Current.LicenseKey = File.ReadAllText(licenseFile);
+            var gleamTechConfig = Hosting.ResolvePhysicalPath("~/App_Data/GleamTech.config");
+            if (File.Exists(gleamTechConfig))
+                GleamTechConfiguration.Current.Load(gleamTechConfig);
+
+            var documentUltimateConfig = Hosting.ResolvePhysicalPath("~/App_Data/DocumentUltimate.config");
+            if (File.Exists(documentUltimateConfig))
+                DocumentUltimateConfiguration.Current.Load(documentUltimateConfig);
         }
     }
 }

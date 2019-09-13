@@ -2,60 +2,59 @@
 Imports System.Collections.Generic
 Imports System.Collections.Specialized
 Imports System.IO
-Imports System.Web
 Imports GleamTech.AspNet
 Imports GleamTech.DocumentUltimate
 Imports GleamTech.DocumentUltimateExamples.Mvc.VB.Models
 Imports GleamTech.Examples
 Imports GleamTech.IO
-Imports GleamTech.Util
+Imports GleamTech.Zip
 
 Namespace Controllers
-    Partial Public Class  DocumentConverterController
+    Partial Public Class DocumentConverterController
         Inherits Controller
-	    Public Function Overview() As ActionResult
-		    Dim model = New OverviewViewModel() With {
-			    .ExampleFileSelector = New ExampleFileSelector() With {
-				    .Id = "exampleFileSelector",
-				    .InitialFile = "Default.pdf"
-			    }
-		    }
+        Public Function Overview() As ActionResult
+            Dim model = New OverviewViewModel() With {
+                .ExampleFileSelector = New ExampleFileSelector() With {
+                    .Id = "exampleFileSelector",
+                    .InitialFile = "Default.pdf"
+                }
+            }
 
-		    Dim inputDocument = model.ExampleFileSelector.SelectedFile
-		    Dim fileInfo = New FileInfo(inputDocument)
-		    Dim inputFormat = DocumentFormatInfo.[Get](inputDocument)
-		    model.InputFormat = If(inputFormat IsNot Nothing, inputFormat.Description, "(not supported)")
+            Dim inputDocument = model.ExampleFileSelector.SelectedFile
+            Dim fileInfo = New FileInfo(inputDocument)
+            Dim inputFormat = DocumentFormatInfo.[Get](inputDocument)
+            model.InputFormat = If(inputFormat IsNot Nothing, inputFormat.Description, "(not supported)")
 
-		    PopulatePossibleOutputFormats(inputDocument, model)
+            PopulatePossibleOutputFormats(inputDocument, model)
 
-		    model.ConvertHandlerUrl = ExamplesConfiguration.GetDynamicDownloadUrl(ConvertHandlerName, 
+            model.ConvertHandlerUrl = ExamplesConfiguration.GetDynamicDownloadUrl(ConvertHandlerName,
                 New NameValueCollection() From {
-			        {"inputDocument", ExamplesConfiguration.ProtectString(inputDocument)},
-			        {"version", fileInfo.LastWriteTimeUtc.Ticks & "-" & fileInfo.Length}
-		        })
+                    {"inputDocument", ExamplesConfiguration.ProtectString(inputDocument)},
+                    {"version", fileInfo.LastWriteTimeUtc.Ticks & "-" & fileInfo.Length}
+                })
 
-		    Return View(model)
-	    End Function
+            Return View(model)
+        End Function
 
-	    Private Sub PopulatePossibleOutputFormats(inputDocument As String, model As OverviewViewModel)
-		    For Each format As DocumentFormat In DocumentConverter.EnumeratePossibleOutputFormats(inputDocument)
-			    Dim formatInfo = DocumentFormatInfo.[Get](format)
+        Private Sub PopulatePossibleOutputFormats(inputDocument As String, model As OverviewViewModel)
+            For Each format As DocumentFormat In DocumentConverter.EnumeratePossibleOutputFormats(inputDocument)
+                Dim formatInfo = DocumentFormatInfo.[Get](format)
 
-			    Dim groupData As List(Of SelectListItem) = Nothing
-			    If Not model.OutputFormats.TryGetValue(formatInfo.Group.Description, groupData) Then
-				    groupData = New List(Of SelectListItem)()
-				    model.OutputFormats.Add(formatInfo.Group.Description, groupData)
-			    End If
-			    groupData.Add(New SelectListItem() With {
-				    .Text = formatInfo.Description,
-				    .Value = formatInfo.Value.ToString()
-			    })
-		    Next
+                Dim groupData As List(Of SelectListItem) = Nothing
+                If Not model.OutputFormats.TryGetValue(formatInfo.Group.Description, groupData) Then
+                    groupData = New List(Of SelectListItem)()
+                    model.OutputFormats.Add(formatInfo.Group.Description, groupData)
+                End If
+                groupData.Add(New SelectListItem() With {
+                    .Text = formatInfo.Description,
+                    .Value = formatInfo.Value.ToString()
+                })
+            Next
 
-		    If model.OutputFormats.Count = 0 Then
-			    model.OutputFormats.Add("(not supported)", New List(Of SelectListItem)())
-		    End If
-	    End Sub
+            If model.OutputFormats.Count = 0 Then
+                model.OutputFormats.Add("(not supported)", New List(Of SelectListItem)())
+            End If
+        End Sub
 
         Public Shared Sub ConvertHandler(context As IHttpContext)
             Dim result As DocumentConverterResult
@@ -100,21 +99,21 @@ Namespace Controllers
         End Sub
 
         Private Shared Function GetDownloadLink(fileInfo As FileInfo) As String
-		    Return String.Format("<a href=""{0}"">Download</a>", ExamplesConfiguration.GetDownloadUrl(fileInfo.FullName, fileInfo.LastWriteTimeUtc.Ticks.ToString()))
-	    End Function
+            Return String.Format("<a href=""{0}"">Download</a>", ExamplesConfiguration.GetDownloadUrl(fileInfo.FullName, fileInfo.LastWriteTimeUtc.Ticks.ToString()))
+        End Function
 
-	    Private Shared Function GetZipDownloadLink(directoryInfo As DirectoryInfo) As String
-		    Return String.Format("<a href=""{0}"">Download as Zip</a>", ExamplesConfiguration.GetDynamicDownloadUrl(ZipDownloadHandlerName, New NameValueCollection() From {
-			    {"path", ExamplesConfiguration.ProtectString(directoryInfo.FullName)},
-			    {"version", directoryInfo.LastWriteTimeUtc.Ticks.ToString()}
-		    }))
-	    End Function
+        Private Shared Function GetZipDownloadLink(directoryInfo As DirectoryInfo) As String
+            Return String.Format("<a href=""{0}"">Download as Zip</a>", ExamplesConfiguration.GetDynamicDownloadUrl(ZipDownloadHandlerName, New NameValueCollection() From {
+                {"path", ExamplesConfiguration.ProtectString(directoryInfo.FullName)},
+                {"version", directoryInfo.LastWriteTimeUtc.Ticks.ToString()}
+            }))
+        End Function
 
         Public Shared Sub ZipDownloadHandler(context As IHttpContext)
             Dim path = New BackSlashPath(ExamplesConfiguration.UnprotectString(context.Request("path"))).RemoveTrailingSlash()
 
             Dim fileResponse = New FileResponse(context, 0)
-            fileResponse.Transmit(Sub(targetStream, copyFileCallback)
+            fileResponse.Transmit(Sub(targetStream)
                                       QuickZip.Zip(targetStream, Directory.EnumerateFileSystemEntries(path))
                                   End Sub, path.FileName + ".zip", 0)
 

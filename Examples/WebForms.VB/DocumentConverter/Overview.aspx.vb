@@ -3,7 +3,7 @@ Imports GleamTech.AspNet
 Imports GleamTech.DocumentUltimate
 Imports GleamTech.Examples
 Imports GleamTech.IO
-Imports GleamTech.Util
+Imports GleamTech.Zip
 
 Namespace DocumentConverter
     Public Class OverviewPage
@@ -21,7 +21,7 @@ Namespace DocumentConverter
 
             PopulatePossibleOutputFormats(inputDocument)
 
-            ConvertHandlerUrl = ExamplesConfiguration.GetDynamicDownloadUrl(ConvertHandlerName, 
+            ConvertHandlerUrl = ExamplesConfiguration.GetDynamicDownloadUrl(ConvertHandlerName,
                 New NameValueCollection() From {
                     {"inputDocument", ExamplesConfiguration.ProtectString(inputDocument)},
                     {"version", fileInfo.LastWriteTimeUtc.Ticks & "-" & fileInfo.Length}
@@ -32,7 +32,7 @@ Namespace DocumentConverter
             Dim outputFormats1 = New Dictionary(Of String, List(Of ListItem))()
 
             For Each format As DocumentFormat In DocumentUltimate.DocumentConverter.EnumeratePossibleOutputFormats(inputDocument)
-                Dim formatInfo = DocumentFormatInfo.[Get](Format)
+                Dim formatInfo = DocumentFormatInfo.[Get](format)
 
                 Dim groupData As List(Of ListItem) = Nothing
                 If Not outputFormats1.TryGetValue(formatInfo.Group.Description, groupData) Then
@@ -107,7 +107,7 @@ Namespace DocumentConverter
             Dim path = New BackSlashPath(ExamplesConfiguration.UnprotectString(context.Request("path"))).RemoveTrailingSlash()
 
             Dim fileResponse = New FileResponse(context, 0)
-            fileResponse.Transmit(Sub(targetStream, copyFileCallback)
+            fileResponse.Transmit(Sub(targetStream)
                                       QuickZip.Zip(targetStream, Directory.EnumerateFileSystemEntries(path))
                                   End Sub, path.FileName + ".zip", 0)
 

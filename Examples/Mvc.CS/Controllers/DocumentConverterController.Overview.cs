@@ -8,7 +8,7 @@ using GleamTech.DocumentUltimate;
 using GleamTech.DocumentUltimateExamples.Mvc.CS.Models;
 using GleamTech.Examples;
 using GleamTech.IO;
-using GleamTech.Util;
+using GleamTech.Zip;
 
 namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
 {
@@ -148,7 +148,7 @@ namespace GleamTech.DocumentUltimateExamples.Mvc.CS.Controllers
             var path = new BackSlashPath(ExamplesConfiguration.UnprotectString(context.Request["path"])).RemoveTrailingSlash();
 
             var fileResponse = new FileResponse(context, 0);
-            fileResponse.Transmit((targetStream, copyFileCallback) =>
+            fileResponse.Transmit((targetStream) =>
             {
                 QuickZip.Zip(targetStream, Directory.EnumerateFileSystemEntries(path));
             }, path.FileName + ".zip", 0);
