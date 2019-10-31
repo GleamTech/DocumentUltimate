@@ -1,0 +1,28 @@
+﻿@using GleamTech.AspNet.UI
+@using GleamTech.AspNet.Core
+@using GleamTech.DocumentUltimate.AspNet.UI
+@model DocumentViewer
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Overview</title>
+    @this.RenderHead(Model)
+
+    @*
+        If you prefer, JS can also be rendered at the bottom of the page,
+        by first calling RenderHeadWithoutJs in <head>:
+
+        @this.RenderHeadWithoutJs(Model)
+
+        and then calling RenderJs before the closing </body> tag:
+
+        @this.RenderJs(Model)
+    *@
+</head>
+<body style="margin: 20px;">
+    @this.RenderBody(ViewBag.ExampleFileSelector as Component)
+
+    @this.RenderBody(Model)
+</body>
+</html>
