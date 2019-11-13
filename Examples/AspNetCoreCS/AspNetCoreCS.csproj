@@ -11,13 +11,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="GleamTech.Core" Version="4.0.0" />
-    <PackageReference Include="DocumentUltimate" Version="5.0.0" />
+    <PackageReference Include="GleamTech.Core" Version="4.0.1" />
+    <PackageReference Include="DocumentUltimate" Version="5.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Drawing.Common">
       <Version>4.5.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Text.Encoding.CodePages">
+      <Version>4.5.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Security.Permissions">
+      <Version>4.5.0</Version>
     </PackageReference>
   </ItemGroup>
   
