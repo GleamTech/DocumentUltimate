@@ -1,6 +1,5 @@
-![DocumentUltimate Logo](documentultimate-logo.png)
+# ![DocumentUltimate Logo](documentultimate-logo.png) DocumentUltimate: ASP.NET Document Viewer and Converter
 ![Nuget](https://img.shields.io/nuget/v/GleamTech.DocumentUltimate)
-# DocumentUltimate: ASP.NET Document Viewer and Converter 
 
 DocumentUltimate is an ASP.NET Document Viewer and Converter which supports ASP.NET Core 2.0+, ASP.NET MVC 3+ and ASP.NET WebForms 4+ web applications/web sites. DocumentUltimate can also be used with .NET Core 2.0+ and .NET Framework 4.0+ console/desktop applications for conversion between several document formats.
 
