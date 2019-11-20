@@ -14,14 +14,14 @@ DocumentUltimate is an ASP.NET Document Viewer and Converter which supports ASP.
 
 **Note:** This project contains a fully working version of the product, however without a license key it will run in trial mode. For more information, please see [DocumentUltimate: ASP.NET Document Viewer and Converter](http://www.gleamtech.com/documentultimate) product page.
 
-## Adding references to DocumentUltimate assemblies:
+### Adding references to DocumentUltimate assemblies:
 https://docs.gleamtech.com/documentultimate/html/adding-references-to-documentultimate-assemblies.htm
 
-## Using DocumentUltimate in an ASP.NET Core project:
+### Using DocumentUltimate in an ASP.NET Core project:
 https://docs.gleamtech.com/documentultimate/html/using-documentultimate-in-an-asp-net-core-project.htm
 
-## Using DocumentUltimate in an ASP.NET MVC project:
+### Using DocumentUltimate in an ASP.NET MVC project:
 https://docs.gleamtech.com/documentultimate/html/using-documentultimate-in-an-asp-net-mvc-project.htm
 
-## Using DocumentUltimate in an ASP.NET WebForms project:
+### Using DocumentUltimate in an ASP.NET WebForms project:
 https://docs.gleamtech.com/documentultimate/html/using-documentultimate-in-an-asp-net-webforms-project.htm
