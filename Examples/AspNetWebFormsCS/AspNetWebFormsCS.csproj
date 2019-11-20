@@ -47,11 +47,11 @@
     <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GleamTech.Core">
-      <HintPath>..\packages\GleamTech.Core.4.0.2\lib\net40\GleamTech.Core.dll</HintPath>
+    <Reference Include="GleamTech.Common">
+      <HintPath>..\packages\GleamTech.Common.4.0.5\lib\net40\GleamTech.Common.dll</HintPath>
     </Reference>
     <Reference Include="GleamTech.DocumentUltimate">
-      <HintPath>..\packages\DocumentUltimate.5.1.2\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
+      <HintPath>..\packages\GleamTech.DocumentUltimate.5.1.5\lib\net40\GleamTech.DocumentUltimate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
