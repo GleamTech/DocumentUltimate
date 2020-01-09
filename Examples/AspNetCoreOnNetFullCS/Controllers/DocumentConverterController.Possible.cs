@@ -5,6 +5,7 @@ using GleamTech.AspNet;
 using GleamTech.DocumentUltimate;
 using GleamTech.DocumentUltimateExamples.AspNetCoreOnNetFullCS.Models;
 using GleamTech.Examples;
+using GleamTech.Util;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
