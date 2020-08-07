@@ -1,4 +1,7 @@
-﻿Imports GleamTech.DocumentUltimate.AspNet.UI
+﻿
+Imports System.Linq
+Imports GleamTech.DocumentUltimate.AspNet
+Imports GleamTech.DocumentUltimate.AspNet.UI
 Imports GleamTech.Examples
 
 Namespace Controllers
@@ -20,8 +23,32 @@ Namespace Controllers
 			    .Document = exampleFileSelector.SelectedFile
 		    }
 
+            HandleLanguage(documentViewer)
+
 		    Return View(documentViewer)
 	    End Function
 
+        Private Sub HandleLanguage(documentViewer As DocumentViewer)
+            Dim selectedLanguage = Request("languageSelector")
+
+            If selectedLanguage IsNot Nothing Then
+                documentViewer.DisplayLanguage = selectedLanguage
+            Else
+                selectedLanguage = DocumentUltimateWebConfiguration.AvailableDisplayCultures.FirstOrDefault(
+                    Function(culture) documentViewer.DisplayLanguage = culture.Name Or documentViewer.DisplayLanguage.Contains(culture.Name)
+                )?.Name
+            End If
+
+            PopulateLanguageSelector(selectedLanguage)
+        End Sub
+
+        Private Sub PopulateLanguageSelector(selectedLanguage As String)
+            ViewBag.LanguageList = New SelectList(
+                DocumentUltimateWebConfiguration.AvailableDisplayCultures, 
+                "Name", 
+                "NativeName", 
+                selectedLanguage
+            )
+        End Sub
     End Class
 End Namespace

@@ -11,9 +11,27 @@ Option Strict On
 Option Explicit On
 
 Namespace DocumentViewer
-    
+
     Partial Public Class OverviewPage
-        
+
+        '''<summary>
+        '''form1 control.
+        '''</summary>
+        '''<remarks>
+        '''Auto-generated field.
+        '''To modify move field declaration from designer file to code-behind file.
+        '''</remarks>
+        Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
+
+        '''<summary>
+        '''LanguageSelector control.
+        '''</summary>
+        '''<remarks>
+        '''Auto-generated field.
+        '''To modify move field declaration from designer file to code-behind file.
+        '''</remarks>
+        Protected WithEvents LanguageSelector As Global.System.Web.UI.WebControls.DropDownList
+
         '''<summary>
         '''exampleFileSelector control.
         '''</summary>
@@ -22,7 +40,7 @@ Namespace DocumentViewer
         '''To modify move field declaration from designer file to code-behind file.
         '''</remarks>
         Protected WithEvents exampleFileSelector As Global.GleamTech.Examples.ExampleFileSelectorControl
-        
+
         '''<summary>
         '''documentViewer control.
         '''</summary>

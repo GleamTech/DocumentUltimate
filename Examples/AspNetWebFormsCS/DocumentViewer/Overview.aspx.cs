@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Web.UI;
+using System.Web.UI.WebControls;
+using GleamTech.DocumentUltimate.AspNet;
 
 namespace GleamTech.DocumentUltimateExamples.AspNetWebFormsCS.DocumentViewer
 {
@@ -8,6 +10,23 @@ namespace GleamTech.DocumentUltimateExamples.AspNetWebFormsCS.DocumentViewer
         protected void Page_Load(object sender, EventArgs e)
         {
             documentViewer.Document = exampleFileSelector.SelectedFile;
+
+            if (IsPostBack)
+                documentViewer.DisplayLanguage = LanguageSelector.SelectedValue;
+            else
+                PopulateLanguageSelector();
+        }
+
+        private void PopulateLanguageSelector()
+        {
+            foreach (var culture in DocumentUltimateWebConfiguration.AvailableDisplayCultures)
+            {
+                var listItem = new ListItem(culture.NativeName, culture.Name);
+                if (documentViewer.DisplayLanguage == culture.Name 
+                    || documentViewer.DisplayLanguage.Contains(culture.Name))
+                    listItem.Selected = true;
+                LanguageSelector.Items.Add(listItem);
+            }
         }
     }
 }

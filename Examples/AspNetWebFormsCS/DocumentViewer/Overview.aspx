@@ -9,6 +9,11 @@
     <title>Overview</title>
 </head>
 <body style="margin: 20px;">
+    <form id="form1" runat="server">
+        Change language: <asp:DropDownList ID="LanguageSelector" runat="server" AutoPostBack="true"></asp:DropDownList>
+        <br /><br />
+    </form>
+
     <GleamTech:ExampleFileSelectorControl ID="exampleFileSelector" runat="server"
         InitialFile="Default.pdf" />
 

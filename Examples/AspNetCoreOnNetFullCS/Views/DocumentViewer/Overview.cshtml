@@ -21,6 +21,12 @@
     *@
 </head>
 <body style="margin: 20px;">
+    @using (Html.BeginForm())
+    {
+        <text>Change language: </text>@Html.DropDownList("languageSelector", (SelectList)ViewBag.LanguageList, new { onchange = "this.form.submit();" })
+        <br /><br />
+    }
+
     @this.RenderBody(ViewBag.ExampleFileSelector as Component)
 
     @this.RenderBody(Model)
