@@ -41,12 +41,7 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCoreOnNetFullCS.Controllers
             if (selectedLanguage != null)
                 documentViewer.DisplayLanguage = selectedLanguage;
             else
-            {
-                selectedLanguage = DocumentUltimateWebConfiguration.AvailableDisplayCultures.FirstOrDefault(
-                    culture => documentViewer.DisplayLanguage == culture.Name ||
-                               documentViewer.DisplayLanguage.Contains(culture.Name)
-                )?.Name;
-            }
+                selectedLanguage = documentViewer.DisplayLanguage;
 
             PopulateLanguageSelector(selectedLanguage);
         }

@@ -19,8 +19,7 @@ Namespace DocumentViewer
         Private Sub PopulateLanguageSelector()
             For Each cultureInfo As CultureInfo In DocumentUltimateWebConfiguration.AvailableDisplayCultures
                 Dim listItem = New ListItem(cultureInfo.NativeName, cultureInfo.Name)
-                If documentViewer.DisplayLanguage = cultureInfo.Name _
-                    Or documentViewer.DisplayLanguage.Contains(cultureInfo.Name) Then
+                If cultureInfo.Name = documentViewer.DisplayLanguage Then
                     listItem.Selected = True
                 End If
                 LanguageSelector.Items.Add(listItem)

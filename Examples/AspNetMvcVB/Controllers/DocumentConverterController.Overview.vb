@@ -60,7 +60,7 @@ Namespace Controllers
             Dim result As DocumentConverterResult
 
             Try
-                Dim inputDocument = New BackSlashPath(ExamplesConfiguration.UnprotectString(context.Request("inputDocument")))
+                Dim inputDocument = New PhysicalPath(ExamplesConfiguration.UnprotectString(context.Request("inputDocument")))
                 Dim outputFormat = DirectCast([Enum].Parse(GetType(DocumentFormat), context.Request("outputFormat")), DocumentFormat)
                 Dim fileName = inputDocument.FileNameWithoutExtension + "." + DocumentFormatInfo.[Get](outputFormat).DefaultExtension
                 Dim outputPath = ConvertedPath.Append(context.Session.Id).Append(fileName)
@@ -110,7 +110,7 @@ Namespace Controllers
         End Function
 
         Public Shared Sub ZipDownloadHandler(context As IHttpContext)
-            Dim path = New BackSlashPath(ExamplesConfiguration.UnprotectString(context.Request("path"))).RemoveTrailingSlash()
+            Dim path = New PhysicalPath(ExamplesConfiguration.UnprotectString(context.Request("path"))).RemoveTrailingSlash()
 
             Dim fileResponse = New FileResponse(context, 0)
             fileResponse.Transmit(Sub(targetStream)
@@ -143,6 +143,6 @@ Namespace Controllers
 	    End Property
 	    Private Shared m_zipDownloadHandlerName As String
 
-        Private Shared ReadOnly ConvertedPath As BackSlashPath = Hosting.ResolvePhysicalPath("~/App_Data/ConvertedDocuments")
+        Private Shared ReadOnly ConvertedPath As PhysicalPath = Hosting.ResolvePhysicalPath("~/App_Data/ConvertedDocuments")
     End Class
 End Namespace

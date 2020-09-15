@@ -34,9 +34,7 @@ Namespace Controllers
             If selectedLanguage IsNot Nothing Then
                 documentViewer.DisplayLanguage = selectedLanguage
             Else
-                selectedLanguage = DocumentUltimateWebConfiguration.AvailableDisplayCultures.FirstOrDefault(
-                    Function(culture) documentViewer.DisplayLanguage = culture.Name Or documentViewer.DisplayLanguage.Contains(culture.Name)
-                )?.Name
+                selectedLanguage = documentViewer.DisplayLanguage
             End If
 
             PopulateLanguageSelector(selectedLanguage)

@@ -73,7 +73,7 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCoreCS.Controllers
 
             try
             {
-                var inputDocument = new BackSlashPath(ExamplesConfiguration.UnprotectString(context.Request["inputDocument"]));
+                var inputDocument = new PhysicalPath(ExamplesConfiguration.UnprotectString(context.Request["inputDocument"]));
                 var outputFormat = (DocumentFormat)Enum.Parse(typeof(DocumentFormat), context.Request["outputFormat"]);
                 var fileName = inputDocument.FileNameWithoutExtension + "." + DocumentFormatInfo.Get(outputFormat).DefaultExtension;
                 var outputPath = ConvertedPath.Append(context.Session.Id).Append(fileName);
@@ -146,7 +146,7 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCoreCS.Controllers
 
         public static void ZipDownloadHandler(IHttpContext context)
         {
-            var path = new BackSlashPath(ExamplesConfiguration.UnprotectString(context.Request["path"])).RemoveTrailingSlash();
+            var path = new PhysicalPath(ExamplesConfiguration.UnprotectString(context.Request["path"])).RemoveTrailingSlash();
 
             var fileResponse = new FileResponse(context, 0);
             fileResponse.Transmit((targetStream) =>
@@ -186,6 +186,6 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCoreCS.Controllers
         }
         private static string zipDownloadHandlerName;
 
-        private static readonly BackSlashPath ConvertedPath = Hosting.ResolvePhysicalPath("~/App_Data/ConvertedDocuments");
+        private static readonly PhysicalPath ConvertedPath = Hosting.ResolvePhysicalPath("~/App_Data/ConvertedDocuments");
     }
 }
