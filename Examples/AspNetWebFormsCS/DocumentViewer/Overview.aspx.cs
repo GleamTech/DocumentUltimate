@@ -21,7 +21,7 @@ namespace GleamTech.DocumentUltimateExamples.AspNetWebFormsCS.DocumentViewer
         {
             foreach (var culture in DocumentUltimateWebConfiguration.AvailableDisplayCultures)
             {
-                var listItem = new ListItem(culture.NativeName, culture.Name);
+                var listItem = new ListItem(culture.NativeName + $" ({culture.Name})", culture.Name);
                 if (culture.Name == documentViewer.DisplayLanguage)
                     listItem.Selected = true;
                 LanguageSelector.Items.Add(listItem);

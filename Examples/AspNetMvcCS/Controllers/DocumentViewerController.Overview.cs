@@ -45,9 +45,13 @@ namespace GleamTech.DocumentUltimateExamples.AspNetMvcCS.Controllers
         private void PopulateLanguageSelector(string selectedLanguage)
         {
             ViewBag.LanguageList = new SelectList(
-                DocumentUltimateWebConfiguration.AvailableDisplayCultures,
-                "Name",
-                "NativeName",
+                DocumentUltimateWebConfiguration.AvailableDisplayCultures.Select(culture => new
+                {
+                    Value = culture.Name,
+                    Text = culture.NativeName + $" ({culture.Name})"
+                }),
+                "Value",
+                "Text",
                 selectedLanguage
             );
         }

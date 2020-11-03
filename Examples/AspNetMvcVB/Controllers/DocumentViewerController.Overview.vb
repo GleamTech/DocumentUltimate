@@ -42,9 +42,12 @@ Namespace Controllers
 
         Private Sub PopulateLanguageSelector(selectedLanguage As String)
             ViewBag.LanguageList = New SelectList(
-                DocumentUltimateWebConfiguration.AvailableDisplayCultures, 
-                "Name", 
-                "NativeName", 
+                DocumentUltimateWebConfiguration.AvailableDisplayCultures.Select(function(culture) New With {
+                    .Value = culture.Name,
+                    .Text = culture.NativeName + $" ({culture.Name})"
+                }), 
+                "Value",
+                "Text",
                 selectedLanguage
             )
         End Sub
