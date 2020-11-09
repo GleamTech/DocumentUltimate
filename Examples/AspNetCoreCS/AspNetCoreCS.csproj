@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="GleamTech.Common" Version="4.3.1" />
-    <PackageReference Include="GleamTech.DocumentUltimate" Version="5.7.0" />
+    <PackageReference Include="GleamTech.DocumentUltimate" Version="5.7.2" />
   </ItemGroup>
 
   <ItemGroup>
