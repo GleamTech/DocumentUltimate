@@ -16,8 +16,8 @@ Namespace DocumentConverter
 			PopulateOutputFormats()
 
 			ResultHandlerUrl = ExamplesConfiguration.GetDynamicDownloadUrl(ResultHandlerName,
-			New NameValueCollection() From {
-				{"version", DateTime.UtcNow.Ticks.ToString()}
+			    New Dictionary(Of string, string) From {
+				    {"version", DateTime.UtcNow.Ticks.ToString()}
 			})
 		End Sub
 

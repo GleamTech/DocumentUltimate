@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.IO;
 using System.Web.Mvc;
 using GleamTech.AspNet;
@@ -34,7 +33,7 @@ namespace GleamTech.DocumentUltimateExamples.AspNetMvcCS.Controllers
 
             model.ConvertHandlerUrl = ExamplesConfiguration.GetDynamicDownloadUrl(
                 ConvertHandlerName,
-                new NameValueCollection
+                new Dictionary<string, string>
                 {
                     {"inputDocument", ExamplesConfiguration.ProtectString(inputDocument)},
                     {"version", fileInfo.LastWriteTimeUtc.Ticks + "-" +  fileInfo.Length}
@@ -136,7 +135,7 @@ namespace GleamTech.DocumentUltimateExamples.AspNetMvcCS.Controllers
                 "<a href=\"{0}\">Download as Zip</a>",
                 ExamplesConfiguration.GetDynamicDownloadUrl(
                     ZipDownloadHandlerName,
-                    new NameValueCollection
+                    new Dictionary<string, string>
                     {
                         {"path", ExamplesConfiguration.ProtectString(directoryInfo.FullName)},
                         {"version", directoryInfo.LastWriteTimeUtc.Ticks.ToString()},

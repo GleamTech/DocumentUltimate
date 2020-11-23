@@ -19,7 +19,7 @@ Namespace Controllers
 			PopulateOutputFormats(model)
 
 			model.ResultHandlerUrl = ExamplesConfiguration.GetDynamicDownloadUrl(ResultHandlerName,
-				New NameValueCollection() From {
+				New Dictionary(Of string, string) From {
 					{"version", DateTime.UtcNow.Ticks.ToString()}
 				})
 

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using GleamTech.AspNet;
@@ -23,7 +22,7 @@ namespace GleamTech.DocumentUltimateExamples.AspNetWebFormsCS.DocumentConverter
 
             ResultHandlerUrl = ExamplesConfiguration.GetDynamicDownloadUrl(
                 ResultHandlerName,
-                new NameValueCollection
+                new Dictionary<string, string>
                 {
                     {"version", DateTime.UtcNow.Ticks.ToString()}
                 });

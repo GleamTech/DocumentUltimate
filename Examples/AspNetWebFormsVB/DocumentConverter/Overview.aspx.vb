@@ -22,7 +22,7 @@ Namespace DocumentConverter
             PopulatePossibleOutputFormats(inputDocument)
 
             ConvertHandlerUrl = ExamplesConfiguration.GetDynamicDownloadUrl(ConvertHandlerName,
-                New NameValueCollection() From {
+                New Dictionary(Of string, string) From {
                     {"inputDocument", ExamplesConfiguration.ProtectString(inputDocument)},
                     {"version", fileInfo.LastWriteTimeUtc.Ticks & "-" & fileInfo.Length}
                 })
@@ -97,7 +97,7 @@ Namespace DocumentConverter
         End Function
 
         Private Shared Function GetZipDownloadLink(directoryInfo As DirectoryInfo) As String
-            Return String.Format("<a href=""{0}"">Download as Zip</a>", ExamplesConfiguration.GetDynamicDownloadUrl(ZipDownloadHandlerName, New NameValueCollection() From {
+            Return String.Format("<a href=""{0}"">Download as Zip</a>", ExamplesConfiguration.GetDynamicDownloadUrl(ZipDownloadHandlerName, New Dictionary(Of string, string) From {
                 {"path", ExamplesConfiguration.ProtectString(directoryInfo.FullName)},
                 {"version", directoryInfo.LastWriteTimeUtc.Ticks.ToString()}
             }))

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Web.Mvc;
 using GleamTech.AspNet;
 using GleamTech.DocumentUltimate;
@@ -21,7 +20,7 @@ namespace GleamTech.DocumentUltimateExamples.AspNetMvcCS.Controllers
 
             model.ResultHandlerUrl = ExamplesConfiguration.GetDynamicDownloadUrl(
                 ResultHandlerName,
-                new NameValueCollection
+                new Dictionary<string, string>
                 {
                     {"version", DateTime.UtcNow.Ticks.ToString()}
                 });
