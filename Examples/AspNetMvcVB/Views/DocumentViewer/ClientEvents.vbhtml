@@ -87,8 +87,8 @@
 
             var now = new Date().toLocaleTimeString();
             var json = JSON.stringify(e, null, 2);
-            logTextBox.value += "[" + now + "]" + "\nEvent arguments: " + json + "\n\n";
-            logTextBox.scrollTop = logTextBox.scrollHeight;
+            logTextBox.value = "[" + now + "]" + "\nEvent arguments: " + json + "\n\n" + logTextBox.value;
+            logTextBox.scrollTop = 0;
         }
 
         function clearLog() {
