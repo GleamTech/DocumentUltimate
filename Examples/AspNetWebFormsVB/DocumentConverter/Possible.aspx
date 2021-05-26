@@ -80,7 +80,7 @@
         </div>
         <div style="clear: both;"></div>
         <p>
-            <input type="hidden" value="<%=ResultHandlerUrl %>" id="resultHandlerUrl"/>
+            <input type="hidden" value="<%:ResultHandlerUrl%>" id="resultHandlerUrl"/>
             <input type="button" value="Can convert?" id="canConvertButton" onclick="canConvert(this)"/>
         </p>
         <iframe id="resultIframe" src="javascript:''" style="width: 400px; height: 100px; background-color: white" onload="load(this)"></iframe>

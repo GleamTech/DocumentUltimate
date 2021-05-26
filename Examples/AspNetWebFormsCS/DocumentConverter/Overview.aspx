@@ -60,7 +60,7 @@
             </FooterTemplate>
         </asp:Repeater>
     </p>
-    <input type="hidden" value="<%=ConvertHandlerUrl %>" id="convertHandlerUrl"/>
+    <input type="hidden" value="<%:ConvertHandlerUrl%>" id="convertHandlerUrl"/>
     <input type="button" value="Convert" id="convertButton" onclick="convert(this)"/>
     <br/><br/>Conversion Result:<br/>
     <iframe id="convertIframe" src="javascript:''" style="width: 500px; height: 200px; background-color: white" onload="load(this)"></iframe>
