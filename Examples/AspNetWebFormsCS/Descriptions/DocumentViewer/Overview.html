@@ -9,11 +9,13 @@
     A document is loaded by simply setting DocumentViewer.Document property.
     This is usually the path to the document to load.
     Both physical (eg. c:\document.docx) and virtual (eg. /document.docx or ~/document.docx) paths are supported.
+    <br />You can also directly load a document from a URL, Database, Stream, Memory, AzureBlob, AmazonS3 etc.
+    by specifying one of the built-in file providers:
+    FileSystemFileProvider, UrlFileProvider, StreamFileProvider,
+    MemoryFileProvider, DatabaseFileProvider,
+    AssemblyResourceFileProvider, TemporaryFileProvider.
+    <br />
 </p>
 <p>
-    If a custom document handler is provided via DocumentViewer.DocumentHandlerType property, then
-    the value set in DocumentViewer.Document property will be passed to that handler which should open 
-    and return a readable stream according to this file identifier.
-    So it can be any string value that your IDocumentHandler implementation understands.
-    With a custom document handler, you can load documents from database, network, cloud storage etc.
+	Base class FileProvider can be implemented to provide a custom way of reading and/or writing files.
 </p>

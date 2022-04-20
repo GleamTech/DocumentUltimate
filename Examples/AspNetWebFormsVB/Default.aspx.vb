@@ -37,10 +37,10 @@ Public Class DefaultPage
                         .DescriptionFile = "Descriptions/DocumentViewer/Watermark.html"
                     },
                     New Example() With {
-                        .Title = "Using with a stream",
-                        .Url = "DocumentViewer/Stream.aspx",
-                        .SourceFiles = New String() {"DocumentViewer/Stream.aspx", "DocumentViewer/Stream.aspx.vb"},
-                        .DescriptionFile = "Descriptions/DocumentViewer/Stream.html"
+                        .Title = "Using with a custom FileProvider",
+                        .Url = "DocumentViewer/FileProvider.aspx",
+                        .SourceFiles = New String() {"DocumentViewer/FileProvider.aspx", "DocumentViewer/FileProvider.aspx.vb"},
+                        .DescriptionFile = "Descriptions/DocumentViewer/FileProvider.html"
                     },
                     New Example() With {
                         .Title = "Client-side events",

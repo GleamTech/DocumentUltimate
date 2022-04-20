@@ -35,10 +35,10 @@
                         .DescriptionFile = "Descriptions/DocumentViewer/Watermark.html"
                     },
                     New Example() With {
-                        .Title = "Using with a stream",
-                        .Url = "DocumentViewer/Stream",
-                        .SourceFiles = New String() {"Views/DocumentViewer/Stream.vbhtml", "Controllers/DocumentViewerController.Stream.vb"},
-                        .DescriptionFile = "Descriptions/DocumentViewer/Stream.html"
+                        .Title = "Using with a custom FileProvider",
+                        .Url = "DocumentViewer/FileProvider",
+                        .SourceFiles = New String() {"Views/DocumentViewer/FileProvider.vbhtml", "Controllers/DocumentViewerController.FileProvider.vb"},
+                        .DescriptionFile = "Descriptions/DocumentViewer/FileProvider.html"
                     },
                     New Example() With {
                         .Title = "Client-side events",

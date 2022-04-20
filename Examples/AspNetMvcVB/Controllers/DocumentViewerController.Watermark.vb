@@ -14,7 +14,7 @@ Namespace Controllers
 			.Document = "~/App_Data/ExampleFiles/Default.doc"
 		}
 
-        documentViewer.Watermarks.Add(
+        documentViewer.DocumentOptions.Watermarks.Add(
                 New TextWatermark() With
                     {
                         .Text = "Contoso",
@@ -25,7 +25,7 @@ Namespace Controllers
                         .Height = 50,
                         .SizeIsPercentage = true
                     })
-        documentViewer.Watermarks.Add(
+        documentViewer.DocumentOptions.Watermarks.Add(
                 New ImageWatermark() With
                     {
                         .ImageFile = "~/App_Data/contoso-logo.png",

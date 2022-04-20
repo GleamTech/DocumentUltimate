@@ -11,16 +11,16 @@ Option Strict On
 Option Explicit On
 
 Namespace DocumentViewer
-    
-    Partial Public Class StreamPage
-        
-        '''<summary>
-        '''documentViewer control.
-        '''</summary>
-        '''<remarks>
-        '''Auto-generated field.
-        '''To modify move field declaration from designer file to code-behind file.
-        '''</remarks>
-        Protected WithEvents documentViewer As Global.GleamTech.DocumentUltimate.AspNet.WebForms.DocumentViewerControl
-    End Class
+
+	Partial Public Class FileProviderPage
+
+		'''<summary>
+		'''documentViewer control.
+		'''</summary>
+		'''<remarks>
+		'''Auto-generated field.
+		'''To modify move field declaration from designer file to code-behind file.
+		'''</remarks>
+		Protected WithEvents documentViewer As Global.GleamTech.DocumentUltimate.AspNet.WebForms.DocumentViewerControl
+	End Class
 End Namespace

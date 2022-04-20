@@ -17,7 +17,7 @@ Namespace Controllers
                 .Width = 800,
                 .Height = 600,
                 .Resizable = True,
-                .Document = exampleFileSelector.SelectedFile,
+                .Document = exampleFileSelector.SelectedFile.ToString(),
                 .ClientEvents = New DocumentViewerClientEvents() With {
                     .Loaded = "documentViewerLoaded",
                     .Failed = "documentViewerFailed",

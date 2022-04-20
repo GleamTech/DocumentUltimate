@@ -10,10 +10,10 @@ Namespace Controllers
 			.Height = 600,
 			.Resizable = True,
 			.Document = "~/App_Data/ExampleFiles/Default.doc",
-			.SearchOptions = New SearchOptions With
+			.SearchOptions = New DocumentViewerSearchOptions With
 		        {
 		            .Term = "ancient mariner",
-		            .MatchOptions = MatchOptions.MatchAnyWord
+		            .MatchOptions = DocumentViewerMatchOptions.MatchAnyWord
 		        }
 		}
 

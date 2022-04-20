@@ -48,10 +48,10 @@ namespace GleamTech.DocumentUltimateExamples.AspNetWebFormsCS
                         },
                         new Example
                         {
-                            Title = "Using with a stream",
-                            Url = "DocumentViewer/Stream.aspx",
-                            SourceFiles = new[] {"DocumentViewer/Stream.aspx", "DocumentViewer/Stream.aspx.cs"},
-                            DescriptionFile = "Descriptions/DocumentViewer/Stream.html"
+                            Title = "Using with a custom FileProvider",
+                            Url = "DocumentViewer/FileProvider.aspx",
+                            SourceFiles = new[] {"DocumentViewer/FileProvider.aspx", "DocumentViewer/FileProvider.aspx.cs"},
+                            DescriptionFile = "Descriptions/DocumentViewer/FileProvider.html"
                         },
                         new Example
                         {

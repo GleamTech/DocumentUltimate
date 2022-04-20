@@ -16,7 +16,7 @@ namespace GleamTech.DocumentUltimateExamples.AspNetMvcCS.Controllers
                 SearchOptions =
                 {
                     Term = "ancient mariner",
-                    MatchOptions = MatchOptions.MatchAnyWord
+                    MatchOptions = DocumentViewerMatchOptions.MatchAnyWord
                 }
             };
 

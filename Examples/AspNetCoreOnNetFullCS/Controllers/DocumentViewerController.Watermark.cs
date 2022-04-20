@@ -15,25 +15,28 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCoreOnNetFullCS.Controllers
                 Height = 600,
                 Resizable = true,
                 Document = "~/App_Data/ExampleFiles/Default.doc",
-                Watermarks = {
-                    new TextWatermark
-                    {
-                        Text = "Contoso",
-                        Rotation = -45,
-                        Opacity = 50,
-                        FontColor = Color.Red,
-                        Width = 50,
-                        Height = 50,
-                        SizeIsPercentage = true
-                    },
-                    new ImageWatermark
-                    {
-                        ImageFile = "~/App_Data/contoso-logo.png",
-                        HorizontalAlignment = HorizontalAlignment.Right,
-                        VerticalAlignment  = VerticalAlignment.Top,
-                        Opacity = 50,
-                        PageRange = "Odd"
-                    }
+                DocumentOptions = new DocumentOptions
+                {
+	                Watermarks = {
+	                    new TextWatermark
+	                    {
+	                        Text = "Contoso",
+	                        Rotation = -45,
+	                        Opacity = 50,
+	                        FontColor = Color.Red,
+	                        Width = 50,
+	                        Height = 50,
+	                        SizeIsPercentage = true
+	                    },
+	                    new ImageWatermark
+	                    {
+	                        ImageFile = "~/App_Data/contoso-logo.png",
+	                        HorizontalAlignment = HorizontalAlignment.Right,
+	                        VerticalAlignment  = VerticalAlignment.Top,
+	                        Opacity = 50,
+	                        PageRange = "Odd"
+	                    }
+	                }
                 }
             };
 

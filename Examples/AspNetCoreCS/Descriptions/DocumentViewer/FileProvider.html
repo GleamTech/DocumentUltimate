@@ -1,0 +1,18 @@
+﻿
+When you don't have a file on disk, you can either
+
+<ul>
+	<li>
+		<p>
+			Use one of the built-in file providers to load a document from a URL, Database, Stream, Memory, AzureBlob, AmazonS3 etc. :
+			FileSystemFileProvider, UrlFileProvider, StreamFileProvider,
+			MemoryFileProvider, DatabaseFileProvider,
+			AssemblyResourceFileProvider, TemporaryFileProvider.
+		</p>
+	</li>
+    <li>
+	    <p>
+		    Or implement base class FileProvider to provide a custom way of reading and/or writing files (see CustomFileProvider class in example code for details).
+	    </p>
+    </li>
+</ul>

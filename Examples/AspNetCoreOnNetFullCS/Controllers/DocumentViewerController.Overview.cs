@@ -25,7 +25,7 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCoreOnNetFullCS.Controllers
                 Width = 800,
                 Height = 600,
                 Resizable = true,
-                Document = exampleFileSelector.SelectedFile
+                Document = exampleFileSelector.SelectedFile.ToString()
             };
 
             HandleLanguage(documentViewer);

@@ -10,7 +10,7 @@
 namespace GleamTech.DocumentUltimateExamples.AspNetWebFormsCS.DocumentViewer {
     
     
-    public partial class StreamPage {
+    public partial class FileProviderPage {
         
         /// <summary>
         /// documentViewer control.

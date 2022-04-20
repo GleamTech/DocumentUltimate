@@ -1,11 +1,11 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Stream.aspx.cs" Inherits="GleamTech.DocumentUltimateExamples.AspNetWebFormsCS.DocumentViewer.StreamPage" %>
+<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="FileProvider.aspx.vb" Inherits="GleamTech.DocumentUltimateExamples.AspNetWebFormsVB.DocumentViewer.FileProviderPage" %>
 <%@ Register TagPrefix="GleamTech" Namespace="GleamTech.DocumentUltimate.AspNet.WebForms" Assembly="GleamTech.DocumentUltimate" %>
 
 <!DOCTYPE html>
 
 <html>
 <head runat="server">
-    <title>Using with a stream</title>
+    <title>Using with a custom FileProvider</title>
 </head>
 <body style="margin: 20px;">
 

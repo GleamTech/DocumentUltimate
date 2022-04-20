@@ -5,7 +5,7 @@
 
 <html>
 <head>
-    <title>Using with a stream</title>
+    <title>Using with a custom FileProvider</title>
     @Me.RenderHead(Model)
 </head>
 <body style="margin: 20px;">

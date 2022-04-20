@@ -46,10 +46,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GleamTech.Common">
-      <HintPath>..\packages\GleamTech.Common.5.2.0\lib\net461\GleamTech.Common.dll</HintPath>
+      <HintPath>..\packages\GleamTech.Common.5.4.0\lib\net461\GleamTech.Common.dll</HintPath>
     </Reference>
     <Reference Include="GleamTech.DocumentUltimate">
-      <HintPath>..\packages\GleamTech.DocumentUltimate.6.2.1\lib\net461\GleamTech.DocumentUltimate.dll</HintPath>
+      <HintPath>..\packages\GleamTech.DocumentUltimate.6.4.0\lib\net461\GleamTech.DocumentUltimate.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
