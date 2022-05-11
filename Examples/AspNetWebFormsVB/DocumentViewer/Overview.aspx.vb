@@ -7,7 +7,7 @@ Namespace DocumentViewer
         Inherits Page
 
 	    Protected Sub Page_Load(sender As Object, e As EventArgs)
-		    documentViewer.Document = exampleFileSelector.SelectedFile
+		    documentViewer.Document = exampleFileSelector.SelectedFile.ToString()
 
 	        If IsPostBack Then
 	            documentViewer.DisplayLanguage = LanguageSelector.SelectedValue

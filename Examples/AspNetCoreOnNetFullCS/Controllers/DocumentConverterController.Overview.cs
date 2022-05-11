@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using GleamTech.AspNet;
 using GleamTech.DocumentUltimate;
 using GleamTech.DocumentUltimateExamples.AspNetCoreOnNetFullCS.Models;
@@ -70,18 +71,19 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCoreOnNetFullCS.Controllers
         {
             DocumentConverterResult result;
 
+            var inputDocument = new PhysicalPath(ExamplesConfiguration.UnprotectString(context.Request["inputDocument"]));
+            var outputFormat = (DocumentFormat)Enum.Parse(typeof(DocumentFormat), context.Request["outputFormat"]);
+            var fileName = inputDocument.FileNameWithoutExtension + "." + DocumentFormatInfo.Get(outputFormat).DefaultExtension;
+            var outputPath = ConvertedPath.Append(context.Session.Id).Append(fileName);
+            var outputDocument = outputPath.Append(fileName);
+
             try
             {
-                var inputDocument = new PhysicalPath(ExamplesConfiguration.UnprotectString(context.Request["inputDocument"]));
-                var outputFormat = (DocumentFormat)Enum.Parse(typeof(DocumentFormat), context.Request["outputFormat"]);
-                var fileName = inputDocument.FileNameWithoutExtension + "." + DocumentFormatInfo.Get(outputFormat).DefaultExtension;
-                var outputPath = ConvertedPath.Append(context.Session.Id).Append(fileName);
-                var outputDocument = outputPath.Append(fileName);
-
                 if (Directory.Exists(outputPath))
                     Directory.Delete(outputPath, true);
                 Directory.CreateDirectory(outputPath);
-                result = DocumentConverter.Convert(inputDocument, outputDocument, outputFormat);
+
+                result = DocumentUltimate.DocumentConverter.Convert(inputDocument.ToString(), outputDocument.ToString(), outputFormat);
             }
             catch (Exception exception)
             {
@@ -91,33 +93,33 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCoreOnNetFullCS.Controllers
             }
 
             context.Response.Output.Write("<span style=\"color: green; font-weight: bold\">Conversion successful</span>");
-            context.Response.Output.Write("<br/>Conversion time: " + result.ElapsedTime);
+            context.Response.Output.Write("<br/>Conversion time: {0}", result.ElapsedTime);
             context.Response.Output.Write("<br/>Output files:");
 
             if (result.OutputFiles.Length > 1)
-                context.Response.Output.Write(" - " + GetZipDownloadLink(new FileInfo(result.OutputFiles[0]).Directory));
+                context.Response.Output.Write(" - " + GetZipDownloadLink(new DirectoryInfo(outputPath)));
 
             context.Response.Output.Write("<br/><ol>");
             foreach (var outputFile in result.OutputFiles)
             {
-                if (outputFile.EndsWith("\\"))
+                var outputFilePath = outputPath.Append(outputFile).ToString();
+
+                if (outputFilePath.EndsWith("\\"))
                 {
-                    var directoryInfo = new DirectoryInfo(outputFile);
-                    context.Response.Output.Write(string.Format(
+                    var directoryInfo = new DirectoryInfo(outputFilePath);
+                    context.Response.Output.Write(
                         "<br/><li><b>{0}\\</b> - {1}</li>",
                         directoryInfo.Name,
-                        GetZipDownloadLink(directoryInfo))
-                    );
+                        GetZipDownloadLink(directoryInfo));
                 }
                 else
                 {
-                    var fileInfo = new FileInfo(outputFile);
-                    context.Response.Output.Write(string.Format(
+                    var fileInfo = new FileInfo(outputFilePath);
+                    context.Response.Output.Write(
                         "<br/><li><b>{0}</b> ({1} bytes) - {2}</li>",
                         fileInfo.Name,
                         fileInfo.Length,
-                        GetDownloadLink(fileInfo))
-                    );
+                        GetDownloadLink(fileInfo));
                 }
             }
             context.Response.Output.Write("<br/></ol>");
@@ -145,14 +147,16 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCoreOnNetFullCS.Controllers
 
         public static void ZipDownloadHandler(IHttpContext context)
         {
-            var path = new PhysicalPath(ExamplesConfiguration.UnprotectString(context.Request["path"])).RemoveTrailingSlash();
+	        var path = new PhysicalPath(ExamplesConfiguration.UnprotectString(context.Request["path"])).RemoveTrailingSlash();
 
-            var fileResponse = new FileResponse(context, 0);
-            fileResponse.Transmit((targetStream) =>
-            {
-                QuickZip.Zip(targetStream, Directory.EnumerateFileSystemEntries(path));
-            }, path.FileName + ".zip", 0);
+	        var zipFile = path.Append(path.FileName + ".zip");
+	        var itemPaths = Directory.EnumerateFileSystemEntries(path)
+		        .Where(p => p != zipFile);
 
+	        QuickZip.Zip(zipFile, itemPaths);
+
+	        var fileResponse = new FileResponse(context);
+	        fileResponse.Transmit(zipFile);
         }
 
         private static string ConvertHandlerName

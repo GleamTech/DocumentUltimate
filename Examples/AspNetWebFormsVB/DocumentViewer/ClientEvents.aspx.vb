@@ -4,7 +4,7 @@ Namespace DocumentViewer
         Inherits Page
 
         Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
-            DocumentViewer.Document = exampleFileSelector.SelectedFile
+            DocumentViewer.Document = exampleFileSelector.SelectedFile.ToString()
         End Sub
 
     End Class

@@ -50,47 +50,57 @@ Namespace DocumentConverter
             OutputFormats.DataBind()
         End Sub
 
-        Public Shared Sub ConvertHandler(context As IHttpContext)
-            Dim result As DocumentConverterResult
+		Public Shared Sub ConvertHandler(context As IHttpContext)
+			Dim result As DocumentConverterResult
 
-            Try
-                Dim inputDocument = New PhysicalPath(ExamplesConfiguration.UnprotectString(context.Request("inputDocument")))
-                Dim outputFormat = DirectCast([Enum].Parse(GetType(DocumentFormat), context.Request("outputFormat")), DocumentFormat)
-                Dim fileName = inputDocument.FileNameWithoutExtension + "." + DocumentFormatInfo.[Get](outputFormat).DefaultExtension
-                Dim outputPath = ConvertedPath.Append(context.Session.Id).Append(fileName)
-                Dim outputDocument = outputPath.Append(fileName)
+			Dim inputDocument = New PhysicalPath(ExamplesConfiguration.UnprotectString(context.Request("inputDocument")))
+			Dim outputFormat = CType([Enum].Parse(GetType(DocumentFormat), context.Request("outputFormat")), DocumentFormat)
+			Dim fileName = inputDocument.FileNameWithoutExtension + "." + DocumentFormatInfo.[Get](outputFormat).DefaultExtension
+			Dim outputPath = ConvertedPath.Append(context.Session.Id).Append(fileName)
+			Dim outputDocument = outputPath.Append(fileName)
 
-                If Directory.Exists(outputPath) Then
-                    Directory.Delete(outputPath, True)
-                End If
-                Directory.CreateDirectory(outputPath)
-                result = DocumentUltimate.DocumentConverter.Convert(inputDocument, outputDocument, outputFormat)
-            Catch exception As Exception
-                context.Response.Output.Write("<span style=""color: red; font-weight: bold"">Conversion failed</span><br/>")
-                context.Response.Output.Write(exception.Message)
-                Return
-            End Try
+			Try
+				If Directory.Exists(outputPath) Then
+					Directory.Delete(outputPath, True)
+				End If
+				Directory.CreateDirectory(outputPath)
 
-            context.Response.Output.Write("<span style=""color: green; font-weight: bold"">Conversion successful</span>")
-            context.Response.Output.Write("<br/>Conversion time: " & result.ElapsedTime.ToString())
-            context.Response.Output.Write("<br/>Output files:")
+				result = DocumentUltimate.DocumentConverter.Convert(inputDocument.ToString(), outputDocument.ToString(), outputFormat)
+			Catch exception As Exception
+				context.Response.Output.Write("<span style=""color: red; font-weight: bold"">Conversion failed</span><br/>")
+				context.Response.Output.Write(exception.Message)
+				Return
+			End Try
 
-            If result.OutputFiles.Length > 1 Then
-                context.Response.Output.Write(Convert.ToString(" - ") & GetZipDownloadLink(New FileInfo(result.OutputFiles(0)).Directory))
-            End If
+			context.Response.Output.Write("<span style=""color: green; font-weight: bold"">Conversion successful</span>")
+			context.Response.Output.Write("<br/>Conversion time: {0}", result.ElapsedTime)
+			context.Response.Output.Write("<br/>Output files:")
 
-            context.Response.Output.Write("<br/><ol>")
-            For Each outputFile As String In result.OutputFiles
-                If outputFile.EndsWith("\") Then
-                    Dim directoryInfo = New DirectoryInfo(outputFile)
-                    context.Response.Output.Write(String.Format("<br/><li><b>{0}\</b> - {1}</li>", directoryInfo.Name, GetZipDownloadLink(directoryInfo)))
-                Else
-                    Dim fileInfo = New FileInfo(outputFile)
-                    context.Response.Output.Write(String.Format("<br/><li><b>{0}</b> ({1} bytes) - {2}</li>", fileInfo.Name, fileInfo.Length, GetDownloadLink(fileInfo)))
-                End If
-            Next
-            context.Response.Output.Write("<br/></ol>")
-        End Sub
+			If result.OutputFiles.Length > 1 Then
+				context.Response.Output.Write(" - " + GetZipDownloadLink(New DirectoryInfo(outputPath)))
+			End If
+
+			context.Response.Output.Write("<br/><ol>")
+			For Each outputFile In result.OutputFiles
+				Dim outputFilePath = outputPath.Append(outputFile).ToString()
+
+				If outputFilePath.EndsWith("\") Then
+					Dim directoryInfo = New DirectoryInfo(outputFilePath)
+					context.Response.Output.Write(
+						"<br/><li><b>{0}\</b> - {1}</li>", 
+						directoryInfo.Name, 
+						GetZipDownloadLink(directoryInfo))
+				Else
+					Dim fileInfo = New FileInfo(outputFilePath)
+					context.Response.Output.Write(
+						"<br/><li><b>{0}</b> ({1} bytes) - {2}</li>", 
+						fileInfo.Name, 
+						fileInfo.Length, 
+						GetDownloadLink(fileInfo))
+				End If
+			Next
+			context.Response.Output.Write("<br/></ol>")
+		End Sub
 
         Private Shared Function GetDownloadLink(fileInfo As FileInfo) As String
             Return String.Format("<a href=""{0}"">Download</a>", ExamplesConfiguration.GetDownloadUrl(fileInfo.FullName, fileInfo.LastWriteTimeUtc.Ticks.ToString()))
@@ -104,13 +114,15 @@ Namespace DocumentConverter
         End Function
 
         Public Shared Sub ZipDownloadHandler(context As IHttpContext)
-            Dim path = New PhysicalPath(ExamplesConfiguration.UnprotectString(context.Request("path"))).RemoveTrailingSlash()
+	        Dim path = New PhysicalPath(ExamplesConfiguration.UnprotectString(context.Request("path"))).RemoveTrailingSlash()
 
-            Dim fileResponse = New FileResponse(context, 0)
-            fileResponse.Transmit(Sub(targetStream)
-                                      QuickZip.Zip(targetStream, Directory.EnumerateFileSystemEntries(path))
-                                  End Sub, path.FileName + ".zip", 0)
+	        Dim zipFile = path.Append(path.FileName + ".zip")
+	        Dim itemPaths = Directory.EnumerateFileSystemEntries(path).Where(Function(p) p <> zipFile)
 
+	        QuickZip.Zip(zipFile, itemPaths)
+
+	        Dim fileResponse = New FileResponse(context)
+	        fileResponse.Transmit(zipFile)
         End Sub
 
         Private Shared ReadOnly Property ConvertHandlerName() As String

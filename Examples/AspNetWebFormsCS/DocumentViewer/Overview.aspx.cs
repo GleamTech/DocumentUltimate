@@ -9,7 +9,7 @@ namespace GleamTech.DocumentUltimateExamples.AspNetWebFormsCS.DocumentViewer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            documentViewer.Document = exampleFileSelector.SelectedFile;
+            documentViewer.Document = exampleFileSelector.SelectedFile.ToString();
 
             if (IsPostBack)
                 documentViewer.DisplayLanguage = LanguageSelector.SelectedValue;

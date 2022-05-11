@@ -28,7 +28,7 @@
 	                SizeIsPercentage="True" />
 	        
 	            <GleamTech:ImageWatermark
-	                ImageFile="~/App_Data/contoso-logo.png"
+	                Image="~/App_Data/contoso-logo.png"
 	                HorizontalAlignment="Right"
 	                VerticalAlignment="Top"
 	                Opacity="50"

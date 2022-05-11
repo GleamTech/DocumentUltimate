@@ -30,7 +30,7 @@ namespace GleamTech.DocumentUltimateExamples.AspNetMvcCS.Controllers
 	                    },
 	                    new ImageWatermark
 	                    {
-	                        ImageFile = "~/App_Data/contoso-logo.png",
+	                        Image = "~/App_Data/contoso-logo.png",
 	                        HorizontalAlignment = HorizontalAlignment.Right,
 	                        VerticalAlignment  = VerticalAlignment.Top,
 	                        Opacity = 50,
