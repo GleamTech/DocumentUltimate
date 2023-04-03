@@ -14,21 +14,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="GleamTech.Common" Version="5.6.1" />
-    <PackageReference Include="GleamTech.DocumentUltimate" Version="6.7.1" />
+    <PackageReference Include="GleamTech.Common" Version="5.8.0" />
+    <PackageReference Include="GleamTech.DocumentUltimate" Version="6.8.0" />
   </ItemGroup>
   
   <ItemGroup>
     <_CustomFiles Include="Controllers\**\*" />
     <_CustomFiles Include="Views\**\*" />
     <_CustomFiles Include="Descriptions\**\*" />
-    <None Remove="Descriptions\DocumentViewer\FileProvider.html" />
-    <None Remove="Descriptions\DocumentViewer\Overview.html" />
-    <_CustomFiles Remove="Controllers\DocumentViewerController.FileProvider.cs" />
-    <_CustomFiles Remove="Descriptions\DocumentViewer\FileProvider.html" />
-    <_CustomFiles Remove="Views\DocumentViewer\FileProvider.cshtml" />
-    <Content Include="Descriptions\DocumentViewer\FileProvider.html" />
-    <Content Include="Descriptions\DocumentViewer\Overview.html" />
     <DotnetPublishFiles Include="@(_CustomFiles)">
       <DestinationRelativePath>%(Identity)</DestinationRelativePath>
     </DotnetPublishFiles>

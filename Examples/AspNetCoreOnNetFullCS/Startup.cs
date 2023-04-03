@@ -15,28 +15,40 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCoreOnNetFullCS
         {
             services.AddMvc();
 
+
+            //----------------------
+            //Add GleamTech to the ASP.NET Core services container.
             services.AddGleamTech();
+            //----------------------
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseGleamTech();
 
-            var gleamTechConfig = Hosting.ResolvePhysicalPath("~/App_Data/GleamTech.config");
-            if (File.Exists(gleamTechConfig))
-                GleamTechConfiguration.Current.Load(gleamTechConfig);
+            //----------------------
+            //Register GleamTech to the ASP.NET Core HTTP request pipeline.
+            app.UseGleamTech(() =>
+            {
+	            //The below custom config file loading is only for our demo publishing purpose:
 
-            var documentUltimateConfig = Hosting.ResolvePhysicalPath("~/App_Data/DocumentUltimate.config");
-            if (File.Exists(documentUltimateConfig))
-                DocumentUltimateConfiguration.Current.Load(documentUltimateConfig);
+	            var gleamTechConfig = Hosting.ResolvePhysicalPath("~/App_Data/GleamTech.config");
+	            if (File.Exists(gleamTechConfig))
+		            GleamTechConfiguration.Current.Load(gleamTechConfig);
 
-            app.UseStaticFiles();
+	            var documentUltimateConfig = Hosting.ResolvePhysicalPath("~/App_Data/DocumentUltimate.config");
+	            if (File.Exists(documentUltimateConfig))
+		            DocumentUltimateConfiguration.Current.Load(documentUltimateConfig);
+            });
+            //----------------------
+
+
+			app.UseStaticFiles();
 
             app.UseMvc(routes =>
             {

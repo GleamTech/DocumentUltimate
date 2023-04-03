@@ -1,6 +1,6 @@
-﻿Imports System.Drawing
-Imports GleamTech.DocumentUltimate
+﻿Imports GleamTech.DocumentUltimate
 Imports GleamTech.DocumentUltimate.AspNet.UI
+Imports GleamTech.Drawing
 
 Namespace Controllers
     Partial Public Class  DocumentViewerController

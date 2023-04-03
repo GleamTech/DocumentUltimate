@@ -1,6 +1,6 @@
-﻿using System.Drawing;
-using GleamTech.DocumentUltimate;
+﻿using GleamTech.DocumentUltimate;
 using GleamTech.DocumentUltimate.AspNet.UI;
+using GleamTech.Drawing;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GleamTech.DocumentUltimateExamples.AspNetCoreOnNetFullCS.Controllers
