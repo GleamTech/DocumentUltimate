@@ -5,9 +5,7 @@
 Integrate a document viewer into your ASP.NET application or site rapidly.
 
 - View almost any document type (70+ file formats, including PDF & Microsoft Office).
-
 - HTML5 Zero-footprint viewer.
-
 - Convert between document types.
 
 <kbd>![Document Viewer for ASP.NET and Document Converter for .NET](documentultimate-screenshot.png)</kbd>
