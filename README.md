@@ -1,11 +1,8 @@
 ![DocumentUltimate Logo](documentultimate-logo.png)
-#  DocumentUltimate: ASP.NET Document Viewer and Converter
+# Document Viewer for ASP.NET and Document Converter for .NET
 [![GleamTech.DocumentUltimate Nuget](https://img.shields.io/nuget/v/GleamTech.DocumentUltimate)](https://www.nuget.org/packages/GleamTech.DocumentUltimate/ "GleamTech.DocumentUltimate Nuget")
 
-DocumentUltimate is an ASP.NET Document Viewer and Converter
-which supports ASP.NET Core 5.0+, ASP.NET Core 2.1+, ASP.NET MVC 3.0+ and ASP.NET WebForms 4.7.2+ web applications/web sites.
-DocumentUltimate can also be used for conversion between several document formats
-with .NET 5.0+ or .NET Core 2.0+ and .NET Framework 4.7.2+ console/desktop applications.
+Integrate a document viewer into your ASP.NET application or site rapidly.
 
 - View almost any document type (70+ file formats, including PDF & Microsoft Office).
 
@@ -13,9 +10,9 @@ with .NET 5.0+ or .NET Core 2.0+ and .NET Framework 4.7.2+ console/desktop appli
 
 - Convert between document types.
 
-![ASP.NET Document Viewer](documentultimate.png)
+<kbd>![Document Viewer for ASP.NET and Document Converter for .NET](documentultimate-screenshot.png)</kbd>
 
-**Note:** This project contains a fully working version of the product, however without a license key it will run in trial mode. For more information, please see [DocumentUltimate: ASP.NET Document Viewer and Converter](http://www.gleamtech.com/documentultimate) product page.
+**Note:** This project contains a fully working version of the product, however without a license key it will run in trial mode. For more information, please see [ASP.NET Document Viewer and .NET Document Converter](https://www.gleamtech.com/documentultimate) product page.
 
 ### Live Demo:
 https://demos.gleamtech.com/documentultimate/
