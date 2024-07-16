@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace GleamTech.DocumentUltimateExamples.AspNetCoreOnNetFullCS.Models
@@ -18,7 +18,7 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCoreOnNetFullCS.Models
         public string ResultHandlerUrl { get; set; }
 
         public Dictionary<string, List<SelectListItem>> InputFormats { get; set; }
-        
+
         public Dictionary<string, List<SelectListItem>> OutputFormats { get; set; }
     }
 }

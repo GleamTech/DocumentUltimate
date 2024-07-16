@@ -1,4 +1,4 @@
-﻿Imports GleamTech.DocumentUltimate.AspNet.UI
+Imports GleamTech.DocumentUltimate.AspNet.UI
 Imports GleamTech.Examples
 
 Namespace Controllers
@@ -27,7 +27,6 @@ Namespace Controllers
                     .RotationChanged = "documentViewerRotationChanged",
                     .Downloading = "documentViewerDownloading",
                     .Printing = "documentViewerPrinting",
-                    .PrintProgress = "documentViewerPrintProgress",
                     .Printed = "documentViewerPrinted",
                     .TextSelected = "documentViewerTextSelected",
                     .TextCopied = "documentViewerTextCopied"

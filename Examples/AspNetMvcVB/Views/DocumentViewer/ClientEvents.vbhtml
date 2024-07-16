@@ -1,4 +1,4 @@
-﻿@Imports GleamTech.AspNet.UI
+@Imports GleamTech.AspNet.UI
 @Imports GleamTech.AspNet.Mvc
 @Imports GleamTech.DocumentUltimate.AspNet.UI
 @ModelType DocumentViewer
@@ -10,83 +10,77 @@
     @Me.RenderHead(Model)
 
     <script type="text/javascript">
-        function documentViewerLoaded(sender, e) {
-            var documentViewer = sender;
+        function documentViewerLoaded(e) {
+            var documentViewer = e.target;
 
-            logEvent(e);
+            logEvent(e.detail);
         }
 
-        function documentViewerFailed(sender, e) {
-            var documentViewer = sender;
+        function documentViewerFailed(e) {
+            var documentViewer = e.target;
 
-            logEvent(e);
+            logEvent(e.detail);
         }
 
-        function documentViewerDocumentLoaded(sender, e) {
-            var documentViewer = sender;
+        function documentViewerDocumentLoaded(e) {
+            var documentViewer = e.target;
 
-            logEvent(e);
+            logEvent(e.detail);
         }
 
-        function documentViewerPageChanged(sender, e) {
-            var documentViewer = sender;
+        function documentViewerPageChanged(e) {
+            var documentViewer = e.target;
 
-            logEvent(e);
+            logEvent(e.detail);
         }
 
-        function documentViewerPageRendered(sender, e) {
-            var documentViewer = sender;
+        function documentViewerPageRendered(e) {
+            var documentViewer = e.target;
 
-            logEvent(e);
+            logEvent(e.detail);
         }
 
-        function documentViewerRotationChanged(sender, e) {
-            var documentViewer = sender;
+        function documentViewerRotationChanged(e) {
+            var documentViewer = e.target;
 
-            logEvent(e);
+            logEvent(e.detail);
         }
 
-        function documentViewerDownloading(sender, e) {
-            var documentViewer = sender;
+        function documentViewerDownloading(e) {
+            var documentViewer = e.target;
 
-            logEvent(e);
+            logEvent(e.detail);
         }
 
-        function documentViewerPrinting(sender, e) {
-            var documentViewer = sender;
+        function documentViewerPrinting(e) {
+            var documentViewer = e.target;
 
-            logEvent(e);
+            logEvent(e.detail);
         }
 
-        function documentViewerPrintProgress(sender, e) {
-            var documentViewer = sender;
+        function documentViewerPrinted(e) {
+            var documentViewer = e.target;
 
-            logEvent(e);
+            logEvent(e.detail);
         }
 
-        function documentViewerPrinted(sender, e) {
-            var documentViewer = sender;
+        function documentViewerTextSelected(e) {
+            var documentViewer = e.target;
 
-            logEvent(e);
+            logEvent(e.detail);
         }
 
-        function documentViewerTextSelected(sender, e) {
-            var documentViewer = sender;
+        function documentViewerTextCopied(e) {
+            var documentViewer = e.target;
 
-            logEvent(e);
+            logEvent(e.detail);
         }
 
-        function documentViewerTextCopied(sender, e) {
-            var documentViewer = sender;
-
-            logEvent(e);
-        }
-
-        function logEvent(e) {
+        function logEvent(detail) {
             var logTextBox = document.getElementById("LogTextBox");
 
             var now = new Date().toLocaleTimeString();
-            var json = JSON.stringify(e, null, 2);
+            var json = JSON.stringify(detail, null, 2);
             logTextBox.value = "[" + now + "]" + "\nEvent arguments: " + json + "\n\n" + logTextBox.value;
             logTextBox.scrollTop = 0;
         }

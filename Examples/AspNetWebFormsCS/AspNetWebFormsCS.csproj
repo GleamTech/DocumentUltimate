@@ -51,10 +51,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GleamTech.Common">
-      <HintPath>..\packages\GleamTech.Common.5.9.3\lib\net472\GleamTech.Common.dll</HintPath>
+      <HintPath>..\packages\GleamTech.Common.6.0.0\lib\net472\GleamTech.Common.dll</HintPath>
     </Reference>
     <Reference Include="GleamTech.DocumentUltimate">
-      <HintPath>..\packages\GleamTech.DocumentUltimate.6.9.8\lib\net472\GleamTech.DocumentUltimate.dll</HintPath>
+      <HintPath>..\packages\GleamTech.DocumentUltimate.7.0.0\lib\net472\GleamTech.DocumentUltimate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -85,6 +85,7 @@
     <Content Include="DocumentConverter\Overview.aspx" />
     <Content Include="DocumentConverter\Possible.aspx" />
     <Content Include="DocumentViewer\ClientEvents.aspx" />
+    <Content Include="DocumentViewer\Display.aspx" />
     <Content Include="DocumentViewer\Watermark.aspx" />
     <Content Include="DocumentViewer\Highlight.aspx" />
     <Content Include="DocumentViewer\Overview.aspx" />
@@ -129,6 +130,13 @@
     </Compile>
     <Compile Include="DocumentViewer\ClientEvents.aspx.designer.cs">
       <DependentUpon>ClientEvents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentViewer\Display.aspx.cs">
+      <DependentUpon>Display.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DocumentViewer\Display.aspx.designer.cs">
+      <DependentUpon>Display.aspx</DependentUpon>
     </Compile>
     <Compile Include="DocumentViewer\Watermark.aspx.cs">
       <DependentUpon>Watermark.aspx</DependentUpon>
@@ -189,7 +197,8 @@
           <IISUrl>http://localhost:5210/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl></CustomServerUrl>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

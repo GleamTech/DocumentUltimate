@@ -1,4 +1,4 @@
-﻿Imports GleamTech.DocumentUltimate
+Imports GleamTech.DocumentUltimate
 Imports GleamTech.Examples
 
 Public Class DefaultPage
@@ -17,6 +17,12 @@ Public Class DefaultPage
                         .Url = "DocumentViewer/Overview.aspx",
                         .SourceFiles = New String() {"DocumentViewer/Overview.aspx", "DocumentViewer/Overview.aspx.vb"},
                         .DescriptionFile = "Descriptions/DocumentViewer/Overview.html"
+                    },
+                    New Example() With {
+                        .Title = "Displaying control on demand",
+                        .Url = "DocumentViewer/Display.aspx",
+                        .SourceFiles = New String() {"DocumentViewer/Display.aspx", "DocumentViewer/Display.aspx.vb"},
+                        .DescriptionFile = "Descriptions/DocumentViewer/Display.html"
                     },
                     New Example() With {
                         .Title = "Copy protection (DRM)",

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using GleamTech.AspNet;
 using GleamTech.DocumentUltimate;
@@ -85,11 +85,11 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCoreCS.Controllers
                 {
                     if (DocumentConverter.CanConvert(inputFormat, outputFormat, engine))
                         context.Response.Output.Write(string.Format(
-                            "<br/><span style=\"color: green; font-weight: bold\">Via {0} Engine &#x2713;</span>", 
+                            "<br/><span style=\"color: green; font-weight: bold\">Via {0} Engine &#x2713;</span>",
                             engine));
                     else
                         context.Response.Output.Write(string.Format(
-                            "<br/><span style=\"color: red; font-weight: bold\">Via {0} Engine &#x2717;</span>", 
+                            "<br/><span style=\"color: red; font-weight: bold\">Via {0} Engine &#x2717;</span>",
                             engine));
                 }
             }

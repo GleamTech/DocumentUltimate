@@ -1,4 +1,4 @@
-﻿using GleamTech.DocumentUltimate.AspNet.UI;
+using GleamTech.DocumentUltimate.AspNet.UI;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GleamTech.DocumentUltimateExamples.AspNetCoreCS.Controllers

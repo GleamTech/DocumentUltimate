@@ -1,0 +1,31 @@
+@using GleamTech.AspNet.Core
+@using GleamTech.DocumentUltimate.AspNet.UI
+@model DocumentViewer[]
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Displaying control on demand</title>
+    @this.RenderHead(Model[0])
+</head>
+<body style="margin: 20px;">
+
+    1. DocumentViewer instance displayed as inline element:
+    <input type="button" value="Show" onclick="documentViewer1.show()" />
+    <input type="button" value="Hide" onclick="documentViewer1.hide()" />
+    <br /><br />
+    @this.RenderBody(Model[0])
+
+    2. DocumentViewer instance displayed as a modal dialog:
+    <input type="button" value="Show" onclick="documentViewer2.show()" />
+    <br /><br />
+    @this.RenderBody(Model[1])
+
+    3. DocumentViewer instance displayed as a panel:
+    <input type="button" value="Show" onclick="documentViewer3.show()" />
+    <input type="button" value="Hide" onclick="documentViewer3.hide()" />
+    <br /><br />
+    @this.RenderBody(Model[2])
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -147,16 +147,16 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCoreCS.Controllers
 
         public static void ZipDownloadHandler(IHttpContext context)
         {
-	        var path = new PhysicalPath(ExamplesConfiguration.UnprotectString(context.Request["path"])).RemoveTrailingSlash();
+            var path = new PhysicalPath(ExamplesConfiguration.UnprotectString(context.Request["path"])).RemoveTrailingSlash();
 
-	        var zipFile = path.Append(path.FileName + ".zip");
-	        var itemPaths = Directory.EnumerateFileSystemEntries(path)
-		        .Where(p => p != zipFile);
+            var zipFile = path.Append(path.FileName + ".zip");
+            var itemPaths = Directory.EnumerateFileSystemEntries(path)
+                .Where(p => p != zipFile);
 
-	        QuickZip.Zip(zipFile, itemPaths);
+            QuickZip.Zip(zipFile, itemPaths);
 
-	        var fileResponse = new FileResponse(context);
-	        fileResponse.Transmit(zipFile);
+            var fileResponse = new FileResponse(context);
+            fileResponse.Transmit(zipFile);
         }
 
         private static string ConvertHandlerName

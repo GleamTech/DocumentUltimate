@@ -33,6 +33,15 @@ namespace GleamTech.DocumentUltimateExamples.AspNetWebFormsCS.DocumentViewer
         protected global::System.Web.UI.WebControls.DropDownList LanguageSelector;
 
         /// <summary>
+        /// ThemeSelector control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ThemeSelector;
+
+        /// <summary>
         /// exampleFileSelector control.
         /// </summary>
         /// <remarks>

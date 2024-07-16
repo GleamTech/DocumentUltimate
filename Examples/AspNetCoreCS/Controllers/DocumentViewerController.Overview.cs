@@ -1,4 +1,5 @@
-﻿using System.Linq;
+using System.Collections.Generic;
+using System.Linq;
 using GleamTech.AspNet;
 using GleamTech.DocumentUltimate.AspNet;
 using GleamTech.DocumentUltimate.AspNet.UI;
@@ -17,7 +18,8 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCoreCS.Controllers
             var exampleFileSelector = ViewBag.ExampleFileSelector = new ExampleFileSelector
             {
                 Id = "exampleFileSelector",
-                InitialFile = "Default.pdf"
+                InitialFile = "Default.pdf",
+                FormWrapped = false
             };
 
             var documentViewer = new DocumentViewer
@@ -28,22 +30,28 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCoreCS.Controllers
                 Document = exampleFileSelector.SelectedFile.ToString()
             };
 
-            HandleLanguage(documentViewer);
+            HandleSelectors(documentViewer);
 
             return View(documentViewer);
         }
 
-        private void HandleLanguage(DocumentViewer documentViewer)
+        private void HandleSelectors(DocumentViewer documentViewer)
         {
             var context = Hosting.GetHttpContext();
-            var selectedLanguage = context.Request["languageSelector"];
 
+            var selectedLanguage = context.Request["languageSelector"];
             if (selectedLanguage != null)
                 documentViewer.DisplayLanguage = selectedLanguage;
             else
                 selectedLanguage = documentViewer.DisplayLanguage;
-
             PopulateLanguageSelector(selectedLanguage);
+
+            var selectedTheme = context.Request["themeSelector"];
+            if (selectedTheme != null)
+                documentViewer.Theme = selectedTheme;
+            else
+                selectedTheme = documentViewer.Theme;
+            PopulateThemeSelector(selectedTheme);
         }
 
         private void PopulateLanguageSelector(string selectedLanguage)
@@ -57,6 +65,21 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCoreCS.Controllers
                 "Value",
                 "Text",
                 selectedLanguage
+            );
+        }
+
+        private void PopulateThemeSelector(string selectedTheme)
+        {
+            ViewBag.ThemeList = new SelectList(
+                new Dictionary<string, string>
+                {
+                    { "slate (Dark Mode: classic-dark)", "slate, classic-dark" },
+                    { "classic-light (Dark Mode: classic-dark)", "classic-light, classic-dark" },
+                    { "classic-dark", "classic-dark" }
+                },
+                "Value",
+                "Key",
+                selectedTheme
             );
         }
     }

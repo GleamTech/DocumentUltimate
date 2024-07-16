@@ -1,4 +1,4 @@
-﻿using GleamTech.DocumentUltimate.AspNet.UI;
+using GleamTech.DocumentUltimate.AspNet.UI;
 using GleamTech.Examples;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,7 +32,6 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCoreCS.Controllers
                     RotationChanged = "documentViewerRotationChanged",
                     Downloading = "documentViewerDownloading",
                     Printing = "documentViewerPrinting",
-                    PrintProgress = "documentViewerPrintProgress",
                     Printed = "documentViewerPrinted",
                     TextSelected = "documentViewerTextSelected",
                     TextCopied = "documentViewerTextCopied"

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using GleamTech.AspNet;
@@ -21,11 +21,11 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCoreCS.Controllers
                 // See below for CustomFileProvider class which implements FileProvider base class
                 Document = new CustomFileProvider
                 {
-	                File = "~/App_Data/ExampleFiles/Default.docx",
-	                Parameters = new Dictionary<string, string>
-	                {
-		                {"parameter1", "value1"}
-	                }
+                    File = "~/App_Data/ExampleFiles/Default.docx",
+                    Parameters = new Dictionary<string, string>
+                    {
+                        {"parameter1", "value1"}
+                    }
                 }
             };
 

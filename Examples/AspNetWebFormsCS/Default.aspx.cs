@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Web.UI;
 using GleamTech.DocumentUltimate;
 using GleamTech.Examples;
@@ -24,6 +24,13 @@ namespace GleamTech.DocumentUltimateExamples.AspNetWebFormsCS
                             Url = "DocumentViewer/Overview.aspx",
                             SourceFiles = new[] {"DocumentViewer/Overview.aspx", "DocumentViewer/Overview.aspx.cs"},
                             DescriptionFile = "Descriptions/DocumentViewer/Overview.html"
+                        },
+                        new Example
+                        {
+                            Title = "Displaying control on demand",
+                            Url = "DocumentViewer/Display.aspx",
+                            SourceFiles = new[] { "DocumentViewer/Display.aspx", "DocumentViewer/Display.aspx.cs"},
+                            DescriptionFile = "Descriptions/DocumentViewer/Display.html"
                         },
                         new Example
                         {

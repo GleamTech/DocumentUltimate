@@ -11,11 +11,12 @@
 <body style="margin: 20px;">
     <form id="form1" runat="server">
         Change language: <asp:DropDownList ID="LanguageSelector" runat="server" AutoPostBack="true"></asp:DropDownList>
+        &nbsp;Change theme: <asp:DropDownList ID="ThemeSelector" runat="server" AutoPostBack="true"></asp:DropDownList>
         <br /><br />
+        <GleamTech:ExampleFileSelectorControl ID="exampleFileSelector" runat="server"
+                                              InitialFile="Default.pdf"
+                                              FormWrapped="False" />
     </form>
-
-    <GleamTech:ExampleFileSelectorControl ID="exampleFileSelector" runat="server"
-        InitialFile="Default.pdf" />
 
     <GleamTech:DocumentViewerControl ID="documentViewer" runat="server" 
         Width="800" 

@@ -1,4 +1,4 @@
-﻿@Imports GleamTech.AspNet.Mvc
+@Imports GleamTech.AspNet.Mvc
 @Imports GleamTech.DocumentUltimate
 @Imports GleamTech.Examples
 @Code
@@ -15,6 +15,12 @@
                         .Url = "DocumentViewer/Overview",
                         .SourceFiles = New String() {"Views/DocumentViewer/Overview.vbhtml", "Controllers/DocumentViewerController.Overview.vb"},
                         .DescriptionFile = "Descriptions/DocumentViewer/Overview.html"
+                    },
+                    New Example() With {
+                        .Title = "Displaying control on demand",
+                        .Url = "DocumentViewer/Display",
+                        .SourceFiles = New String() {"Views/DocumentViewer/Display.vbhtml", "Controllers/DocumentViewerController.Display.vb"},
+                        .DescriptionFile = "Descriptions/DocumentViewer/Display.html"
                     },
                     New Example() With {
                         .Title = "Copy protection (DRM)",

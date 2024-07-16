@@ -1,4 +1,4 @@
-﻿@using GleamTech.AspNet.UI
+@using GleamTech.AspNet.UI
 @using GleamTech.AspNet.Core
 @using GleamTech.DocumentUltimate.AspNet.UI
 @model DocumentViewer
@@ -24,10 +24,14 @@
     @using (Html.BeginForm())
     {
         <text>Change language: </text>@Html.DropDownList("languageSelector", (SelectList)ViewBag.LanguageList, new { onchange = "this.form.submit();" })
+        <text>&nbsp;Change theme: </text>@Html.DropDownList("themeSelector", (SelectList)ViewBag.ThemeList, new
+                                         {
+                                             onchange = "this.form.submit();",
+                                             title =  "Note that you can emulate prefers-color-scheme via browser's F12 dev tools to test dark mode which is normally activated according to user's OS preferences."
+                                         })
         <br /><br />
+        @this.RenderBody(ViewBag.ExampleFileSelector as Component)
     }
-
-    @this.RenderBody(ViewBag.ExampleFileSelector as Component)
 
     @this.RenderBody(Model)
 </body>

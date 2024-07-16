@@ -48,10 +48,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GleamTech.Common">
-      <HintPath>..\packages\GleamTech.Common.5.9.3\lib\net472\GleamTech.Common.dll</HintPath>
+      <HintPath>..\packages\GleamTech.Common.6.0.0\lib\net472\GleamTech.Common.dll</HintPath>
     </Reference>
     <Reference Include="GleamTech.DocumentUltimate">
-      <HintPath>..\packages\GleamTech.DocumentUltimate.6.9.8\lib\net472\GleamTech.DocumentUltimate.dll</HintPath>
+      <HintPath>..\packages\GleamTech.DocumentUltimate.7.0.0\lib\net472\GleamTech.DocumentUltimate.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +122,7 @@
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <None Include="packages.config" />
+    <Content Include="Views\DocumentViewer\Display.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

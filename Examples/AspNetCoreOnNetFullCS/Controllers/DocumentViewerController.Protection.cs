@@ -1,4 +1,4 @@
-﻿using GleamTech.DocumentUltimate.AspNet.UI;
+using GleamTech.DocumentUltimate.AspNet.UI;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GleamTech.DocumentUltimateExamples.AspNetCoreOnNetFullCS.Controllers
@@ -13,9 +13,9 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCoreOnNetFullCS.Controllers
                 Height = 600,
                 Resizable = true,
                 Document = "~/App_Data/ExampleFiles/Default.pdf",
-                DeniedPermissions = DocumentViewerPermissions.Download 
-                                    | DocumentViewerPermissions.DownloadAsPdf 
-                                    | DocumentViewerPermissions.Print 
+                DeniedPermissions = DocumentViewerPermissions.Download
+                                    | DocumentViewerPermissions.DownloadAsPdf
+                                    | DocumentViewerPermissions.Print
                                     | DocumentViewerPermissions.SelectText
             };
 
