@@ -8,7 +8,7 @@ Integrate a document viewer into your ASP.NET application or site rapidly.
 - HTML5 Zero-footprint viewer.
 - Convert between document types.
 
-<kbd>![Document Viewer for ASP.NET and Document Converter for .NET](documentultimate-screenshot.png)</kbd>
+![Document Viewer for ASP.NET and Document Converter for .NET](documentultimate-screenshot.png)
 
 **Note:** This project contains a fully working version of the product, however without a license key it will run in trial mode. For more information, please see [ASP.NET Document Viewer and .NET Document Converter](https://www.gleamtech.com/documentultimate) product page.
 
