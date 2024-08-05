@@ -28,7 +28,7 @@ https://docs.gleamtech.com/documentultimate/html/using-documentultimate-in-an-as
 https://docs.gleamtech.com/documentultimate/html/using-documentultimate-in-an-asp-net-webforms-project.htm
 
 ### Showcase videos:
-[![ASP.NET Core Document Viewer - Getting Started](https://i.ytimg.com/vi/JeX0SWaFlow/maxresdefault.jpg)](https://youtu.be/JeX0SWaFlow "ASP.NET Core Document Viewer - Getting Started")
+[![ASP.NET Core Document Viewer - Getting Started](https://i.ytimg.com/vi/3bBXxFvrquM/maxresdefault.jpg)](https://youtu.be/3bBXxFvrquM "ASP.NET Core Document Viewer - Getting Started")
 
 [![ASP.NET MVC Document Viewer - Getting Started](https://i.ytimg.com/vi/YZGlpt--g6Q/maxresdefault.jpg)](https://youtu.be/YZGlpt--g6Q "ASP.NET MVC Document Viewer - Getting Started")
 
