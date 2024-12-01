@@ -9,8 +9,8 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCoreCS.Controllers
         {
             var documentViewer = new DocumentViewer
             {
-                Width = 800,
-                Height = 600,
+                Width = 960,
+                Height = 720,
                 Resizable = true,
                 Document = "~/App_Data/ExampleFiles/Default.pdf",
                 DeniedPermissions = DocumentViewerPermissions.Download

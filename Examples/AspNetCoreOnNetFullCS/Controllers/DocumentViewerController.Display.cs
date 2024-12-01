@@ -13,8 +13,8 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCoreOnNetFullCS.Controllers
             var documentViewer1 = new DocumentViewer
             {
                 Id = "documentViewer1",
-                Width = 800,
-                Height = 600,
+                Width = 960,
+                Height = 720,
                 Resizable = true,
                 Document = "~/App_Data/ExampleFiles/Default.pdf",
                 Hidden = true
@@ -23,8 +23,8 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCoreOnNetFullCS.Controllers
             var documentViewer2 = new DocumentViewer
             {
                 Id = "documentViewer2",
-                Width = 800,
-                Height = 600,
+                Width = 960,
+                Height = 720,
                 Resizable = true,
                 Document = "~/App_Data/ExampleFiles/Default.pdf",
                 Hidden = true,
@@ -41,8 +41,8 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCoreOnNetFullCS.Controllers
             var documentViewer3 = new DocumentViewer
             {
                 Id = "documentViewer3",
-                Width = 800,
-                Height = 600,
+                Width = 960,
+                Height = 720,
                 Resizable = true,
                 Document = "~/App_Data/ExampleFiles/Default.pdf",
                 Hidden = true,

@@ -9,8 +9,8 @@ Namespace Controllers
 
             Dim documentViewer1 = New DocumentViewer With {
                 .Id = "documentViewer1",
-                .Width = 800,
-                .Height = 600,
+                .Width = 960,
+                .Height = 720,
                 .Resizable = True,
                 .Document = "~/App_Data/ExampleFiles/Default.pdf",
                 .Hidden = True
@@ -18,8 +18,8 @@ Namespace Controllers
 
             Dim documentViewer2 = New DocumentViewer With {
                 .Id = "documentViewer2",
-                .Width = 800,
-                .Height = 600,
+                .Width = 960,
+                .Height = 720,
                 .Resizable = True,
                 .Document = "~/App_Data/ExampleFiles/Default.pdf",
                 .Hidden = True,
@@ -34,8 +34,8 @@ Namespace Controllers
 
             Dim documentViewer3 = New DocumentViewer With {
                 .Id = "documentViewer3",
-                .Width = 800,
-                .Height = 600,
+                .Width = 960,
+                .Height = 720,
                 .Resizable = True,
                 .Document = "~/App_Data/ExampleFiles/Default.pdf",
                 .Hidden = True,

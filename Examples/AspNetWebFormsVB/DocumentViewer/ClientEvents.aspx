@@ -102,8 +102,8 @@
     </p>
 
     <GleamTech:DocumentViewerControl ID="documentViewer" runat="server" 
-        Width="800" 
-        Height="600"
+        Width="960" 
+        Height="720"
         Resizable="True">
         
         <ClientEvents Loaded="documentViewerLoaded"

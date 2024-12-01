@@ -22,8 +22,8 @@ namespace GleamTech.DocumentUltimateExamples.AspNetMvcCS.Controllers
 
             var documentViewer = new DocumentViewer
             {
-                Width = 800,
-                Height = 600,
+                Width = 960,
+                Height = 720,
                 Resizable = true,
                 Document = exampleFileSelector.SelectedFile.ToString()
             };

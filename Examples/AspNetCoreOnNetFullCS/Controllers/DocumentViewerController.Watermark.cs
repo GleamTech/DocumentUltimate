@@ -11,8 +11,8 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCoreOnNetFullCS.Controllers
         {
             var documentViewer = new DocumentViewer
             {
-                Width = 800,
-                Height = 600,
+                Width = 960,
+                Height = 720,
                 Resizable = true,
                 Document = "~/App_Data/ExampleFiles/Default.doc",
                 DocumentOptions = new DocumentOptions

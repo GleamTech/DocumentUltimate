@@ -14,8 +14,8 @@ namespace GleamTech.DocumentUltimateExamples.AspNetCoreOnNetFullCS.Controllers
         {
             var documentViewer = new DocumentViewer
             {
-                Width = 800,
-                Height = 600,
+                Width = 960,
+                Height = 720,
                 Resizable = true,
 
                 // See below for CustomFileProvider class which implements FileProvider base class

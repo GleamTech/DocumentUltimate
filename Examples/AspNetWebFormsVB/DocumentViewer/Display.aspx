@@ -14,8 +14,8 @@
     <input type="button" value="Hide" onclick="documentViewer1.hide()" />
     <br /><br />
     <GleamTech:DocumentViewerControl ID="documentViewer1" runat="server" 
-        Width="800" 
-        Height="600"
+        Width="960" 
+        Height="720"
         Resizable="True"
         Document="~/App_Data/ExampleFiles/Default.pdf"
         Hidden="True" />
@@ -24,8 +24,8 @@
     <input type="button" value="Show" onclick="documentViewer2.show()" />
     <br /><br />
     <GleamTech:DocumentViewerControl ID="documentViewer2" runat="server" 
-        Width="800" 
-        Height="600"
+        Width="960" 
+        Height="720"
         Resizable="True"
         Document="~/App_Data/ExampleFiles/Default.pdf"
         Hidden="True"
@@ -40,8 +40,8 @@
     <input type="button" value="Hide" onclick="documentViewer3.hide()" />
     <br /><br />
     <GleamTech:DocumentViewerControl ID="documentViewer3" runat="server" 
-        Width="800" 
-        Height="600"
+        Width="960" 
+        Height="720"
         Resizable="True"
         Document="~/App_Data/ExampleFiles/Default.pdf"
         Hidden="True"

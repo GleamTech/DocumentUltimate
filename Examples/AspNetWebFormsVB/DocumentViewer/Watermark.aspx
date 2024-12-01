@@ -11,8 +11,8 @@
 <body style="margin: 20px;">
 
     <GleamTech:DocumentViewerControl ID="documentViewer" runat="server" 
-        Width="800" 
-        Height="600"
+        Width="960" 
+        Height="720"
         Resizable="True"
         Document="~/App_Data/ExampleFiles/Default.doc">
         
