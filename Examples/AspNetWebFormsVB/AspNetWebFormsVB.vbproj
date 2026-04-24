@@ -26,8 +26,8 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
-    <Use64BitIISExpress />
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -65,10 +65,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GleamTech.Common">
-      <HintPath>..\packages\GleamTech.Common.7.0.0\lib\net472\GleamTech.Common.dll</HintPath>
+      <HintPath>..\packages\GleamTech.Common.7.1.0\lib\net472\GleamTech.Common.dll</HintPath>
     </Reference>
     <Reference Include="GleamTech.DocumentUltimate">
-      <HintPath>..\packages\GleamTech.DocumentUltimate.8.0.0\lib\net472\GleamTech.DocumentUltimate.dll</HintPath>
+      <HintPath>..\packages\GleamTech.DocumentUltimate.8.1.0\lib\net472\GleamTech.DocumentUltimate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -103,29 +103,11 @@
     <Import Include="System.Web.UI.WebControls.WebParts" />
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
-  <ItemGroup>
+  <ItemGroup Condition="'$(DisableWildcardExpansionHack)' != 'true'">
     <Content Include="App_Data\**\*" />
     <Content Include="App_GlobalResources\**\*" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Default.aspx" />
-    <Content Include="Descriptions\DocumentConverter\Overview.html" />
-    <Content Include="Descriptions\DocumentConverter\Possible.html" />
-    <Content Include="Descriptions\DocumentViewer\ClientEvents.html" />
-    <Content Include="Descriptions\DocumentViewer\Highlight.html" />
-    <Content Include="Descriptions\DocumentViewer\Overview.html" />
-    <Content Include="Descriptions\DocumentViewer\Protection.html" />
-    <Content Include="Descriptions\DocumentViewer\FileProvider.html" />
-    <Content Include="Descriptions\DocumentViewer\Watermark.html" />
-    <Content Include="DocumentConverter\Possible.aspx" />
-    <Content Include="DocumentConverter\Overview.aspx" />
-    <Content Include="DocumentViewer\ClientEvents.aspx" />
-    <Content Include="DocumentViewer\Display.aspx" />
-    <Content Include="DocumentViewer\Watermark.aspx" />
-    <Content Include="DocumentViewer\Highlight.aspx" />
-    <Content Include="DocumentViewer\Overview.aspx" />
-    <Content Include="DocumentViewer\Protection.aspx" />
-    <Content Include="DocumentViewer\FileProvider.aspx" />
+    <Content Include="Descriptions\**\*" />
+    
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -134,78 +116,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="Default.aspx" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Default.aspx.vb">
-      <SubType>ASPXCodeBehind</SubType>
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Default.aspx.designer.vb">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DocumentConverter\Possible.aspx.designer.vb">
-      <DependentUpon>Possible.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DocumentConverter\Possible.aspx.vb">
-      <DependentUpon>Possible.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="DocumentConverter\Overview.aspx.designer.vb">
-      <DependentUpon>Overview.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DocumentConverter\Overview.aspx.vb">
-      <DependentUpon>Overview.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="DocumentViewer\ClientEvents.aspx.designer.vb">
-      <DependentUpon>ClientEvents.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DocumentViewer\ClientEvents.aspx.vb">
-      <DependentUpon>ClientEvents.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="DocumentViewer\Display.aspx.designer.vb">
-      <DependentUpon>Display.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DocumentViewer\Display.aspx.vb">
-      <DependentUpon>Display.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="DocumentViewer\Watermark.aspx.designer.vb">
-      <DependentUpon>Watermark.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DocumentViewer\Watermark.aspx.vb">
-      <DependentUpon>Watermark.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="DocumentViewer\Highlight.aspx.designer.vb">
-      <DependentUpon>Highlight.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DocumentViewer\Highlight.aspx.vb">
-      <DependentUpon>Highlight.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="DocumentViewer\Overview.aspx.designer.vb">
-      <DependentUpon>Overview.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DocumentViewer\Overview.aspx.vb">
-      <DependentUpon>Overview.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="DocumentViewer\Protection.aspx.designer.vb">
-      <DependentUpon>Protection.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DocumentViewer\Protection.aspx.vb">
-      <DependentUpon>Protection.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="DocumentViewer\FileProvider.aspx.designer.vb">
-      <DependentUpon>FileProvider.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DocumentViewer\FileProvider.aspx.vb">
-      <DependentUpon>FileProvider.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
+  <ItemGroup Condition="'$(DisableWildcardExpansionHack)' != 'true'">
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -229,6 +142,91 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Default.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>  
+  <ItemGroup>
+    <Content Include="DocumentViewer\Overview.aspx" />
+    <Content Include="DocumentViewer\Display.aspx" />
+    <Content Include="DocumentViewer\Protection.aspx" />
+    <Content Include="DocumentViewer\Highlight.aspx" />
+    <Content Include="DocumentViewer\Watermark.aspx" />
+    <Content Include="DocumentViewer\ClientEvents.aspx" />
+    <Content Include="DocumentViewer\FileProvider.aspx" />
+          
+    <Content Include="DocumentConverter\Overview.aspx" />	      
+    <Content Include="DocumentConverter\Possible.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DocumentViewer\Overview.aspx.designer.vb">
+      <DependentUpon>Overview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentViewer\Overview.aspx.vb">
+      <DependentUpon>Overview.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="DocumentViewer\Display.aspx.designer.vb">
+      <DependentUpon>Display.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentViewer\Display.aspx.vb">
+      <DependentUpon>Display.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="DocumentViewer\Protection.aspx.designer.vb">
+      <DependentUpon>Protection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentViewer\Protection.aspx.vb">
+      <DependentUpon>Protection.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="DocumentViewer\Highlight.aspx.designer.vb">
+      <DependentUpon>Highlight.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentViewer\Highlight.aspx.vb">
+      <DependentUpon>Highlight.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="DocumentViewer\Watermark.aspx.designer.vb">
+      <DependentUpon>Watermark.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentViewer\Watermark.aspx.vb">
+      <DependentUpon>Watermark.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="DocumentViewer\FileProvider.aspx.designer.vb">
+      <DependentUpon>FileProvider.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentViewer\FileProvider.aspx.vb">
+      <DependentUpon>FileProvider.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>    
+    <Compile Include="DocumentViewer\ClientEvents.aspx.designer.vb">
+      <DependentUpon>ClientEvents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentViewer\ClientEvents.aspx.vb">
+      <DependentUpon>ClientEvents.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+		                        
+    <Compile Include="DocumentConverter\Possible.aspx.designer.vb">
+      <DependentUpon>Possible.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentConverter\Possible.aspx.vb">
+      <DependentUpon>Possible.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="DocumentConverter\Overview.aspx.designer.vb">
+      <DependentUpon>Overview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentConverter\Overview.aspx.vb">
+      <DependentUpon>Overview.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -249,7 +247,6 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

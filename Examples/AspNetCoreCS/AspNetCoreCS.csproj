@@ -9,8 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="GleamTech.Common" Version="7.0.0" />
-    <PackageReference Include="GleamTech.DocumentUltimate" Version="8.0.0" />
+    <PackageReference Include="GleamTech.Common" Version="7.1.0" />
+    <PackageReference Include="GleamTech.DocumentUltimate" Version="8.1.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,13 +46,6 @@
     <DotnetPublishFiles Include="@(_CustomFiles)">
       <DestinationRelativePath>%(Identity)</DestinationRelativePath>
     </DotnetPublishFiles>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Update="Views\DocumentViewer\Display.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
   </ItemGroup>
 
 </Project>
