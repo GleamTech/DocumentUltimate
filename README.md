@@ -16,16 +16,16 @@ Integrate a document viewer into your ASP.NET application or site rapidly.
 https://demos.gleamtech.com/documentultimate/
 
 ### Adding references to DocumentUltimate assemblies:
-https://docs.gleamtech.com/documentultimate/html/adding-references-to-documentultimate-assemblies.htm
+https://docs.gleamtech.com/documentultimate/articles/getting-started/adding-references-to-documentultimate-assemblies.html
 
 ### Using DocumentUltimate in an ASP.NET Core project:
-https://docs.gleamtech.com/documentultimate/html/using-documentultimate-in-an-asp-net-core-project.htm
+https://docs.gleamtech.com/documentultimate/articles/getting-started/using-documentultimate-in-an-asp-net-core-project.html
 
 ### Using DocumentUltimate in an ASP.NET MVC project:
-https://docs.gleamtech.com/documentultimate/html/using-documentultimate-in-an-asp-net-mvc-project.htm
+https://docs.gleamtech.com/documentultimate/articles/getting-started/using-documentultimate-in-an-asp-net-mvc-project.html
 
 ### Using DocumentUltimate in an ASP.NET WebForms project:
-https://docs.gleamtech.com/documentultimate/html/using-documentultimate-in-an-asp-net-webforms-project.htm
+https://docs.gleamtech.com/documentultimate/articles/getting-started/using-documentultimate-in-an-asp-net-webforms-project.html
 
 ### Showcase videos:
 [![ASP.NET Core Document Viewer - Getting Started](https://i.ytimg.com/vi/3bBXxFvrquM/maxresdefault.jpg)](https://youtu.be/3bBXxFvrquM "ASP.NET Core Document Viewer - Getting Started")
