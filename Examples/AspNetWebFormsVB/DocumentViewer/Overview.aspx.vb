@@ -30,9 +30,10 @@ Namespace DocumentViewer
 
         Private Sub PopulateThemeSelector()
             Dim themes = New Dictionary(Of String, String)() From {
-                {"slate (Dark Mode: classic-dark)", "slate, classic-dark"},
-                {"classic-light (Dark Mode: classic-dark)", "classic-light, classic-dark"},
-                {"classic-dark", "classic-dark"}
+                {"Slate", "slate, classic-dark"},
+                {"White", "white, classic-dark"},
+                {"Classic Light", "classic-light, classic-dark"},
+                {"Classic Dark", "classic-dark"}
             }
 
             For Each kvp In themes

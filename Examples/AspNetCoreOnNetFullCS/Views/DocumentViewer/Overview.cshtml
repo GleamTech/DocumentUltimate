@@ -23,13 +23,17 @@
 <body style="margin: 20px;">
     @using (Html.BeginForm())
     {
-        <text>Change language: </text>@Html.DropDownList("languageSelector", (SelectList)ViewBag.LanguageList, new { onchange = "this.form.submit();" })
-        <text>&nbsp;Change theme: </text>@Html.DropDownList("themeSelector", (SelectList)ViewBag.ThemeList, new
-                                         {
-                                             onchange = "this.form.submit();",
-                                             title =  "Note that you can emulate prefers-color-scheme via browser's F12 dev tools to test dark mode which is normally activated according to user's OS preferences."
-                                         })
+        <label>Change language: @Html.DropDownList("languageSelector", (SelectList)ViewBag.LanguageList, new { onchange = "this.form.submit();" })</label>
+        <label style="margin-left: 20px">Large UI Sizing: <input type="checkbox" id="uiSizing" onchange="documentViewer.uiSizing = this.checked ? 'large' : 'normal';"></label>
+        <label style="margin-left: 20px">
+            Change theme: @Html.DropDownList("themeSelector", (SelectList)ViewBag.ThemeList, new
+                          {
+                              onchange = "documentViewer.theme = this.value;",
+                              title = "Note that you can emulate prefers-color-scheme via browser's F12 dev tools to test dark mode which is normally activated according to user's OS preferences."
+                          })
+        </label>
         <br /><br />
+
         @this.RenderBody(ViewBag.ExampleFileSelector as Component)
     }
 
